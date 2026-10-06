@@ -1,21 +1,27 @@
-IRON PIT — FIRST PLAYABLE PROTOTYPE
+IRON PIT — MECH BUILD TEST v2
 
-This is a standalone portrait PWA. Open index.html through a web host such as
-GitHub Pages. To put it on your GitHub Pages site, upload the contents of this
-folder together to the publishing folder. Keep game.js, sw.js, icon.svg and
-manifest.webmanifest alongside index.html.
+Upload the contents of this folder to your GitHub Pages repository root:
+index.html, game.js, sw.js, manifest.webmanifest and the entire assets folder.
+Use HTTPS. Open once online before offline play; Add to Home Screen on iPad.
+This is a complete standalone replacement for the early prototype.
 
-Controls
-  Touch: left thumb walks. Drag with right thumb to aim and fire.
-  Tap MISSILE for the explosive alternate weapon (three shots per match).
-  Desktop: WASD or arrow keys; hold the mouse button to fire; Space fires missile.
+Build screen: choose the heavy tracked chassis, raised cyan cockpit turret,
+any of the 12 approved side weapons independently and one of 6 rear systems.
+Selections assemble immediately and persist on the device.
+One chassis/turret design, green-white armour only in this initial build.
 
-The four mechs fight a free-for-all. Cover blocks movement and shots, and can
-be destroyed. Armour has directional protection, and mechs show damage and
-leave wrecks. The match ends when your mech is destroyed or you are the last
-machine standing.
+Empty proving ground: 2400 x 2400 world, camera follows your mech.
+Left joystick moves; right joystick aims turret. Fire and rear controls beside
+left stick; shield beside right stick. Desktop: WASD/arrows move, mouse aims,
+space fires. Return to builder at any time. No enemies.
 
-For offline play, load the hosted game once while online, then add it to the
-Home Screen. The service worker saves the game files after the first visit.
+Firing currently uses simple visual test projectiles; mines drop behind the
+chassis and smoke marks its rear. Detailed weapon behaviour, balancing, damage,
+SFX, track animation and remaining colour/chassis variants are future work.
+Shield activates for 3 seconds and recharges; no combat damage in empty arena.
 
-Version 1: a focused combat prototype. No hangar or permanent upgrades yet.
+Sprites derived from the approved detailed reference sheets, not vector art.
+Verified: JavaScript syntax and automated mocked runtime checks for asset load,
+selection persistence, deployment, movement, shield and build validation.
+Assembled sprite visually inspected. Actual browser/touch/offline execution
+could not be verified here because a browser executable was unavailable.
