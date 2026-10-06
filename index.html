@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no">
+ <meta name="theme-color" content="#10191c">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+ <link rel="manifest" href="manifest.webmanifest">
+ <link rel="icon" href="icon.svg" type="image/svg+xml">
+ <title>Iron Pit · Arena Prototype</title>
+ <style>
+  *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080d10;color:#e6e9de;font-family:system-ui,-apple-system,Arial,sans-serif;touch-action:none;user-select:none}
+  #game{display:block;width:100vw;height:100dvh;touch-action:none}
+  #alt{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:calc(max(18px,env(safe-area-inset-bottom)) + 225px);height:64px;width:64px;border:3px solid #e9ad63;border-radius:50%;background:#35241c;color:#ffe2b2;font-weight:900;font-size:14px;box-shadow:0 4px 20px #0009;touch-action:manipulation;z-index:2}
+  #alt:disabled{opacity:.4}#alt:active{transform:scale(.94)}
+  #overlay{position:fixed;inset:0;display:grid;place-items:center;padding:24px;background:#071014d9;z-index:4}
+  #overlay[hidden]{display:none}.panel{width:min(390px,100%);padding:26px 24px;background:#172329;border:2px solid #657574;border-radius:14px;box-shadow:0 22px 60px #000a;text-align:center}
+  h1{font-size:42px;letter-spacing:.09em;margin:0 0 8px;color:#f0e9d5}.tag{font-size:13px;letter-spacing:.17em;color:#eab16a;font-weight:800}.panel p{line-height:1.45;color:#c0cfca}.panel button{margin-top:12px;background:#d99d58;color:#172026;border:0;border-radius:9px;padding:15px 25px;font-weight:900;font-size:18px;min-height:52px}.tiny{font-size:13px!important;color:#92aaa6!important}
+ </style>
+</head>
+<body>
+ <canvas id="game" aria-label="Iron Pit battle arena"></canvas>
+ <button id="alt" type="button" aria-label="Fire missile">MISSILE</button>
+ <div id="overlay"><div class="panel"><div class="tag">ARENA PROTOTYPE · V1</div><h1 id="title">IRON PIT</h1><p id="message">Four mechs enter. Only one walks out. All three rivals fight each other as well as you.</p><p class="tiny">Left thumb: walk · Right thumb: aim and fire · Missile button: explosive shot<br>Keyboard: WASD + mouse hold to fire · Space: missile</p><button id="start" type="button">ENTER THE PIT</button></div></div>
+ <script src="game.js" defer></script>
+</body>
+</html>
