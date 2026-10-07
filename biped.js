@@ -1,6 +1,6 @@
 'use strict';
 const BIPED_ASSETS=['biped-thigh','biped-shin','biped-knee','biped-foot'];
-const BIPED_SPEED=140,BIPED_TURN=Math.PI*3/8,BIPED_STRIDE=210;
+const BIPED_SPEED=160,BIPED_TURN=Math.PI/2,BIPED_STRIDE=210;
 const bipedRig={feet:[],clock:0,active:false};
 function rotatePoint(x,y,a){return{x:x*Math.cos(a)-y*Math.sin(a),y:x*Math.sin(a)+y*Math.cos(a)}}
 // Feet use the forward gait in chassis space, so steering cannot pull them away.
