@@ -1,0 +1,8 @@
+Sources (CC0):
+The Free Firearm Sound Library: Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney
+https://opengameart.org/content/the-free-firearm-sound-library
+Selected AK-47, PPSh, Mosin Nagant, AR-15, Mossberg recordings.
+Kenney Sci-Fi Sounds and Impact Sounds:
+https://opengameart.org/content/sci-fi-sounds
+https://kenney.nl/assets/impact-sounds
+Mixed/resampled/layered for Iron Pit. Heavy cannons/launchers are designed composites, not recordings of those fictional weapons.
