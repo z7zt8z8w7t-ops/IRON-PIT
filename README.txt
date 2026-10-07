@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v5
+IRON PIT — MECH BUILD / WEAPON EFFECTS v6
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
-audio.js, weapons.js, the audio folder and the assets folder. This replaces v3. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v5.
+audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces v3. Open once online before
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v6.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 45 degrees/second; release holds direction.
@@ -26,7 +26,8 @@ explosions, plasma splash, fire, scorch decals, EMP and shield ripples.
 
 Stationary test targets (not enemies) north/west/south of spawn, with a shield
 target east of spawn. They are indestructible so you can keep testing effects.
-No combat damage model or enemies yet. Weapon speeds/ranges/rates are provisional.
+One unarmed enemy patrols the arena, takes hits and respawns after 4 seconds.
+It cannot fire. Weapon damage is provisional for this test. Weapon speeds/ranges/rates are provisional.
 Visual effects preview sheet was art direction; this build animates game-scale
 textures and particles rather than displaying that static sheet.
 
@@ -36,11 +37,14 @@ particle limits, unchanged movement and hold angle. Actual Canvas renderer
 also used to inspect a firing test. Browser touch/offline testing on iPad is
 still required. 37 firing/impact/shield samples integrated. Real firearm recordings supply
 ballistic layers; fictional weapon sounds are designed composites. Source
-credits and CC0 information in audio/CREDITS.txt. All sounds share a short
-stereo reverb with filtered tail. Compressor and a 24-voice cap control overlap.
+credits and CC0 information in audio/CREDITS.txt. Added reverb is removed. Existing dry/master gains and sample levels unchanged. Compressor and a 24-voice cap control overlap.
 Tap a control to unlock audio on iPad. SOUND ON/OFF toggles mute.
 Turret and weapon controls enlarged. Driving speed and movement unchanged.
 Mine dispenser now sprays five mines per activation, with five ejections and
 arming click; mines travel out behind turret and arm after 1.1 seconds.
 Audio loading/unlock/playback/reverb/mute verified with mocked Web Audio;
 37 PCM files validated. Actual iPad listening and touch testing still needed.
+Full armed mech icon: 192px/512px manifest icons and 180px Apple touch icon.
+If iPad keeps the old Home Screen icon, remove that shortcut and Add to Home
+Screen again after opening the updated site.
+Unarmed enemy patrol/damage/respawn tested and actual arena Canvas rendered.
