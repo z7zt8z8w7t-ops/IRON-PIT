@@ -19,6 +19,7 @@ function stick(id){const el=$(id);let pointer=null;function set(e){const r=el.ge
 stick('move');const traverse={left:false,right:false};hold('turnLeft',v=>traverse.left=v);hold('turnRight',v=>traverse.right=v);
 function hold(id,fn){const b=$(id);b.onpointerdown=e=>{b.setPointerCapture(e.pointerId);fn(true);b.classList.add('active')};const end=()=>{fn(false);b.classList.remove('active')};b.onpointerup=end;b.onpointercancel=end;b.onlostpointercapture=end}
 hold('primary',v=>firing.primary=v);hold('secondary',v=>firing.secondary=v);hold('support',v=>firing.support=v);
+$('mute').onclick=()=>Sound.toggle();
 $('shield').onclick=()=>{if(p.energy>20&&p.shield<=0)p.shield=3};
 $('deploy').onclick=()=>{if(!ready||!build.chassis||!build.turret)return;inArena=true;$('builder').style.display='none';$('arena').style.display='flex';input.move={x:0,y:0};input.aim={x:0,y:0}};
 $('return').onclick=()=>{inArena=false;stopFiring();input.move={x:0,y:0};input.aim={x:0,y:0};$('arena').style.display='none';$('builder').style.display='block'};

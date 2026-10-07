@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v4
+IRON PIT — MECH BUILD / WEAPON EFFECTS v5
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
-weapons.js and the assets folder. This replaces v3. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v4.
+audio.js, weapons.js, the audio folder and the assets folder. This replaces v3. Open once online before
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v5.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 45 degrees/second; release holds direction.
@@ -34,4 +34,13 @@ Verified: syntax; mocked runtime covering all 18 systems, independent firing,
 multi-barrel ports, rotation transforms, swept collision, shield absorption,
 particle limits, unchanged movement and hold angle. Actual Canvas renderer
 also used to inspect a firing test. Browser touch/offline testing on iPad is
-still required. No new sound effects in this build.
+still required. 37 firing/impact/shield samples integrated. Real firearm recordings supply
+ballistic layers; fictional weapon sounds are designed composites. Source
+credits and CC0 information in audio/CREDITS.txt. All sounds share a short
+stereo reverb with filtered tail. Compressor and a 24-voice cap control overlap.
+Tap a control to unlock audio on iPad. SOUND ON/OFF toggles mute.
+Turret and weapon controls enlarged. Driving speed and movement unchanged.
+Mine dispenser now sprays five mines per activation, with five ejections and
+arming click; mines travel out behind turret and arm after 1.1 seconds.
+Audio loading/unlock/playback/reverb/mute verified with mocked Web Audio;
+37 PCM files validated. Actual iPad listening and touch testing still needed.

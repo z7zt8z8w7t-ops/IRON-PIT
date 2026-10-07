@@ -28,7 +28,7 @@ function mountPorts(id,offset){const g=GUNS[id];const support=offset===0;const f
 function puff(x,y,color,n,speed,size,life){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,v=Math.random()*speed;emit({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,color,size:size*(.4+Math.random()),life,max:life,kind:'spark'})}}
 function smokePuff(x,y,size=9,life=.8){emit({x,y,vx:(Math.random()-.5)*12,vy:(Math.random()-.5)*12,color:'#88918b',size,life,max:life,kind:'smoke'})}
 function addMark(x,y,r){marks.push({x,y,r,life:14});if(marks.length>90)marks.shift()}
-function impact(id,x,y,shield=false){const g=GUNS[id];if(shield){flashes.push({x,y,r:5,max:55,life:.4,total:.4,color:'#65d9ff',ring:true,tex:7});puff(x,y,'#9deaff',14,100,2,.32);return}
+function impact(id,x,y,shield=false){const g=GUNS[id];if(typeof Sound!=='undefined')Sound.play(shield?'shield':'hit-'+id,x,y,.72);if(shield){flashes.push({x,y,r:5,max:55,life:.4,total:.4,color:'#65d9ff',ring:true,tex:7});puff(x,y,'#9deaff',14,100,2,.32);return}
  const kind=g.kind;
  if(['rocket','shell','mortar','mine'].includes(kind)){const r=id==='hunter'?62:kind==='shell'?42:kind==='mine'?48:30;flashes.push({x,y,r,max:r,life:.28,total:.28,color:'#ffb44d',tex:2});puff(x,y,'#ffb64e',26,190,3,.6);puff(x,y,'#827868',14,115,4,.9);for(let j=0;j<9;j++)smokePuff(x+(Math.random()-.5)*r,y+(Math.random()-.5)*r,12,1.3);addMark(x,y,r*.5)}
  else if(kind==='flak'){puff(x,y,'#ffe5ae',35,240,1.5,.5);puff(x,y,'#8b9386',12,130,3,.5);addMark(x,y,12)}
@@ -39,9 +39,9 @@ function impact(id,x,y,shield=false){const g=GUNS[id];if(shield){flashes.push({x
  else{puff(x,y,kind==='rail'?'#ecfaff':g.color,kind==='rail'?28:8,kind==='rail'?210:100,1.5,.3);flashes.push({x,y,r:kind==='rail'?15:6,max:12,life:.12,total:.12,color:g.color});addMark(x,y,kind==='rail'?7:3)}
 }
 function sweepHit(x,y,ex,ey){let best=null,tmin=1;const dx=ex-x,dy=ey-y,aa=dx*dx+dy*dy;if(aa<.0001)return null;for(const t of targets){const rr=t.r+(t.shield?20:0),cx=x-t.x,cy=y-t.y,b=2*(cx*dx+cy*dy),cc=cx*cx+cy*cy-rr*rr,d=b*b-4*aa*cc;if(d>=0){const q=(-b-Math.sqrt(d))/(2*aa);if(q>=0&&q<=tmin){tmin=q;best={x:x+dx*q,y:y+dy*q,target:t}}}}return best}
-function fireWeapon(id,offset){if(!id)return;const g=GUNS[id];let ports=mountPorts(id,offset);if(g.cycle){const i=barrelCycle[id]||0;ports=[ports[i%ports.length]];barrelCycle[id]=i+1}
+function fireWeapon(id,offset){if(!id)return;if(typeof Sound!=='undefined')Sound.play('fire-'+id,p.x,p.y,.85);const g=GUNS[id];let ports=mountPorts(id,offset);if(g.cycle){const i=barrelCycle[id]||0;ports=[ports[i%ports.length]];barrelCycle[id]=i+1}
  for(const point of ports){let a=p.angle;const {x,y}=point;if(id==='swarm'||id==='barrage')a+=(ports.indexOf(point)-(ports.length-1)/2)*.018;
- if(g.kind==='mine'){if(mines.length<30)mines.push({x,y,life:20,armed:.8});continue}
+ if(g.kind==='mine'){for(let j=-2;j<=2&&mines.length<30;j++){const a=p.angle+Math.PI+j*.19;mines.push({x,y,vx:Math.sin(a)*(135+Math.abs(j)*12),vy:-Math.cos(a)*(135+Math.abs(j)*12),life:20,armed:1.1})}continue}
  if(g.kind==='smoke')a+=Math.PI+(ports.indexOf(point)?-.3:.3);
  if(['beam','arc'].includes(g.kind)){let ex=x+Math.sin(a)*g.range,ey=y-Math.cos(a)*g.range;const hit=sweepHit(x,y,ex,ey);if(hit){ex=hit.x;ey=hit.y;impact(id,ex,ey,hit.target.shield)}lines.push({x,y,ex,ey,color:g.color,life:g.rate*1.5,total:g.rate*1.5,arc:g.kind==='arc'});continue}
  flashes.push({x,y,r:g.kind==='bullet'?5:9,max:9,life:.065,total:.065,color:g.color});
@@ -55,7 +55,7 @@ function stepWeapons(dt){
  const hit=g.kind==='mortar'||g.kind==='smoke'?null:sweepHit(e.px,e.py,e.x,e.y);const wall=e.x<15||e.x>2385||e.y<15||e.y>2385;
  if(hit||wall||e.life<=0){const x=hit?hit.x:Math.max(15,Math.min(2385,e.x)),y=hit?hit.y:Math.max(15,Math.min(2385,e.y));if(g.kind==='smoke'){for(let j=0;j<42;j++)smokePuff(x+(Math.random()-.5)*85,y+(Math.random()-.5)*85,20,4+Math.random()*2)}else if(g.kind==='mortar'){for(let j=0;j<7;j++)impact(e.id,x+(Math.random()-.5)*110,y+(Math.random()-.5)*110)}else if(hit||wall)impact(e.id,x,y,hit?.target.shield);rounds.splice(i,1)}
  }
- for(let i=mines.length-1;i>=0;i--){const m=mines[i];m.life-=dt;m.armed-=dt;if(m.life<=0||m.armed<=0&&(targets.some(t=>Math.hypot(t.x-m.x,t.y-m.y)<t.r+38)||Math.hypot(p.x-m.x,p.y-m.y)<55)){impact('mines',m.x,m.y);mines.splice(i,1)}}
+ for(let i=mines.length-1;i>=0;i--){const m=mines[i];m.life-=dt;m.armed-=dt;m.x+=m.vx*dt;m.y+=m.vy*dt;m.vx*=Math.exp(-4*dt);m.vy*=Math.exp(-4*dt);if(m.life<=0||m.armed<=0&&(targets.some(t=>Math.hypot(t.x-m.x,t.y-m.y)<t.r+38)||Math.hypot(p.x-m.x,p.y-m.y)<55)){impact('mines',m.x,m.y);mines.splice(i,1)}}
  for(const arr of [particles,flashes,lines,marks])for(let i=arr.length-1;i>=0;i--){const e=arr[i];e.life-=dt;if(e.vx!==undefined){e.x+=e.vx*dt;e.y+=e.vy*dt;e.vx*=Math.exp(-3*dt);e.vy*=Math.exp(-3*dt)}if(e.life<=0)arr.splice(i,1)}
 }
 function texture(c,index,x,y,size,alpha=1){const im=images.fx;if(!im)return;c.save();c.globalAlpha=alpha;const w=im.width/4,h=im.height/2;c.drawImage(im,(index%4)*w,Math.floor(index/4)*h,w,h,x-size/2,y-size/2,size,size);c.restore()}
