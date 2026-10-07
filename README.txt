@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v9
+IRON PIT — MECH BUILD / WEAPON EFFECTS v10
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces earlier builds. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v9.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v10.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 45 degrees/second; release holds direction.
@@ -10,7 +10,7 @@ Primary fires left mount; Secondary fires right mount; Support fires rear pod.
 Keyboard: WASD/arrows move, Q/E traverse, Space/F/R fire the three slots.
 Shield button remains beside movement controls.
 
-12 side weapons, 6 support systems, one green-white chassis/turret set.
+12 side weapons, 6 support systems, green-white and rust-red/white chassis/turret schemes.
 Each weapon has sprite-relative muzzle points, transformed with mount flip,
 mech scale and turret rotation. Twin siege and pulse weapons fire both ports;
 tri-salvo fires all three, rotary cycles barrel ports, rear launchers use
@@ -90,3 +90,17 @@ a respawned enemy. Rocket barrage remains unguided.
 Verified in mocked runtime: lock timing, early release, cone loss, component
 destruction, respawn, all 18 effects, multi-barrel ports and driving. Native
 Canvas arena frame inspected. Browser/iPad touch testing is still required.
+
+
+v10: second complete mech colour scheme.
+Choose Green / white with cyan cockpit, or Rust red / white with amber cockpit
+on the build screen. Choice saves with the build and updates live assembly.
+All 12 side weapons work in both colours on either side; all six support
+systems match too. Existing sprites are recoloured once during loading and
+cached, preserving transparency, damage texture and shading. Energy weapon
+glows retain their weapon identity. Enemy uses rust red / amber, still never
+fires. Damage, controls, lock-on, sound and driving are retained from v9.
+Verified: 20 cached recoloured sprites; unchanged alpha masks; selector and
+saved preference; clear build restores green; native Canvas renders for both
+mechs and arena; twin-barrel firing and unchanged movement speed.
+iPad/browser touch and listening tests remain required.
