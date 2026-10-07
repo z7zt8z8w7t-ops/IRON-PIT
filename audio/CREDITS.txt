@@ -6,3 +6,7 @@ Kenney Sci-Fi Sounds and Impact Sounds:
 https://opengameart.org/content/sci-fi-sounds
 https://kenney.nl/assets/impact-sounds
 Mixed/resampled/layered for Iron Pit. Heavy cannons/launchers are designed composites, not recordings of those fictional weapons.
+
+Engine/tracks and turret traverse: original procedurally designed mechanical
+sound composites (combustion rumble, filtered bearing noise, gear harmonics
+and steel clatter). These are not recordings of a real tank. No reverb.
