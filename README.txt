@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v14
+IRON PIT — MECH BUILD / WEAPON EFFECTS v15
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces earlier builds. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v14.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v15.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 75 degrees/second; release holds direction.
@@ -131,7 +131,7 @@ stop-once, engine gain and mute/background cleanup with mocked Web Audio.
 Actual iPad listening and touch testing remains required.
 
 
-v14: modular biped chassis, heat and swapped controls.
+v15: modular biped chassis, heat and swapped controls.
 Chassis selector: Heavy tracked (existing) or Heavy armoured biped. Same
 independently selected turret, side mounts and rear support, with green or
 red armour. Biped has separate thigh, shin, knee and foot sprites and a
@@ -157,3 +157,7 @@ independent heat lock/recovery, nonballistic exemption; 75-degree traverse;
 twin muzzle firing; audio start/loop/stop regression. iPad browser touch,
 performance and audio listening checks are still required.
 Upload root changed files and MERGE assets/; keep all existing audio/assets.
+
+V15: biped speed 120 world units/sec (was70), footstep-synchronised robotic
+walking and hydraulic whine. Turret + shield left; movement + weapons right.
+Upload only files in this patch, preserving audio folder. Build label v15.
