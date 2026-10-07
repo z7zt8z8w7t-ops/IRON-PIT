@@ -24,3 +24,11 @@ CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
 Source public HQ MP3 preview. Changes: final section excerpt, normalization,
 +6 dB bass at 160 Hz, peak limiter, silence trim, mono conversion, shared
 level adjustment, start/loop/stop splitting, 55 ms loop crossfade and edge fades.
+
+V15 BIPED: Heavy Robot Footsteps by Artem_Zaitsev.
+https://freesound.org/people/Artem_Zaitsev/sounds/837389/
+CC0 https://creativecommons.org/publicdomain/zero/1.0/
+Source HQ MP3 preview. First heavy footfall excerpt, +4 dB bass at100Hz,
+limiter and tail fade. Hydraulic layer uses the credited parabolix recording
+(CC BY 4.0) above, bandpass, loop crossfade and added pump harmonics.
+Footfalls trigger on leg landings; hydraulic whine runs during each leg swing.
