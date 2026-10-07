@@ -10,3 +10,17 @@ Mixed/resampled/layered for Iron Pit. Heavy cannons/launchers are designed compo
 Engine/tracks and turret traverse: original procedurally designed mechanical
 sound composites (combustion rumble, filtered bearing noise, gear harmonics
 and steel clatter). These are not recordings of a real tank. No reverb.
+
+V13 replacement movement sounds (supersede v12 designed loops):
+ENGINE: Driving Leopard 2A4 diesel recording by JoniHeinonen.
+https://freesound.org/people/JoniHeinonen/sounds/161897/
+CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
+Source public HQ MP3 preview. Changes: excerpt from 49 sec, mono conversion,
+loop crossfade, normalization, pitch/speed reduced to 88%, +6 dB bass at
+140 Hz and peak limiter.
+TURRET: hydraulic machine.wav by parabolix.
+https://freesound.org/people/parabolix/sounds/352388/
+CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+Source public HQ MP3 preview. Changes: final section excerpt, normalization,
++6 dB bass at 160 Hz, peak limiter, silence trim, mono conversion, shared
+level adjustment, start/loop/stop splitting, 55 ms loop crossfade and edge fades.
