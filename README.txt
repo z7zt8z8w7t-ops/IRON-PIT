@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v18
+IRON PIT — MECH BUILD / WEAPON EFFECTS v19
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces earlier builds. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v18.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v19.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 75 degrees/second; release holds direction.
@@ -131,7 +131,7 @@ stop-once, engine gain and mute/background cleanup with mocked Web Audio.
 Actual iPad listening and touch testing remains required.
 
 
-v18: modular biped chassis, heat and swapped controls.
+v19: modular biped chassis, heat and swapped controls.
 Chassis selector: Heavy tracked (existing) or Heavy armoured biped. Same
 independently selected turret, side mounts and rear support, with green or
 red armour. Biped has separate thigh, shin, knee and foot sprites and a
@@ -160,7 +160,7 @@ Upload root changed files and MERGE assets/; keep all existing audio/assets.
 
 V15: biped speed 120 world units/sec (was70), footstep-synchronised robotic
 walking and hydraulic whine. Turret + shield left; movement + weapons right.
-Upload only files in this patch, preserving audio folder. Build label v18.
+Upload only files in this patch, preserving audio folder. Build label v19.
 
 V16: approved option B: 140 world units/sec, 210 units per full stride
 (105 per alternating footfall), 1.5 sec leg cycle at full speed. Forward
@@ -180,3 +180,10 @@ tracked player speed130 units/sec. Biped160 units/sec,105 units per footstep.
 Biped steering90 degrees/sec; minimum radius~102 units at full speed.
 This patch changes size/speed/steering only; new eject/control layout pending.
 Upload the six files in this patch over v17.
+
+V19: primary fast-fire class mounted high at rear centre, secondary left
+shoulder, support right shoulder, on both tracked and biped chassis.
+Shared mount coordinates for sprites, muzzle ports and component hit regions.
+Existing saved builds migrate to valid weapon classes. Swarm rockets corkscrew
+around a curved path and converge on live locked targets. Current damage
+values unchanged. Patch7 files; upload over v18.

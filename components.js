@@ -1,14 +1,11 @@
 'use strict';
 const PART_MAX={hull:700,turret:320,leftTrack:200,rightTrack:200,left:170,right:170,rear:200};
-const PART_LABEL={hull:'Hull',turret:'Turret',leftTrack:'Left track',rightTrack:'Right track',left:'Left weapon',right:'Right weapon',rear:'Support system'};
+const PART_LABEL={hull:'Hull',turret:'Turret',leftTrack:'Left track',rightTrack:'Right track',left:'Primary',right:'Secondary',rear:'Support'};
 function resetParts(){enemy.parts={...PART_MAX};enemy.hp=PART_MAX.hull;enemy.lastPart='';enemy.partSmoke=0}
 resetParts();
 const alphaMasks={};
 function prepareHitMasks(){if(!document.createElement)return;for(const id of ['chassis','turret',...side.map(v=>v[0]),...rear.map(v=>v[0])]){const im=images[id],c=document.createElement('canvas');c.width=im.width;c.height=im.height;const ctx=c.getContext('2d');ctx.drawImage(im,0,0);alphaMasks[id]={w:im.width,h:im.height,data:ctx.getImageData(0,0,im.width,im.height).data}}}
-function enemyShapes(){return[
- {part:'rear',x:0,y:52,w:80,h:58,a:enemy.angle,id:enemyLoadout.rear},
- {part:'left',x:-99,y:-34,w:67,h:154,a:enemy.angle,id:enemyLoadout.left,flip:side.findIndex(v=>v[0]===enemyLoadout.left)>=6},
- {part:'right',x:99,y:-34,w:67,h:154,a:enemy.angle,id:enemyLoadout.right,flip:side.findIndex(v=>v[0]===enemyLoadout.right)<6},
+function enemyShapes(){const shapes=[['left','primary',enemyLoadout.left],['right','secondary',enemyLoadout.right],['rear','support',enemyLoadout.rear]].map(([part,slot,id])=>({part,...weaponMount(slot,id),a:enemy.angle,id}));return [...shapes,
  {part:'turret',x:0,y:-12,w:151,h:184,a:enemy.angle,id:'turret'},
  {part:'leftTrack',x:-82.5,y:30,w:60,h:212.5,a:enemy.heading,base:true},
  {part:'rightTrack',x:82.5,y:30,w:60,h:212.5,a:enemy.heading,base:true},
