@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v12
+IRON PIT — MECH BUILD / WEAPON EFFECTS v13
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces earlier builds. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v12.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v13.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 45 degrees/second; release holds direction.
@@ -116,3 +116,16 @@ Original designed mechanical composites, not recordings of a real tank.
 Verified loop reuse, gain ordering, fade targets, mute, cleanup/background
 suppression, JS syntax and native Canvas/game runtime. Actual iPad listening
 and touch testing remains required.
+
+
+v13 movement audio replaces the designed v12 sounds with the approved
+recording previews. Deeper bass-heavy Leopard engine loop, engine mix .40
+(previous .19). Turret uses trimmed hydraulic start (.32s), movement loop
+(1.215s) and stop (0.87s), mix .55. Hold schedules start then loop; release
+fades moving layers and plays stop exactly once. Quick taps cancel a pending
+loop; repeat presses fade old stop tail. Return/blur/mute/background clears
+motion nodes without playing a tail. No reverb. Sources/licenses in
+audio/CREDITS.txt. Install these changed files over v12 and merge audio/.
+Verified JS syntax, scheduled start/loop, hold reuse, rapid release/repress,
+stop-once, engine gain and mute/background cleanup with mocked Web Audio.
+Actual iPad listening and touch testing remains required.
