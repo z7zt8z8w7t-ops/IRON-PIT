@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v10
+IRON PIT — MECH BUILD / WEAPON EFFECTS v12
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces earlier builds. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v10.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v12.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 45 degrees/second; release holds direction.
@@ -68,7 +68,7 @@ Muzzle and blast lighting uses local screen-blended gradients after drawing
 mechs/ground. Flame and beam cast matching light. No full-screen flash.
 Verified: modifier formulas, separate twin hits, burn, beam buildup, EMP slow,
 projectile collision/ports and actual Canvas lighting render.
-Engine/track and turret sounds and extra bass remain pending; not in this build.
+Engine/track and turret sounds added in v12. Extra weapon bass remains pending.
 
 
 v9: component damage and manual missile lock.
@@ -104,3 +104,15 @@ Verified: 20 cached recoloured sprites; unchanged alpha masks; selector and
 saved preference; clear build restores green; native Canvas renders for both
 mechs and arena; twin-barrel firing and unchanged movement speed.
 iPad/browser touch and listening tests remain required.
+
+
+v12: movement and turret audio.
+Two six-second mono loops: low engine rumble/track clatter while driving and
+mechanical traverse noise while rotating the turret. Engine mix gain .19;
+turret .34; weapon gains unchanged. Driving intensity controls engine gain
+and playback speed. Release fades the loops; return/blur stops them and
+hidden pages cannot restart them. Mute affects all sounds. No reverb.
+Original designed mechanical composites, not recordings of a real tank.
+Verified loop reuse, gain ordering, fade targets, mute, cleanup/background
+suppression, JS syntax and native Canvas/game runtime. Actual iPad listening
+and touch testing remains required.
