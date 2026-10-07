@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v6
+IRON PIT — MECH BUILD / WEAPON EFFECTS v7
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces v3. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v6.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v7.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 45 degrees/second; release holds direction.
@@ -48,3 +48,6 @@ Full armed mech icon: 192px/512px manifest icons and 180px Apple touch icon.
 If iPad keeps the old Home Screen icon, remove that shortcut and Add to Home
 Screen again after opening the updated site.
 Unarmed enemy patrol/damage/respawn tested and actual arena Canvas rendered.
+
+v7 control layout: movement stick and Shield on the left; Primary, Secondary,
+Support and turret left/right buttons on the right.
