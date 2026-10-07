@@ -32,3 +32,11 @@ Source HQ MP3 preview. First heavy footfall excerpt, +4 dB bass at100Hz,
 limiter and tail fade. Hydraulic layer uses the credited parabolix recording
 (CC BY 4.0) above, bandpass, loop crossfade and added pump harmonics.
 Footfalls trigger on leg landings; hydraulic whine runs during each leg swing.
+
+V20 recordings and adaptations (HQ preview excerpts):
+qubodup, CC0: 50Cal MG https://freesound.org/people/qubodup/sounds/239138/ ; Cannon Shot 187767 ; Rocket Launch 182794 ; Tomahawk Missile Rocket Launch2 162379 ; Explosive 162265 (all Freesound /people/qubodup/sounds/ID/). Source pages describe US Government footage.
+Whistling Firework by magnuswaker, CC0: https://freesound.org/people/magnuswaker/sounds/555998/
+Incoming Ricochets by rakurka, CC BY 3.0: https://freesound.org/people/rakurka/sounds/109958/ ; https://creativecommons.org/licenses/by/3.0/
+Scrap metal dropping/crashing by SamsterBirdies, CC0: https://freesound.org/people/SamsterBirdies/sounds/587443/
+Flamethrower_Weapon_Short_Medium_Bursts.wav by AslakHostaker, CC0: https://freesound.org/people/AslakHostaker/sounds/395038/ (source does not verify an actual military flamethrower).
+Edits: trimming, EQ, pitch, fades, soft limiting, layering. Original designed energy, siren, whoosh, arming beep and bass layers. No added reverb. Original environmental recording tails remain.
