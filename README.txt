@@ -1,8 +1,8 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v16
+IRON PIT — MECH BUILD / WEAPON EFFECTS v17
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces earlier builds. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v16.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v17.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
 Turret: hold left/right buttons, 75 degrees/second; release holds direction.
@@ -131,7 +131,7 @@ stop-once, engine gain and mute/background cleanup with mocked Web Audio.
 Actual iPad listening and touch testing remains required.
 
 
-v16: modular biped chassis, heat and swapped controls.
+v17: modular biped chassis, heat and swapped controls.
 Chassis selector: Heavy tracked (existing) or Heavy armoured biped. Same
 independently selected turret, side mounts and rear support, with green or
 red armour. Biped has separate thigh, shin, knee and foot sprites and a
@@ -160,7 +160,7 @@ Upload root changed files and MERGE assets/; keep all existing audio/assets.
 
 V15: biped speed 120 world units/sec (was70), footstep-synchronised robotic
 walking and hydraulic whine. Turret + shield left; movement + weapons right.
-Upload only files in this patch, preserving audio folder. Build label v16.
+Upload only files in this patch, preserving audio folder. Build label v17.
 
 V16: approved option B: 140 world units/sec, 210 units per full stride
 (105 per alternating footfall), 1.5 sec leg cycle at full speed. Forward
@@ -168,3 +168,9 @@ foot placement extends to support the longer planted stride. Biped chassis
 turns 67.5 degrees/sec (was45). Turret speed remains75 degrees/sec.
 Hydraulic swing and landing sounds follow the updated gait automatically.
 This patch contains only biped.js, index.html, sw.js and this README.
+
+V17: biped steers only while walking, with approx119-unit minimum turning
+radius. Forward gait rotates with the chassis; no world-anchored pivot feet.
+140 units/sec,105 units per alternating step,67.5 degrees/sec full-speed
+steering. Shield sits immediately right of the left turret controls.
+Patch: biped.js,game.js,index.html,sw.js,README.txt. Upload over v16.
