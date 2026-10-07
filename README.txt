@@ -1,11 +1,11 @@
-IRON PIT — MECH BUILD / WEAPON EFFECTS v13
+IRON PIT — MECH BUILD / WEAPON EFFECTS v14
 
 Upload the COMPLETE contents to your GitHub Pages repository root, including
 audio.js, enemy.js, weapons.js, the audio folder and the assets folder. This replaces earlier builds. Open once online before
-offline play; Add to Home Screen on iPad. Service-worker cache updated to v13.
+offline play; Add to Home Screen on iPad. Service-worker cache updated to v14.
 
 Driving movement unchanged: 260 world units/second, same joystick and zoom.
-Turret: hold left/right buttons, 45 degrees/second; release holds direction.
+Turret: hold left/right buttons, 75 degrees/second; release holds direction.
 Primary fires left mount; Secondary fires right mount; Support fires rear pod.
 Keyboard: WASD/arrows move, Q/E traverse, Space/F/R fire the three slots.
 Shield button remains beside movement controls.
@@ -129,3 +129,31 @@ audio/CREDITS.txt. Install these changed files over v12 and merge audio/.
 Verified JS syntax, scheduled start/loop, hold reuse, rapid release/repress,
 stop-once, engine gain and mute/background cleanup with mocked Web Audio.
 Actual iPad listening and touch testing remains required.
+
+
+v14: modular biped chassis, heat and swapped controls.
+Chassis selector: Heavy tracked (existing) or Heavy armoured biped. Same
+independently selected turret, side mounts and rear support, with green or
+red armour. Biped has separate thigh, shin, knee and foot sprites and a
+hip-centred upper assembly. World-space feet remain planted during stance;
+alternating swings and articulated knees handle walking and pivoting.
+Tracked speed remains 260 world units/sec. Biped speed is 70 world units/sec
+with 75-unit full strides; lower-chassis turn limit 45 degrees/sec. This
+walking speed keeps feet within leg reach. Turret is independently 75
+degrees/sec on both chassis (previous 45). Biped has no diesel loop; existing
+turret start/loop/stop audio retained. Enemy still tracked and never fires.
+
+Control groups swapped: turret and Primary/Secondary/Support on LEFT; movement
+stick and Shield on RIGHT. Keyboard bindings unchanged.
+Ballistic side mounts have independent heat: MG, rotary, siege, tri-salvo,
+railgun, flak. Heat is per whole firing activation. At 100% the mount stops
+firing; cools 22 points/sec and unlocks at 20% (about 3.6 sec). Releasing the
+trigger cools after .25 sec. Heat/cooldown shown on each weapon button.
+Energy/specialist and support systems retain previous behaviour.
+
+Validated: JS syntax, load/save/reset and both colour renders; native Canvas
+biped build/arena; planted feet on stop, tracked 260 and biped 70 speeds;
+independent heat lock/recovery, nonballistic exemption; 75-degree traverse;
+twin muzzle firing; audio start/loop/stop regression. iPad browser touch,
+performance and audio listening checks are still required.
+Upload root changed files and MERGE assets/; keep all existing audio/assets.
