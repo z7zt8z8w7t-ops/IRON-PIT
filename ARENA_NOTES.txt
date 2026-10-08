@@ -1,4 +1,4 @@
-IRON PIT v24 — RADIAL BLOCKOUT
+IRON PIT v25 — RADIAL BLOCKOUT
 
 ARENA / MATCH
 3,000 x 3,000 units, open 1,200-unit central circle, six radial avenues, and an
@@ -14,3 +14,5 @@ destroyed guns cannot fire, track/leg damage slows movement, turret loss stops f
 No automatic respawn; the last survivor wins. Return to Mech Build and deploy to
 start a new match. Enemy names and different minimap markers identify opponents.
 
+
+Controls moved: movement+weapons left; radar centre; shield/eject column left of right-side turret buttons. Enemies now use two-thumb action states rather than simultaneous system fire.

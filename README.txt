@@ -1,11 +1,11 @@
-IRON PIT v24 — RADIAL FREE-FOR-ALL LAYOUT TEST
+IRON PIT v25 — TWO-THUMB FREE-FOR-ALL + MUSIC
 
-Upload every file in Iron_Pit_v24_CHANGED_FILES.zip into the existing repository
-root, overwriting files with the same names. All mech assets/audio remain unchanged.
+Upload every file in Iron_Pit_v25_CHANGED_FILES.zip into the existing repository
+root, overwriting files with the same names. Existing mech assets and SFX remain unchanged. Upload the included audio/systemkollaps.mp3 and audio/CREDITS.txt with the changed code.
 After GitHub Pages finishes updating, open online and refresh. Check that the
-builder, HUD and canvas say v24, then deploy. The new offline cache installs once
-online. The assets/urban folder is no longer loaded or precached by v24 and may be
-deleted once the v24 update has been uploaded successfully. Do not delete the other
+builder, HUD and canvas say v25, then deploy. The new offline cache installs once
+online. The assets/urban folder is no longer loaded or precached by v25 and may be
+deleted once the v25 update has been uploaded successfully. Do not delete the other
 assets or audio folders. FULL_BUILD contains the complete runtime without urban art.
 
 ARENA / MATCH
@@ -17,15 +17,16 @@ Three enemies: Breaker (rotary/siege/hunter), Volt (pulse/plasma/swarm),
 Salvo (machine gun/tri-salvo/barrage). Every enemy targets any surviving rival,
 including other enemies, navigates connected roads, traverses its turret, and fires
 when aimed with line of sight. Reload and heat budgets match standard player weapons.
-Enemies use energy shields when damaged. All four mechs have component damage;
+Enemies use energy shields when damaged. Two-thumb behaviour: movement OR one selected weapon system; a 0.3-second switch pause and 0.35-second recovery between bursts. Swarm/hunter acquisition occurs while stopped, with one second of lock time. Triggered salvos finish even when the bot later moves. Shield activation interrupts turret aiming for 0.5 seconds. Target changes have a 0.6-second reaction delay; firing requires 0.35 seconds of settled aim, with small aiming error. Weapon damage, reloads, heat and hull health are unchanged. All four mechs have component damage;
 destroyed guns cannot fire, track/leg damage slows movement, turret loss stops fire.
 No automatic respawn; the last survivor wins. Return to Mech Build and deploy to
 start a new match. Enemy names and different minimap markers identify opponents.
 
 CONTROLS
-Left: chassis movement, shield immediately to its right.
-Middle: large red Eject (hold for 0.45 seconds).
-Right: turret left/right buttons, weapon buttons to their right.
+Left: chassis movement stick, weapon buttons immediately to its right.
+Middle: mini-map in the control panel.
+Right: shield to the left of turret turn buttons; Eject directly beneath shield.
+Eject retains its 0.45-second hold.
 Keyboard: WASD/arrows move, Q/E traverse, space/F/R weapons, hold X to eject.
 Hold Support to lock swarm/hunter missiles, release to launch. Dense smoke breaks lock.
 All three enemies carry different weapons and fight every other mech. Return to Mech Build and deploy to replace a lost mech.
@@ -38,6 +39,10 @@ Muzzles and component hit regions use the same mount geometry. Support rockets l
 forward over the turret. Mines deploy behind it.
 
 WEAPONS / AUDIO
+Systemkollaps by NickPanek: supplied full MP3, looping at volume 0.16 during battle.
+One music player; pause on mute, defeat, return to builder or background. Resume
+when unmuted/re-entering/returning to the foreground. Cached for offline playback.
+Music plays separately from spatial weapon/movement SFX.
 MG is faster than rotary. Individual real recording excerpts replace ballistic,
 rocket and missile launch sounds, with approved energy sounds and stronger bass.
 Plasma charges for 0.3s before the projectile leaves its muzzle.
@@ -88,5 +93,6 @@ player/enemy and enemy/enemy damage, shields, support guidance, delayed launch o
 heat, component disablement, elimination, redeployment, and a 120-second free-for-all
 simulation. Existing mount/muzzle, launch timings, five mines, smoke, flame, heat,
 eject, breakup and track/biped movement regressions passed. Offline harness checks
-105 cached resources, version queries and old cache cleanup. ZIP integrity checked.
+106 cached resources, version queries and old cache cleanup. ZIP integrity checked.
+Two-minute simulation additionally checked no move-and-fire activation, no concurrent weapon activations, all three weapon slots used, shield aiming pause, and music mute/background/return lifecycle. Control DOM order and compact widths checked.
 Not tested on a physical iPhone or live Safari/GitHub Pages deployment.
