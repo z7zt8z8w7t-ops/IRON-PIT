@@ -45,7 +45,7 @@ Urban collapse: original mix of the credited siege explosion and CC0 scrap-metal
 
 Background music: Systemkollaps | Driving German Industrial Techno (EBM) by NickPanek. User-supplied original MP3, unchanged. Source: https://pixabay.com/music/techno-trance-systemkollaps-driving-german-industrial-techno-ebm-436977/
 Pixabay Content License: https://pixabay.com/service/license-summary/
-Played as a background loop at reduced volume; no added watermark.
+Played in menus only, at full volume; no gameplay music or added watermark.
 
 
 Deployment helicopter: “OH-58 Helicopter Loop” by qubodup.
@@ -55,3 +55,8 @@ Game edit: pitch lowered four semitones while preserving duration, mono 22.05 kH
 Deployment winch, landing thud, release clanks and boot tones: original synthetic effects generated for Iron Pit; no third-party recording.
 
 V26 reactor detonation: existing approved nuke effect, low-shelf bass +9 dB at 115 Hz and peak limiting.
+
+V32 crowd ambience and victory cheer: "Clapping hurray" by starlite / Zack and friends.
+https://commons.wikimedia.org/wiki/File:Clapping_hurray.ogg
+Public domain. Edited to mono 22.05 kHz, filtered, levelled and faded;
+a delayed layer thickens the quieter looping crowd bed.
