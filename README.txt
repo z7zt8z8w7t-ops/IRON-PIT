@@ -1,12 +1,12 @@
-IRON PIT v25 — TWO-THUMB FREE-FOR-ALL + MUSIC
+IRON PIT v26 — DIGITAL COCKPIT, REPAIR, DELIVERY AND NUCLEAR FX
 
-Upload every file in Iron_Pit_v25_CHANGED_FILES.zip into the existing repository
-root, overwriting files with the same names. Existing mech assets and SFX remain unchanged. Upload the included audio/systemkollaps.mp3 and audio/CREDITS.txt with the changed code.
+Upload every file in Iron_Pit_v26_CHANGED_FILES.zip into the existing repository
+root, overwriting files with the same names. Keep your existing assets and audio; upload the included new and updated audio files with the changed code.
 After GitHub Pages finishes updating, open online and refresh. Check that the
-builder, HUD and canvas say v25, then deploy. The new offline cache installs once
-online. The assets/urban folder is no longer loaded or precached by v25 and may be
-deleted once the v25 update has been uploaded successfully. Do not delete the other
-assets or audio folders. FULL_BUILD contains the complete runtime without urban art.
+builder, HUD and canvas say v26, then deploy. The new offline cache installs once
+online. The assets/urban folder is no longer loaded or precached by v26 and may be
+deleted once the v26 update has been uploaded successfully. Do not delete the other
+assets or audio folders.
 
 ARENA / MATCH
 3,000 x 3,000 units, open 1,200-unit central circle, six radial avenues, and an
@@ -28,19 +28,19 @@ Middle: mini-map in the control panel.
 Right: shield to the left of turret turn buttons; Eject directly beneath shield.
 Eject retains its 0.45-second hold.
 Keyboard: WASD/arrows move, Q/E traverse, space/F/R weapons, hold X to eject.
-Hold Support to lock swarm/hunter missiles, release to launch. Dense smoke breaks lock.
+Hold Slot 3 to lock swarm/hunter missiles, release to launch. Dense smoke breaks lock.
 All three enemies carry different weapons and fight every other mech. Return to Mech Build and deploy to replace a lost mech.
 Tank: 130 units/sec, reverse drive supported. Biped: 160 units/sec, existing stride
-and turning preserved. Turret: 75 degrees/sec. Arena zoom: 50%.
+and turning preserved. Turret: 75 degrees/sec. Arena zoom: 40%.
 
 MOUNTS
-Primary left shoulder; secondary right shoulder; support raised on rear of turret.
+Slot 1 left shoulder; Slot 2 right shoulder; Slot 3 raised on rear of turret.
 Muzzles and component hit regions use the same mount geometry. Support rockets launch
 forward over the turret. Mines deploy behind it.
 
 WEAPONS / AUDIO
 Systemkollaps by NickPanek: supplied full MP3, looping at volume 0.16 during battle.
-One music player; pause on mute, defeat, return to builder or background. Resume
+One music player; full volume in the builder; pause on mute, defeat or background. Resume
 when unmuted/re-entering/returning to the foreground. Cached for offline playback.
 Music plays separately from spatial weapon/movement SFX.
 MG is faster than rotary. Individual real recording excerpts replace ballistic,
@@ -61,17 +61,17 @@ DESTRUCTION
 Normal destruction: large lit fireball, shockwave, detailed parts thrown from tank
 or biped, metal landings, burning wreck. Destroyed enemies remain eliminated until the next deployment.
 Eject: immediate jet-powered canopy pod, detailed empty cockpit bay with fast red
-strobes. Three-second ominous siren (no countdown numbers or beeps), 0.25-second
+strobes. Three-second ominous siren (no countdown numbers or beeps), 0.12-second
 white pulse expanding/contracting and vaporising the abandoned mech, then fiery
 shockwave and nuclear boom. Area damage: up to 1800 at the centre, tapering to zero
 at 480 units. The escape pod is visual only; redeploy through Mech Build afterwards.
 
 BALANCE — standard loadout, raw damage before armour / hit location
-Primary: MG 9/bullet at .10s; rotary 15/shell at .12s; pulse 2x10 at .20s;
+Slot 1: MG 9/bullet at .10s; rotary 15/shell at .12s; pulse 2x10 at .20s;
 beam 120/sec; flame 120 direct/sec + 30/sec burn; arc 80/sec.
-Secondary: siege 2x130/3s; railgun 200/2.5s; plasma 100/.9s;
+Slot 2: siege 2x130/3s; railgun 200/2.5s; plasma 100/.9s;
 tri-salvo 3x45/2s; flak 5x18/1s (range falloff); EMP 40/8s plus disruption.
-Support: swarm 6x36/6s; hunter 4x90/9s; barrage 5x56/7s;
+Slot 3: swarm 6x36/6s; hunter 4x90/9s; barrage 5x56/7s;
 mines 5x66/10s; smoke 0/12s; cluster mortar 2x110/7s.
 Each mortar divides its 110 damage budget among seven cluster impacts.
 Reloads run from the first activation / launch, not the final rocket.
@@ -96,3 +96,17 @@ eject, breakup and track/biped movement regressions passed. Offline harness chec
 106 cached resources, version queries and old cache cleanup. ZIP integrity checked.
 Two-minute simulation additionally checked no move-and-fire activation, no concurrent weapon activations, all three weapon slots used, shield aiming pause, and music mute/background/return lifecycle. Control DOM order and compact widths checked.
 Not tested on a physical iPhone or live Safari/GitHub Pages deployment.
+
+V26: eight-second twin-rotor delivery, lowered OH-58 sound, winch/landing/release effects, cockpit flicker and paired startup lamps. All actors wait until boot completes. Mute, backgrounding and returning to the builder stop deployment audio.
+
+V26 complete update:
+- 40% camera zoom, smoother wall-tangent sliding; blocked bipeds can steer out of walls.
+- Black digital controls, Slot 1/2/3 names in controls/build menu, central radar and repair.
+- Repair restores up to 150 hull over five seconds, two uses per deployment. Weapons and queued launches stop; destroyed parts are not restored.
+- Eight turret lamps: paired boot, paired health loss from front to back per 25%, circular yellow repair chase and accelerating red self-destruct flashes.
+- Reactor white pulse lasts 0.12 seconds; vaporisation at 3.03 seconds, fire/cloud detonation at 3.12 seconds. Larger visuals retain the existing 480-unit damage radius.
+- Continuous turbulent overhead mushroom cloud, larger soft smoke and bass-enhanced detonation.
+- Systemkollaps targets full volume in the menu and 16% in play, with a smooth transition. First touch enables audio on Safari.
+- Sound mute, backgrounding, returning to the builder and redeploy stop the transport loop.
+
+Validation: actual-sprite canvas rendering, deployment freeze/control release, repair limits and gun loss, movement clearance, weapon timing/heat, FFA behaviour, audio lifecycle and complete offline cache. Physical iPhone Safari and the live GitHub Pages deployment were not available for testing.

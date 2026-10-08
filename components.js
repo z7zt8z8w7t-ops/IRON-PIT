@@ -1,6 +1,6 @@
 'use strict';
 const PART_MAX={hull:700,turret:320,leftTrack:200,rightTrack:200,left:170,right:170,rear:200};
-const PART_LABEL={hull:'Hull',turret:'Turret',leftTrack:'Left track',rightTrack:'Right track',left:'Primary',right:'Secondary',rear:'Support'};
+const PART_LABEL={hull:'Hull',turret:'Turret',leftTrack:'Left track',rightTrack:'Right track',left:'Slot 1',right:'Slot 2',rear:'Slot 3'};
 function resetParts(actor=enemy){actor.parts={...PART_MAX};actor.hp=PART_MAX.hull;actor.lastPart='';actor.partSmoke=0}
 resetParts();
 const alphaMasks={};
