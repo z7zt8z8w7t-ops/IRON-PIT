@@ -1,15 +1,18 @@
-IRON PIT v29 — NIGHT ARENA LIGHTING
+IRON PIT v30 — BOMBED-OUT CITY SCENERY
 
-Upload the files in Iron_Pit_v29_CHANGED_FILES.zip over the existing repository,
-keeping the same folder paths. All existing assets and audio remain required.
-Open online after GitHub Pages updates, refresh, and check the visible v29 label.
-The new service worker cache then makes the game available offline.
+Upload these changed files over your existing repository, retaining folder paths.
+The new assets/duel-city.png image is required. Keep existing assets and audio.
+After Pages updates, open online and refresh. Confirm v30 before testing offline.
 
-Darker blue-grey arena with warm amber streetlight pools.
-Stronger coloured muzzle flashes illuminate nearby surfaces, mechs and smoke.
-Twin soft warm-white headlights sit beneath the arms and turn with the turret.
-Light beams stop at roofs and the central monument using the collision geometry.
-During eject they pulse red, accelerating with the existing turret warning lights,
-and turn off as the mech evaporates in the nuclear flash.
-Both shared-iPad players and solo rivals use the same lighting rules.
-Existing controls, weapon balance, victory unlocks and movement are preserved.
+The two-player arena now uses one detailed, unique overhead city image, with
+war-damaged rooftops, road surfaces, small debris and the central monument.
+Existing world dimensions, roads, movement collisions and combat rules remain.
+The imagery has no baked-in mechs, headlights or amber streetlight pools.
+Streetlights, headlights, muzzle flashes and explosions remain live game effects.
+The city image is loaded once and the assembled map is reused for play and radar.
+Solo retains its separate radial layout. Controls, loadouts and sounds are unchanged.
+
+Gameplay blocks page scrolling, pinch/double-tap zoom, text selection and touch
+callouts. Builder scrolling remains available. For the most immersive iPad mode,
+use Safari Share > Add to Home Screen and launch the Home Screen app.
+iPadOS system gestures and Safari controls cannot be disabled by a webpage.
