@@ -1,25 +1,25 @@
-IRON PIT v31 — STADIUM ONE-ON-ONE TEST
+IRON PIT v32 — NIGHTTIME STADIUM ONE-ON-ONE
 
-Upload the changed files over the existing repository, preserving folder paths.
-The new assets/stadium-frame.png file is required. Keep all existing assets/audio.
-Open online, refresh after Pages updates, and check v31. The stadium image is
-included in the new offline cache.
+Upload these changed/new files over the existing repository, preserving paths.
+Keep existing assets/audio. New assets/stadium-urban.png and audio/crowd-bed.wav
+and audio/crowd-cheer.wav are required. Refresh online and check the v32 label
+before using offline. The service worker caches the new artwork and sounds.
 
-One-player mode is now a one-on-one stadium test against one armed AI opponent.
-The locked rectangular crowd/stand frame surrounds plain ground and five fixed
-coloured obstacles. No detailed scenery has been added to the test interior.
-The whole stadium stays visible; camera following has been removed in this mode.
-A fully armed mech is 70 logical pixels wide at the 820 x 892 iPad reference window.
-On smaller gameplay windows it scales down uniformly to keep the full field visible.
-Weapon origins, part collisions, movement, balancing and sounds are preserved.
-Walls block movement and direct projectiles; enemy navigation routes around them.
+One-player mode: one armed enemy, the whole stadium visible. The stadium stands
+render below a single detailed nighttime urban image. Five roof footprints are
+matched to movement/projectile collisions. Low ground debris does not block routes.
+Mechs remain 70 logical pixels wide at the 820 x 892 reference gameplay window,
+scaling down on smaller windows. Fixed-camera two-player mode is retained.
 
-Both tablet control panels are shorter, retaining equal 48px standard button targets
-and a larger eject key. The two-player map is darker with fewer amber street lamps.
-Builder fits one screen with compact fields and a flexible live preview. Option
-lists open over the builder and scroll internally, including Player Two's rotated
-view. The builder page itself does not scroll.
+Mechs have one health pool. Hits on any mech part damage the main health pool;
+individual weapons, legs, tracks and turrets no longer break separately. Shield,
+repair and weapon balancing remain active. Blast damage applies once per mech.
 
-Automated simulation, native canvas rendering, navigation, collision and offline
-checks passed. Physical iPad Safari/Home Screen layout and touch behavior still
-need checking on the device.
+Sparse amber streetlighting and existing muzzle flashes/headlights illuminate the
+dark field. A separate pulsing blue perimeter force field protects the stands and
+reacts to stray shots. Crowd ambience and cheers accompany the action. Music plays
+in menus only; there is no music during either gameplay mode.
+
+Automated collision, navigation, damage, audio-state and offline-resource checks
+and native canvas rendering are included in validation. Physical iPad Safari/
+Home Screen touch and layout still require checking on the device.
