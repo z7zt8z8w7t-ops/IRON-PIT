@@ -4,13 +4,13 @@ let deployment=null;
 const DEPLOYMENT_DURATION=8.2;
 const deploymentClamp=v=>Math.max(0,Math.min(1,v));
 const deploymentEase=v=>{v=deploymentClamp(v);return v*v*(3-2*v)};
-function deploymentControls(disabled){for(const id of ['primary','secondary','support','shield','eject','turnLeft','turnRight','repair'])$(id).disabled=disabled;$('move').style.pointerEvents=disabled?'none':'';const panel=document.querySelector('.panel');if(panel){panel.classList.toggle('booting',disabled);panel.style.filter=disabled?'brightness(.25)':''}}
+function deploymentControls(disabled){for(const id of ['primary','secondary','support','shield','eject','turnLeft','turnRight','repair'])$(id).disabled=disabled;$('move').style.pointerEvents=disabled?'none':'';const panel=currentPanel();if(panel){panel.classList.toggle('booting',disabled);panel.style.filter=disabled?'brightness(.25)':''}}
 function startDeployment(){cancelDeployment();stopFiring();keys.clear();input.move={x:0,y:0};input.aim={x:0,y:0};const state=deployment={age:0,ready:false,generation:p.generation,events:new Set()};deploymentControls(true);$('deploymentStatus').textContent='PREPARING TRANSPORT';$('deploymentStatus').hidden=false;
- Promise.resolve(Sound.unlock()).then(()=>Sound.loading).then(()=>{if(deployment===state&&inArena)state.ready=true}).catch(()=>{if(deployment===state)state.ready=true});
+ Promise.resolve(Sound.unlock()).then(()=>Sound.loading).then(()=>{if((deployment===state||(typeof duelPlayers!=='undefined'&&duelActive&&duelPlayers.some(s=>s.deployment===state)))&&inArena)state.ready=true}).catch(()=>{if(deployment===state||(typeof duelPlayers!=='undefined'&&duelActive&&duelPlayers.some(s=>s.deployment===state)))state.ready=true});
 }
-function cancelDeployment(){Sound.stopLoop('deployment-rotor');deployment=null;deploymentControls(false);$('deploymentStatus').hidden=true;if(typeof repairState!=='undefined')updateDiagnostics()}
-function stepDeployment(dt){const d=deployment;if(!d||!d.ready)return;d.age=Math.min(DEPLOYMENT_DURATION,d.age+dt);const t=d.age;const panel=document.querySelector('.panel');if(panel&&t>6.3)panel.style.filter='brightness('+(.25+.75*deploymentClamp((t-6.3)/1.5)*(Math.sin(t*37)>.05?1:.65))+')';
- const level=t<1.8?.08+.67*deploymentEase(t/1.8):t<4.5?.75:.75*Math.max(.01,1-deploymentEase((t-4.5)/3.2));if(t<7.8)Sound.loop('deployment-helicopter','deployment-rotor',p.x,p.y,level,1);else Sound.stopLoop('deployment-rotor');
+function cancelDeployment(){Sound.stopLoop('deployment-rotor'+(p.id||''));deployment=null;deploymentControls(false);$('deploymentStatus').hidden=true;if(typeof repairState!=='undefined')updateDiagnostics()}
+function stepDeployment(dt){const d=deployment;if(!d||!d.ready)return;d.age=Math.min(DEPLOYMENT_DURATION,d.age+dt);const t=d.age;const panel=currentPanel();if(panel&&t>6.3)panel.style.filter='brightness('+(.25+.75*deploymentClamp((t-6.3)/1.5)*(Math.sin(t*37)>.05?1:.65))+')';
+ const level=t<1.8?.08+.67*deploymentEase(t/1.8):t<4.5?.75:.75*Math.max(.01,1-deploymentEase((t-4.5)/3.2));if(t<7.8)Sound.loop('deployment-helicopter','deployment-rotor'+(p.id||''),p.x,p.y,level,1);else Sound.stopLoop('deployment-rotor'+(p.id||''));
  for(const [at,name,level]of [[2,'deployment-winch',.55],[4,'deployment-land',1],[4.35,'deployment-release',.8],[6.45,'deployment-boot',.5],[7.8,'deployment-boot',.7]]){const key=at+name;if(t>=at&&!d.events.has(key)){d.events.add(key);Sound.play(name,p.x,p.y,level,1,true)}}
  $('deploymentStatus').textContent=t<2?'TRANSPORT APPROACH':t<4?'LOWERING MECH':t<4.5?'TOUCHDOWN · RELEASE':t<6.3?'TRANSPORT DEPARTURE':t<7.8?'COCKPIT BOOT SEQUENCE':'ALL SYSTEMS ONLINE';
  if(t>=DEPLOYMENT_DURATION){cancelDeployment();keys.clear();input.move={x:0,y:0};input.aim={x:0,y:0};stopFiring();Sound.startMusic()}

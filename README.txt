@@ -1,14 +1,41 @@
-IRON PIT v26 — DIGITAL COCKPIT, REPAIR, DELIVERY AND NUCLEAR FX
+IRON PIT v27 — TWO-PLAYER IPAD TEST ARENA
 
-Upload every file in Iron_Pit_v26_CHANGED_FILES.zip into the existing repository
+Upload every file in Iron_Pit_v27_CHANGED_FILES.zip into the existing repository
 root, overwriting files with the same names. Keep your existing assets and audio; upload the included new and updated audio files with the changed code.
 After GitHub Pages finishes updating, open online and refresh. Check that the
-builder, HUD and canvas say v26, then deploy. The new offline cache installs once
-online. The assets/urban folder is no longer loaded or precached by v26 and may be
-deleted once the v26 update has been uploaded successfully. Do not delete the other
+builder, HUD and canvas say v27, then deploy. The new offline cache installs once
+online. The assets/urban folder is no longer loaded or precached by v27 and may be
+deleted once the v27 update has been uploaded successfully. Do not delete the other
 assets or audio folders.
 
-ARENA / MATCH
+NEW TWO-PLAYER MODE
+Start screen: choose Two players, using the iPad in portrait at opposite ends.
+Player One builds and confirms. Player Two's entire build screen rotates 180 degrees,
+then confirms to start. Each player has an independent loadout and modifiers.
+The original black digital control panel is retained at each end; the upper panel
+faces Player Two. Both movement sticks, turret buttons and weapons can be held
+simultaneously with separate pointer capture. Player Two joystick drawing compensates for its rotated panel; physical stick
+direction matches movement on the shared map. Pushing toward the centre drives forward.
+No AI mechs in this mode. The original four-mech solo mode remains available.
+The 1,800 x 1,800 fixed shared view includes four broad avenues, an outer ring,
+rooftops in the building footprints, and a ruined central monument on a circular
+plinth. The four separate square blocks have been removed. Roof edges and the
+monument block movement and direct-fire projectiles; the ring stays connected.
+Ground, roofs and monument are unique cached raster assets, not repeated tiles.
+All scenery is fixed. Existing weapons, component damage, gait, shields, repair,
+eject and delivery remain, with independent heat, cooldowns and audio per player.
+Return to the start screen to build the next match. No automatic respawn.
+
+WEAPON / MUSIC UPDATE
+Gameplay music is 25% rather than 16%; menu music remains full volume.
+Swarm missiles fan out onto six independent curved approaches, with individual
+speeds and curve timing; they converge on a valid acquired target. Existing salvo
+count, launch gaps, target lock, damage and screaming sounds are retained.
+Every rocket/missile system produces a short plume at its actual launch tube,
+plus wider, longer-lived soft-edged exhaust trails. Smoke and particles are capped;
+smoke drawing reuses one loaded bitmap to keep the shared view efficient.
+
+SOLO ARENA / MATCH
 3,000 x 3,000 units, open 1,200-unit central circle, six radial avenues, and an
 outer ring 450 units wide. Horizontal avenues are 675 units wide; diagonal ones
 450 units. Blue streets/plaza, purple fixed building blocks, ochre central monument.
@@ -39,7 +66,7 @@ Muzzles and component hit regions use the same mount geometry. Support rockets l
 forward over the turret. Mines deploy behind it.
 
 WEAPONS / AUDIO
-Systemkollaps by NickPanek: supplied full MP3, looping at volume 0.16 during battle.
+Systemkollaps by NickPanek: supplied full MP3, looping at volume 0.25 during battle.
 One music player; full volume in the builder; pause on mute, defeat or background. Resume
 when unmuted/re-entering/returning to the foreground. Cached for offline playback.
 Music plays separately from spatial weapon/movement SFX.
@@ -110,3 +137,12 @@ V26 complete update:
 - Sound mute, backgrounding, returning to the builder and redeploy stop the transport loop.
 
 Validation: actual-sprite canvas rendering, deployment freeze/control release, repair limits and gun loss, movement clearance, weapon timing/heat, FFA behaviour, audio lifecycle and complete offline cache. Physical iPhone Safari and the live GitHub Pages deployment were not available for testing.
+
+V27 VALIDATION
+Automated native-canvas/DOM checks: sequential builds and upper-screen orientation;
+simultaneous pointer input; independent movement, turret, heat, repair and shields;
+ring clearances; roof/monument collision and direct-fire cover; human-on-human hits;
+P2 eject and shared timers; match reset, solo return and background cleanup.
+Audio banks, independent swarm paths and launch smoke verified. Existing 120-second
+solo combat and weapon regressions passed. All 118 offline resources verified in the complete runtime.
+Physical iPad multitouch and Safari layout/performance still need device testing.
