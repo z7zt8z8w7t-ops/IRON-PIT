@@ -40,3 +40,5 @@ Incoming Ricochets by rakurka, CC BY 3.0: https://freesound.org/people/rakurka/s
 Scrap metal dropping/crashing by SamsterBirdies, CC0: https://freesound.org/people/SamsterBirdies/sounds/587443/
 Flamethrower_Weapon_Short_Medium_Bursts.wav by AslakHostaker, CC0: https://freesound.org/people/AslakHostaker/sounds/395038/ (source does not verify an actual military flamethrower).
 Edits: trimming, EQ, pitch, fades, soft limiting, layering. Original designed energy, siren, whoosh, arming beep and bass layers. No added reverb. Original environmental recording tails remain.
+
+Urban collapse: original mix of the credited siege explosion and CC0 scrap-metal recordings above, filtered and layered for falling masonry/roof debris.
