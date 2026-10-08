@@ -41,7 +41,14 @@ function impact(id,x,y,shield=false,stats=weaponStats(id),hit=null){const g=GUNS
  else if(kind==='flame'){emit({x,y,vx:0,vy:0,size:12,life:.65,max:.65,color:'#ff9d35',kind:'fire'});smokePuff(x,y,12,1);addMark(x,y,8)}
  else{puff(x,y,kind==='rail'?'#ecfaff':g.color,kind==='rail'?28:8,kind==='rail'?210:100,1.5,.3);flashes.push({x,y,r:kind==='rail'?15:6,max:12,life:.12,total:.12,color:g.color});addMark(x,y,kind==='rail'?7:3)}
 }
-function sweepHit(x,y,ex,ey){let best=urbanSweep(x,y,ex,ey),tmin=best?best.t:1;const dx=ex-x,dy=ey-y,aa=dx*dx+dy*dy;if(aa<.0001)return null;for(const t of targets){const rr=t.r+(t.shield?20:0),cx=x-t.x,cy=y-t.y,b=2*(cx*dx+cy*dy),cc=cx*cx+cy*cy-rr*rr,d=b*b-4*aa*cc;if(d>=0){const q=(-b-Math.sqrt(d))/(2*aa);if(q>=0&&q<=tmin){tmin=q;best={x:x+dx*q,y:y+dy*q,target:t}}}}if(enemy.alive){const steps=Math.max(1,Math.ceil(Math.hypot(dx,dy)*tmin/2));for(let i=0;i<=steps;i++){const q=tmin*i/steps,part=enemyPartAt(x+dx*q,y+dy*q);if(part){best={x:x+dx*q,y:y+dy*q,target:enemy,part};break}}}return best}
+function sweepHit(x,y,ex,ey){let best=urbanSweep(x,y,ex,ey),tmin=best?best.t:1;const dx=ex-x,dy=ey-y,aa=dx*dx+dy*dy;if(aa<.0001)return null;for(const t of targets){const rr=t.r+(t.shield?20:0),cx=x-t.x,cy=y-t.y,b=2*(cx*dx+cy*dy),cc=cx*cx+cy*cy-rr*rr,d=b*b-4*aa*cc;if(d>=0){const q=(-b-Math.sqrt(d))/(2*aa);if(q>=0&&q<=tmin){tmin=q;best={x:x+dx*q,y:y+dy*q,target:t}}}}if(enemy.alive&&tmin===0){const part=enemyPartAt(x,y);if(part)best={x,y,target:enemy,part};}else if(enemy.alive){
+ // Clip alpha-mask probes to the enemy's bounds, preserving the original sample grid.
+ const bounds={x:enemy.x,y:enemy.y,w:380,h:380};
+ const entry=segmentSection(x,y,x+dx*tmin,y+dy*tmin,bounds);
+ if(entry!==null){const reverse=segmentSection(x+dx*tmin,y+dy*tmin,x,y,bounds),exit=1-reverse;
+ const steps=Math.max(1,Math.ceil(Math.hypot(dx,dy)*tmin/2));
+ for(let i=Math.max(0,Math.ceil(entry*steps-1e-9));i<=Math.min(steps,Math.floor(exit*steps+1e-9));i++){const q=tmin*i/steps,part=enemyPartAt(x+dx*q,y+dy*q);if(part){best={x:x+dx*q,y:y+dy*q,target:enemy,part};break}}}
+ }return best}
 const launchQueue=[],weaponSoundStates={},flameStreams={};let shotSerial=0;
 function cancelLaunches(){launchQueue.length=0;for(const key in weaponSoundStates)stopWeaponSound(key);for(const key in flameStreams)delete flameStreams[key];for(const r of rounds)if(r.soundKey)Sound.stopLoop(r.soundKey);for(const m of mines)if(m.soundKey)Sound.stopLoop(m.soundKey)}
 function stopWeaponSound(slot){const old=weaponSoundStates[slot];if(!old)return;Sound.stopLoop('weapon-'+slot);if(old.id==='beam')Sound.play('beam-stop',p.x,p.y,.7);delete weaponSoundStates[slot]}

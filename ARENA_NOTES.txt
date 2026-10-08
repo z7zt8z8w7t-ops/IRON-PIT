@@ -1,6 +1,6 @@
-IRON PIT v21 — NIGHT DISTRICT
+IRON PIT v22 — NIGHT DISTRICT
 
-Install: upload this update's files over the existing game, preserving the folder paths. index.html, game.js, urban.js and sw.js must be uploaded together. Version v21 is visible in the builder, arena HUD and canvas.
+Install: upload this update's files over the existing game, preserving the folder paths. index.html, game.js, urban.js and sw.js must be uploaded together. Version v22 is visible in the builder, arena HUD and canvas.
 
 Arena: 9,000 × 9,000 world units, overhead only, following camera at the existing 50% zoom. Full mech shoulder/weapon span: 225.25 units. Main clear streets: 1,350 (5.99 mech widths); side streets: 900 (4.00); gated alleys: 530 (2.35); main junctions: 2,000 (8.88); central square: 2,200 (9.77). Four connected start positions. The existing armed, non-firing test opponent remains; this update does not introduce enemy firing.
 
@@ -15,3 +15,5 @@ Performance: spatial hash broad phase, swept projectiles, sub-stepped movement w
 Controls, mech/chassis/turret art, weapon mounts, mods, balance, heat/reloads, ejection, tracked speed 130 and biped speed 160 remain as agreed. The builder's saved loadout is retained. Deploy resets the test arena.
 
 Verification: automated real-asset Canvas/game-logic checks for clear widths, all street centre lines, four spawns, the open square, wall and roof-section collision changes, a destroyed lamp's light/collision removal, tower blockages and clearance, escape from newly created rubble, debris caps, opponent patrol and existing weapons/mech effects. Service-worker cache/install/offline responses checked separately. Physical iPhone 13 mini and Safari browser performance/loading still require device testing; no live deployment was made.
+
+V22 maintenance: cleared tower rubble keeps its original orientation and footprint. Projectile alpha-mask probes are clipped to the enemy bounds while preserving the original two-unit sample grid and nearest-hit priority. Mech artwork, controls, weapon statistics and movement speeds are unchanged. This patch requires v21 urban assets already installed.
