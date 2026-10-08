@@ -1,0 +1,17 @@
+IRON PIT v21 — NIGHT DISTRICT
+
+Install: upload this update's files over the existing game, preserving the folder paths. index.html, game.js, urban.js and sw.js must be uploaded together. Version v21 is visible in the builder, arena HUD and canvas.
+
+Arena: 9,000 × 9,000 world units, overhead only, following camera at the existing 50% zoom. Full mech shoulder/weapon span: 225.25 units. Main clear streets: 1,350 (5.99 mech widths); side streets: 900 (4.00); gated alleys: 530 (2.35); main junctions: 2,000 (8.88); central square: 2,200 (9.77). Four connected start positions. The existing armed, non-firing test opponent remains; this update does not introduce enemy firing.
+
+Artwork: one continuous unique ground design, with nine unique high-detail sections at their original locations. No repeated tiles. Ground contains permanent asphalt, pavements, paint, cracks, stains and foundation pads only. Buildings, cars, barriers, walls, lamps, shadows, light pools, rubble and fire are independent assets/effects. A small route map shows the player's position and changing standing geometry.
+
+Destruction: seven lower buildings and three towers. Each building has independently damageable roof sections. Lower sections leave passable low rubble. Destroyed walls open the gated alleys. Cars leave wrecks and short restrained fires. Destroyed lamps immediately lose their light and collision. Standing geometry intercepts projectiles and direct beams; opened sections allow shots through. Mortars retain their original lobbed trajectory.
+
+Tower change: the three taller buildings topple towards selected streets when fully destroyed. Animated roof fragments, dust and a collapse recording accompany a solid rubble pile spanning that road. Each pile has 480 HP and can be cleared with weapons. Alternate streets remain connected. An actor caught by the newly created obstruction is displaced to nearby clear ground rather than trapped within its collision.
+
+Performance: spatial hash broad phase, swept projectiles, sub-stepped movement with wall sliding, viewport scenery culling, reused sprite images and light texture, four cached detail section canvases, maximum 24 dust clouds and 80 flying scenery fragments. The existing weapon/effect caps remain in place.
+
+Controls, mech/chassis/turret art, weapon mounts, mods, balance, heat/reloads, ejection, tracked speed 130 and biped speed 160 remain as agreed. The builder's saved loadout is retained. Deploy resets the test arena.
+
+Verification: automated real-asset Canvas/game-logic checks for clear widths, all street centre lines, four spawns, the open square, wall and roof-section collision changes, a destroyed lamp's light/collision removal, tower blockages and clearance, escape from newly created rubble, debris caps, opponent patrol and existing weapons/mech effects. Service-worker cache/install/offline responses checked separately. Physical iPhone 13 mini and Safari browser performance/loading still require device testing; no live deployment was made.

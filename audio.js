@@ -16,7 +16,7 @@ const Sound={context:null,buffers:{},voices:[],muted:false,last:{},loading:null,
  toggle(){this.muted=!this.muted;if(this.muted)this.stopAll();if(this.master)this.master.gain.value=this.muted?0:.7;document.getElementById('mute').textContent=this.muted?'SOUND OFF':'SOUND ON'}
 };
 const SOUND_IDS=['machine-gun','rotary','siege','tri-salvo','railgun','flak','plasma','pulse','beam','flame','arc','emp','swarm','hunter','barrage','mines','smoke','mortar'];
-const SOUND_FILES=[...SOUND_IDS.map(n=>'fire-'+n),...SOUND_IDS.map(n=>'hit-'+n),'shield','biped-step','biped-hydraulic','engine-tracks','turret-start','turret-loop','turret-stop','swarm-scream','plasma-charge','beam-start','beam-stop','flame-start','mine-flight','mine-arm','mech-explosion','nuke-explosion','eject-siren','eject-jet','debris-0','debris-1','debris-2'];
+const SOUND_FILES=[...SOUND_IDS.map(n=>'fire-'+n),...SOUND_IDS.map(n=>'hit-'+n),'shield','biped-step','biped-hydraulic','engine-tracks','turret-start','turret-loop','turret-stop','swarm-scream','plasma-charge','beam-start','beam-stop','flame-start','mine-flight','mine-arm','mech-explosion','nuke-explosion','eject-siren','eject-jet','debris-0','debris-1','debris-2','urban-collapse'];
 document.addEventListener('pointerdown',()=>Sound.unlock(),{passive:true});document.addEventListener('keydown',()=>Sound.unlock());
 
 document.addEventListener('visibilitychange',()=>{if(document.hidden)Sound.stopAll();else if(typeof p!=='undefined'&&p.ejecting&&!p.dead&&p.ejecting.age<3)Sound.play('eject-siren',p.x,p.y,.85,1,true,p.ejecting.age)});
