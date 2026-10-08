@@ -46,3 +46,12 @@ Urban collapse: original mix of the credited siege explosion and CC0 scrap-metal
 Background music: Systemkollaps | Driving German Industrial Techno (EBM) by NickPanek. User-supplied original MP3, unchanged. Source: https://pixabay.com/music/techno-trance-systemkollaps-driving-german-industrial-techno-ebm-436977/
 Pixabay Content License: https://pixabay.com/service/license-summary/
 Played as a background loop at reduced volume; no added watermark.
+
+
+Deployment helicopter: “OH-58 Helicopter Loop” by qubodup.
+https://freesound.org/people/qubodup/sounds/184412/
+CC0 1.0 public domain, extracted by the author from US Government footage.
+Game edit: pitch lowered four semitones while preserving duration, mono 22.05 kHz.
+Deployment winch, landing thud, release clanks and boot tones: original synthetic effects generated for Iron Pit; no third-party recording.
+
+V26 reactor detonation: existing approved nuke effect, low-shelf bass +9 dB at 115 Hz and peak limiting.
