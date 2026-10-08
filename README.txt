@@ -1,14 +1,48 @@
-IRON PIT v27 — TWO-PLAYER IPAD TEST ARENA
+IRON PIT v28 — LOADOUT WEIGHT, UNLOCKS AND IPAD FIXES
 
-Upload every file in Iron_Pit_v27_CHANGED_FILES.zip into the existing repository
+Upload every file in Iron_Pit_v28_CHANGED_FILES.zip into the existing repository
 root, overwriting files with the same names. Keep your existing assets and audio; upload the included new and updated audio files with the changed code.
 After GitHub Pages finishes updating, open online and refresh. Check that the
-builder, HUD and canvas say v27, then deploy. The new offline cache installs once
-online. The assets/urban folder is no longer loaded or precached by v27 and may be
-deleted once the v27 update has been uploaded successfully. Do not delete the other
+builder, HUD and canvas say v28, then deploy. The new offline cache installs once
+online. The assets/urban folder is no longer loaded or precached by v28 and may be
+deleted once the v28 update has been uploaded successfully. Do not delete the other
 assets or audio folders.
 
-NEW TWO-PLAYER MODE
+V28 UPDATE
+Unloaded tank: 170 units/sec. Unloaded biped: 220 units/sec.
+Weapon weight is summed across fitted slots; empty slots add zero. Tank penalty:
+1.7 units/sec per weight unit, with a 100 units/sec floor. Biped penalty:
+3 units/sec per weight unit, with a 110 units/sec floor. Turret speed is unchanged.
+A one-machine-gun tank travels at 166.6; a one-machine-gun biped at 214 units/sec.
+Biped movement now follows tank stick movement directly, including reversing,
+without a turning circle. Feet stay in chassis coordinates and animate with travel.
+
+Weight / victories to unlock:
+Machine gun 2 / 0; tri-salvo 6 / 0; mines 4 / 0; rotary 5 / 1; flak 5 / 2;
+swarm 6 / 3; pulse 4 / 4; smoke 3 / 5; plasma 8 / 6; flame 5 / 7;
+siege 10 / 8; hunter 9 / 9; arc 6 / 10; railgun 9 / 12; barrage 10 / 14;
+beam 8 / 16; EMP 7 / 18; mortar 8 / 20.
+These are initial balancing figures. Damage, cooling and reload budgets unchanged.
+
+Player One and Player Two victory counts persist separately on this device.
+Solo victories count for Player One. A result is counted once; draws award none.
+Wait for hostile in-flight rounds and pending ejections before recording the win.
+Test mode on the start screen unlocks every weapon but awards no progression.
+Saved locked equipment is removed during building; empty slots remain selectable.
+No account or online sync: clearing browser/site data removes local progress.
+
+Every build selector now uses an HTML-owned choice list, including modifiers.
+Player Two's choices rotate with the build screen; native iPadOS menus are not used.
+The eight recessed turret lights follow the armour outline on both chassis and
+keep the existing health, repair, boot and self-destruct behaviours.
+Matching standard control buttons, with a larger red eject button, apply to both
+players. Phone layouts stack turret controls to keep labels and targets usable.
+The shared test arena is now 2,640 x 1,800 units, with a wider stadium-shaped ring.
+The monument stays circular, sprites keep their proportions, and the entire arena
+remains visible. It fills the width at the portrait iPad aspect shown in your photo;
+other viewport proportions are fitted without stretching or cropping.
+
+TWO-PLAYER MODE
 Start screen: choose Two players, using the iPad in portrait at opposite ends.
 Player One builds and confirms. Player Two's entire build screen rotates 180 degrees,
 then confirms to start. Each player has an independent loadout and modifiers.
@@ -17,7 +51,7 @@ faces Player Two. Both movement sticks, turret buttons and weapons can be held
 simultaneously with separate pointer capture. Player Two joystick drawing compensates for its rotated panel; physical stick
 direction matches movement on the shared map. Pushing toward the centre drives forward.
 No AI mechs in this mode. The original four-mech solo mode remains available.
-The 1,800 x 1,800 fixed shared view includes four broad avenues, an outer ring,
+The 2,640 x 1,800 fixed shared view includes four broad avenues, an outer ring,
 rooftops in the building footprints, and a ruined central monument on a circular
 plinth. The four separate square blocks have been removed. Roof edges and the
 monument block movement and direct-fire projectiles; the ring stays connected.
@@ -57,8 +91,8 @@ Eject retains its 0.45-second hold.
 Keyboard: WASD/arrows move, Q/E traverse, space/F/R weapons, hold X to eject.
 Hold Slot 3 to lock swarm/hunter missiles, release to launch. Dense smoke breaks lock.
 All three enemies carry different weapons and fight every other mech. Return to Mech Build and deploy to replace a lost mech.
-Tank: 130 units/sec, reverse drive supported. Biped: 160 units/sec, existing stride
-and turning preserved. Turret: 75 degrees/sec. Arena zoom: 40%.
+Tank: 170 unloaded units/sec, reverse drive supported. Biped: 220 unloaded units/sec, existing stride
+and direct movement. Weapon weight reduces both speeds. Turret: 75 degrees/sec. Arena zoom: 40%.
 
 MOUNTS
 Slot 1 left shoulder; Slot 2 right shoulder; Slot 3 raised on rear of turret.
@@ -144,5 +178,10 @@ simultaneous pointer input; independent movement, turret, heat, repair and shiel
 ring clearances; roof/monument collision and direct-fire cover; human-on-human hits;
 P2 eject and shared timers; match reset, solo return and background cleanup.
 Audio banks, independent swarm paths and launch smoke verified. Existing 120-second
-solo combat and weapon regressions passed. All 118 offline resources verified in the complete runtime.
+solo combat and weapon regressions passed. All 120 offline resources verified in the complete runtime.
 Physical iPad multitouch and Safari layout/performance still need device testing.
+
+V28 checks passed: speed/weight/floors, direct and reverse gait, rotated HTML choices,
+locked equipment, separate profiles/single-count wins/test mode, rectangular arena
+clearances, all lamp housings on opaque armour, independent controls/repair and
+solo return. Native rendering checked. Physical iPad Safari still needs testing.
