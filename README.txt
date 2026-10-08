@@ -1,12 +1,26 @@
-IRON PIT v20 — LOCKED WEAPON / EFFECTS BATCH
+IRON PIT v24 — RADIAL FREE-FOR-ALL LAYOUT TEST
 
-Upload every file in Iron_Pit_v20_CHANGED_FILES.zip into the existing repository root,
-preserving audio/ folders. Merge/overwrite those folders, do not delete unchanged files.
-The zip contains only new or changed files relative to v19. Existing detailed mech
-assets and the icon remain in place. After upload completes and GitHub Pages builds,
-refresh Safari once. The build screen and arena should both say v20. The new offline
-cache includes the sounds and the combat effects file. Later cache changes can reload
-an already controlled tab automatically.
+Upload every file in Iron_Pit_v24_CHANGED_FILES.zip into the existing repository
+root, overwriting files with the same names. All mech assets/audio remain unchanged.
+After GitHub Pages finishes updating, open online and refresh. Check that the
+builder, HUD and canvas say v24, then deploy. The new offline cache installs once
+online. The assets/urban folder is no longer loaded or precached by v24 and may be
+deleted once the v24 update has been uploaded successfully. Do not delete the other
+assets or audio folders. FULL_BUILD contains the complete runtime without urban art.
+
+ARENA / MATCH
+3,000 x 3,000 units, open 1,200-unit central circle, six radial avenues, and an
+outer ring 450 units wide. Horizontal avenues are 675 units wide; diagonal ones
+450 units. Blue streets/plaza, purple fixed building blocks, ochre central monument.
+This is deliberately plain coloured-block artwork to test layout and clearances.
+Three enemies: Breaker (rotary/siege/hunter), Volt (pulse/plasma/swarm),
+Salvo (machine gun/tri-salvo/barrage). Every enemy targets any surviving rival,
+including other enemies, navigates connected roads, traverses its turret, and fires
+when aimed with line of sight. Reload and heat budgets match standard player weapons.
+Enemies use energy shields when damaged. All four mechs have component damage;
+destroyed guns cannot fire, track/leg damage slows movement, turret loss stops fire.
+No automatic respawn; the last survivor wins. Return to Mech Build and deploy to
+start a new match. Enemy names and different minimap markers identify opponents.
 
 CONTROLS
 Left: chassis movement, shield immediately to its right.
@@ -14,7 +28,7 @@ Middle: large red Eject (hold for 0.45 seconds).
 Right: turret left/right buttons, weapon buttons to their right.
 Keyboard: WASD/arrows move, Q/E traverse, space/F/R weapons, hold X to eject.
 Hold Support to lock swarm/hunter missiles, release to launch. Dense smoke breaks lock.
-Enemy has weapons but does not fire. Return to Mech Build and deploy to replace a lost mech.
+All three enemies carry different weapons and fight every other mech. Return to Mech Build and deploy to replace a lost mech.
 Tank: 130 units/sec, reverse drive supported. Biped: 160 units/sec, existing stride
 and turning preserved. Turret: 75 degrees/sec. Arena zoom: 50%.
 
@@ -40,7 +54,7 @@ Sound source credits and licenses: audio/CREDITS.txt (also linked in the builder
 
 DESTRUCTION
 Normal destruction: large lit fireball, shockwave, detailed parts thrown from tank
-or biped, metal landings, burning wreck. Enemy respawns after 8s.
+or biped, metal landings, burning wreck. Destroyed enemies remain eliminated until the next deployment.
 Eject: immediate jet-powered canopy pod, detailed empty cockpit bay with fast red
 strobes. Three-second ominous siren (no countdown numbers or beeps), 0.25-second
 white pulse expanding/contracting and vaporising the abandoned mech, then fiery
@@ -66,10 +80,13 @@ Released weapons cool after a .25s pause; cooldowns and mods still affect play.
 Sustained hold-fire simulation was within 2.5% of standard target DPS.
 Actual damage depends on accuracy, armour, component hit, splash and modifiers.
 
+
 VALIDATION
-JavaScript syntax; native Canvas renders for both chassis, flame, smoke, mines,
-empty cockpit and blast stages; salvo timing/muzzles; plasma delay; heat/recovery
-for all 11 heated weapons; exact mine launch/arming counts; smoke lock/expiry;
-normal breakup and eject vaporisation; damage simulation; WebAudio loop cleanup,
-mute/background and remaining-siren resume; asset/precache and ZIP integrity.
-Not tested on a physical iPhone/iPad or a live Safari/GitHub Pages deployment.
+Real asset Canvas rendering at phone resolution and whole-map overview; connected
+spawn routes, full movement clearances, fixed wall/monument collisions, shot ownership,
+player/enemy and enemy/enemy damage, shields, support guidance, delayed launch ownership,
+heat, component disablement, elimination, redeployment, and a 120-second free-for-all
+simulation. Existing mount/muzzle, launch timings, five mines, smoke, flame, heat,
+eject, breakup and track/biped movement regressions passed. Offline harness checks
+105 cached resources, version queries and old cache cleanup. ZIP integrity checked.
+Not tested on a physical iPhone or live Safari/GitHub Pages deployment.
