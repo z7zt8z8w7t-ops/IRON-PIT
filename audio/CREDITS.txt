@@ -42,3 +42,7 @@ Flamethrower_Weapon_Short_Medium_Bursts.wav by AslakHostaker, CC0: https://frees
 Edits: trimming, EQ, pitch, fades, soft limiting, layering. Original designed energy, siren, whoosh, arming beep and bass layers. No added reverb. Original environmental recording tails remain.
 
 Urban collapse: original mix of the credited siege explosion and CC0 scrap-metal recordings above, filtered and layered for falling masonry/roof debris.
+
+Background music: Systemkollaps | Driving German Industrial Techno (EBM) by NickPanek. User-supplied original MP3, unchanged. Source: https://pixabay.com/music/techno-trance-systemkollaps-driving-german-industrial-techno-ebm-436977/
+Pixabay Content License: https://pixabay.com/service/license-summary/
+Played as a background loop at reduced volume; no added watermark.
