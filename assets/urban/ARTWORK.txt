@@ -1,0 +1,20 @@
+Iron Pit Night District — artwork notes
+Generated with the built-in image generation tool. Mech and weapon assets were preserved.
+
+Ground prompt set:
+Transform the measured exact layout into realistic gritty military urban ground, strictly orthographic straight-down. Dark blue-grey worn asphalt, subdued grey concrete pavements, unique cracks, oil stains, road repairs, faded markings and crossings. Central open paved plaza. Ground only; foundations are bare flat footprints. No buildings, walls, cars, lamps, barriers, vegetation, rubble, objects, their shadows, illumination or fire. One continuous design, no repeated tiles.
+The final geometry references a 9,000-unit layout: main roads at2,500/6,500 with1,350 widths; central side roads at4,500 with900 widths; outer loop at550/8,450 with900 widths; 2,200 central square; 2,000 main junctions. Small square foundation pads on the outer blocks.
+
+Unique section restoration prompt (same constraints applied to all nine different crops):
+This image is ONE UNIQUE CROPPED SECTION of a continuous overhead playable ground artwork; enhance and enlarge only this exact image for game texture use. Restore sharp realistic fine asphalt aggregate, cracked concrete grain, worn paint, unique small stains and fissures at high definition. STRICTLY preserve every road edge, every crossing stripe, every lane marking, all foundation footprint positions and widths, and all existing major cracks in their exact normalised positions. No zoom/crop, no new geometry. Preserve outer edges to join neighbouring artwork. Keep dark blue-grey/grey colours and ambient brightness. All texture flat overhead. No buildings, objects, lights, rubble, cars or shadows. Texture restoration, not a new map design.
+
+Buildings prompt set:
+A transparent3×3 atlas. Three distinct detailed square flat roofs, matching damaged roofs, and corresponding low collapsed rubble. Realistic grey concrete, weathered brick depot and dark military workshop rooftops with HVAC, skylights, pipes and ducts. Correct to a strict vertical camera: roofs and parapet tops only; no visible facades or vertical side walls. No external shadows, ground or lights.
+
+Scenery prompt set:
+Transparent separated overhead sprites: olive utility jeep, rusty blue sedan, tan supply truck; concrete wall, concrete hazard barrier, unlit streetlamp; matching crushed vehicle wrecks. Realistic chipped paint, rust, scratches and metal detail. No ground, shadows or lighting.
+
+Towers prompt set:
+A transparent three-sprite atlas, strict vertical orthographic view, rooftops only. Square tall industrial office rooftop with terraced setback, dense HVAC, lift enclosure and access hatch; matching damaged roof with exposed mechanical floor; elongated heavy collapsed concrete slabs and twisted girders to obstruct a street. No facades, ground, lights, fire or external shadows.
+
+PNG sprites retain transparency. JPEG detail sections are unique crops/enhancements of the continuous ground and are blended at the boundary in the renderer; they are never repeated. Neutral asset illumination is combined with the arena's ambient tint, dynamic lamps, weapon flashes and destruction effects.
