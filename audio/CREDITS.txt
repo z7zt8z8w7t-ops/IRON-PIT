@@ -82,3 +82,6 @@ CC0 explosion recordings above; trimmed/faded.
 Winner announcements: newly synthesized en-GB Ryan neural speech, stadium reverb and echo baked into bundled WAVs; no network or device speech service needed during play.
 
 Victory: Aggressive Huge Hit Logo by Alex_Kizenkov (Pixabay asset 139134), supplied by user; Pixabay Content License. Edited with stadium reverb, echo and announcer ducking. https://pixabay.com/sound-effects/film-special-effects-aggressive-huge-hit-logo-139134/
+
+Smart Gun: Minigun by Jim Rogers, https://soundbible.com/1920-Minigun.html , CC BY 3.0. Uploaded original split into start, sustained firing and spin-down; no shots during spin-down.
+Harpoon/cluster layers derived from the credited existing weapon and turret sounds.
