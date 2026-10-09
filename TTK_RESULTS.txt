@@ -1,0 +1,48 @@
+IRON PIT v37 — VIRTUAL WEAPON TEST RESULTS
+
+Actual game simulation at 60 Hz, 700-health stationary tracked target, standard modifiers, shields and repairs off. Centre-to-centre distances of 300 / 500 / 800 units. No obstacles, correct muzzle alignment, missiles supplied a target lock. Heat, cooling, reloads, charge, projectile travel, armour and burn are included. Harpoon physically pulls the target. Mines are measured behind the shooter. Time starts at first firing command, including Smart Gun startup and plasma/mortar charge/flight.
+Timing resolution approximately 0.017 seconds. This is ideal aiming, not a prediction for a moving opponent, manual two-thumb operation or terrain/forcefield interference.
+Three trials for flak, swarm, mortar, mines and barrage; one for deterministic weapons. Results below are means. No kill means no destruction within 180 seconds. Smoke is non-damaging. Mines only reach close targets.
+
+Weapon                         Slot     300 units  500 units  800 units
+----------------------------------------------------------------------------
+Belt-fed machine gun           Slot 1   10.28s     10.42s     10.62s    
+Rotary autocannon              Slot 1   11.48s     11.63s     11.85s    
+Pulse lasers                   Slot 1   8.87s      8.95s      9.10s     
+Heavy beam laser               Slot 1   11.70s     11.70s     11.70s    
+Flamethrower                   Slot 1   9.67s      No kill    No kill   
+Arc projector                  Slot 1   13.93s     13.93s     No kill   
+Smart Gun                      Slot 1   15.72s     15.83s     16.00s    
+Twin siege cannons             Slot 2   15.15s     15.40s     15.77s    
+Railgun                        Slot 2   7.55s      7.63s      7.75s     
+Plasma cannon                  Slot 2   11.53s     11.92s     12.48s    
+Tri-salvo rockets              Slot 2   15.65s     16.08s     16.73s    
+Flak cannon                    Slot 2   16.17s     18.40s     31.75s    
+EMP launcher                   Slot 2   136.25s    136.68s    137.30s   
+Harpoon Cannon                 Slot 2   45.12s     45.30s     45.57s    
+Swarm missiles                 Slot 3   24.77s     25.27s     25.97s    
+Heavy hunter missiles          Slot 3   18.65s     19.17s     19.97s    
+Rocket barrage                 Slot 3   21.95s     22.33s     22.92s    
+Mine dispenser                 Slot 3   70.92s     No kill    No kill   
+Smoke screen                   Slot 3   No kill    No kill    No kill   
+Cluster Mortar                 Slot 3   23.87s     23.45s     23.63s    
+
+AUTOMATIC ALL-SLOT BUILD TESTS
+Simultaneous firing is a theoretical firepower ceiling; normal two-thumb gameplay will take longer.
+Belt-fed machine gun + Tri-salvo rockets + Swarm missiles at 300 units: 6.25s
+Belt-fed machine gun + Tri-salvo rockets + Swarm missiles at 500 units: 6.52s
+Belt-fed machine gun + Tri-salvo rockets + Swarm missiles at 800 units: 6.72s
+Pulse lasers + Railgun + Heavy hunter missiles at 300 units: 2.55s
+Pulse lasers + Railgun + Heavy hunter missiles at 500 units: 2.63s
+Pulse lasers + Railgun + Heavy hunter missiles at 800 units: 2.75s
+Smart Gun + Harpoon Cannon + Cluster Mortar at 300 units: 6.47s
+Smart Gun + Harpoon Cannon + Cluster Mortar at 500 units: 6.58s
+Smart Gun + Harpoon Cannon + Cluster Mortar at 800 units: 6.75s
+
+OBSERVATIONS
+Railgun is the fastest individual weapon in this stationary-target test (~7.6s), followed by pulse lasers (~8.9s).
+The Smart Gun (~15.8s) trades raw damage and weight for aim assistance. Harpoon (~45.3s) is a utility weapon, not a damage leader.
+EMP (~136.7s) and smoke are specialist tools: direct damage TTK alone does not value shield disruption or visual cover.
+Flak loses damage at longer distances. Flame and arc have limited reach. Mines need targets to cross their deployed area.
+Pulse + railgun + hunter has an extremely fast ideal burst (~2.6s at medium distance). This combination deserves playtesting before further damage changes.
+These figures describe the current v37 damage values. No automatic rebalance was applied after testing.

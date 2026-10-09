@@ -1,6 +1,7 @@
 'use strict';
 // Discrete burst lengths and lockout times tuned to the standard sustained DPS budgets.
 const HEAT_CONFIG={
+ smart:{shots:95,cool:3.5},
  'machine-gun':{shots:88,cool:3.5},rotary:{shots:42,cool:3.5},pulse:{shots:39,cool:3.5},siege:{shots:3,cool:6},railgun:{shots:3,cool:5},plasma:{shots:6,cool:4.731},'tri-salvo':{shots:3,cool:5},flak:{shots:5,cool:3.5},beam:{seconds:3.5,cool:3.5},flame:{seconds:2.98,cool:3.5},arc:{seconds:5.833,cool:3.5}
 };
 let weaponHeat={primary:{id:null,value:0,locked:false,lastShot:-10},secondary:{id:null,value:0,locked:false,lastShot:-10}};

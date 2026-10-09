@@ -1,0 +1,1253 @@
+{
+  "version": 37,
+  "hull": 700,
+  "shield": false,
+  "armourReduction": 0.25,
+  "dt": 0.016666666666666666,
+  "limit": 180,
+  "method": "Actual game stepPlayer/stepWeaponRange/stepWeapons/finishRangeTick; stationary tracked target; precise muzzle aim; standard modifiers; no walls; mines target behind; lock on guided missiles; damage counted with armour, heating and reloads. One trial deterministic weapons, three flak/missile/mine trials.",
+  "results": [
+    {
+      "id": "machine-gun",
+      "slot": "primary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 10.283,
+          "damage": 700,
+          "volleys": 103,
+          "cooling": 0
+        }
+      ],
+      "ttk": 10.283,
+      "min": 10.283,
+      "max": 10.283
+    },
+    {
+      "id": "machine-gun",
+      "slot": "primary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 10.417,
+          "damage": 700,
+          "volleys": 105,
+          "cooling": 0
+        }
+      ],
+      "ttk": 10.417,
+      "min": 10.417,
+      "max": 10.417
+    },
+    {
+      "id": "machine-gun",
+      "slot": "primary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 10.617,
+          "damage": 700,
+          "volleys": 107,
+          "cooling": 0
+        }
+      ],
+      "ttk": 10.617,
+      "min": 10.617,
+      "max": 10.617
+    },
+    {
+      "id": "rotary",
+      "slot": "primary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 11.483,
+          "damage": 700,
+          "volleys": 61,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 11.483,
+      "min": 11.483,
+      "max": 11.483
+    },
+    {
+      "id": "rotary",
+      "slot": "primary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 11.633,
+          "damage": 700,
+          "volleys": 62,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 11.633,
+      "min": 11.633,
+      "max": 11.633
+    },
+    {
+      "id": "rotary",
+      "slot": "primary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 11.85,
+          "damage": 700,
+          "volleys": 64,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 11.85,
+      "min": 11.85,
+      "max": 11.85
+    },
+    {
+      "id": "pulse",
+      "slot": "primary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 8.867,
+          "damage": 700,
+          "volleys": 45,
+          "cooling": 0
+        }
+      ],
+      "ttk": 8.867,
+      "min": 8.867,
+      "max": 8.867
+    },
+    {
+      "id": "pulse",
+      "slot": "primary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 8.95,
+          "damage": 700,
+          "volleys": 45,
+          "cooling": 0
+        }
+      ],
+      "ttk": 8.95,
+      "min": 8.95,
+      "max": 8.95
+    },
+    {
+      "id": "pulse",
+      "slot": "primary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 9.1,
+          "damage": 700,
+          "volleys": 46,
+          "cooling": 0
+        }
+      ],
+      "ttk": 9.1,
+      "min": 9.1,
+      "max": 9.1
+    },
+    {
+      "id": "beam",
+      "slot": "primary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 11.7,
+          "damage": 700,
+          "volleys": 100,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 11.7,
+      "min": 11.7,
+      "max": 11.7
+    },
+    {
+      "id": "beam",
+      "slot": "primary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 11.7,
+          "damage": 700,
+          "volleys": 100,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 11.7,
+      "min": 11.7,
+      "max": 11.7
+    },
+    {
+      "id": "beam",
+      "slot": "primary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 11.7,
+          "damage": 700,
+          "volleys": 100,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 11.7,
+      "min": 11.7,
+      "max": 11.7
+    },
+    {
+      "id": "flame",
+      "slot": "primary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 9.667,
+          "damage": 700,
+          "volleys": 94,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 9.667,
+      "min": 9.667,
+      "max": 9.667
+    },
+    {
+      "id": "flame",
+      "slot": "primary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 1407,
+          "cooling": 87.5
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "flame",
+      "slot": "primary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 1407,
+          "cooling": 87.5
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "arc",
+      "slot": "primary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 13.933,
+          "damage": 700,
+          "volleys": 80,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 13.933,
+      "min": 13.933,
+      "max": 13.933
+    },
+    {
+      "id": "arc",
+      "slot": "primary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 13.933,
+          "damage": 700,
+          "volleys": 80,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 13.933,
+      "min": 13.933,
+      "max": 13.933
+    },
+    {
+      "id": "arc",
+      "slot": "primary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 885,
+          "cooling": 64.217
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "smart",
+      "slot": "primary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 15.717,
+          "damage": 700,
+          "volleys": 184,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 15.717,
+      "min": 15.717,
+      "max": 15.717
+    },
+    {
+      "id": "smart",
+      "slot": "primary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 15.833,
+          "damage": 700,
+          "volleys": 186,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 15.833,
+      "min": 15.833,
+      "max": 15.833
+    },
+    {
+      "id": "smart",
+      "slot": "primary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 16,
+          "damage": 700,
+          "volleys": 189,
+          "cooling": 3.5
+        }
+      ],
+      "ttk": 16,
+      "min": 16,
+      "max": 16
+    },
+    {
+      "id": "siege",
+      "slot": "secondary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 15.15,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 5.983
+        }
+      ],
+      "ttk": 15.15,
+      "min": 15.15,
+      "max": 15.15
+    },
+    {
+      "id": "siege",
+      "slot": "secondary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 15.4,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 5.983
+        }
+      ],
+      "ttk": 15.4,
+      "min": 15.4,
+      "max": 15.4
+    },
+    {
+      "id": "siege",
+      "slot": "secondary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 15.767,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 5.983
+        }
+      ],
+      "ttk": 15.767,
+      "min": 15.767,
+      "max": 15.767
+    },
+    {
+      "id": "railgun",
+      "slot": "secondary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 7.55,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0.033
+        }
+      ],
+      "ttk": 7.55,
+      "min": 7.55,
+      "max": 7.55
+    },
+    {
+      "id": "railgun",
+      "slot": "secondary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 7.633,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0.117
+        }
+      ],
+      "ttk": 7.633,
+      "min": 7.633,
+      "max": 7.633
+    },
+    {
+      "id": "railgun",
+      "slot": "secondary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 7.75,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0.233
+        }
+      ],
+      "ttk": 7.75,
+      "min": 7.75,
+      "max": 7.75
+    },
+    {
+      "id": "plasma",
+      "slot": "secondary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 11.533,
+          "damage": 700,
+          "volleys": 9,
+          "cooling": 4.717
+        }
+      ],
+      "ttk": 11.533,
+      "min": 11.533,
+      "max": 11.533
+    },
+    {
+      "id": "plasma",
+      "slot": "secondary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 11.917,
+          "damage": 700,
+          "volleys": 9,
+          "cooling": 4.717
+        }
+      ],
+      "ttk": 11.917,
+      "min": 11.917,
+      "max": 11.917
+    },
+    {
+      "id": "plasma",
+      "slot": "secondary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 12.483,
+          "damage": 700,
+          "volleys": 10,
+          "cooling": 4.717
+        }
+      ],
+      "ttk": 12.483,
+      "min": 12.483,
+      "max": 12.483
+    },
+    {
+      "id": "tri-salvo",
+      "slot": "secondary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 15.65,
+          "damage": 700,
+          "volleys": 7,
+          "cooling": 5.617
+        }
+      ],
+      "ttk": 15.65,
+      "min": 15.65,
+      "max": 15.65
+    },
+    {
+      "id": "tri-salvo",
+      "slot": "secondary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 16.083,
+          "damage": 700,
+          "volleys": 7,
+          "cooling": 6.05
+        }
+      ],
+      "ttk": 16.083,
+      "min": 16.083,
+      "max": 16.083
+    },
+    {
+      "id": "tri-salvo",
+      "slot": "secondary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 16.733,
+          "damage": 700,
+          "volleys": 7,
+          "cooling": 6.7
+        }
+      ],
+      "ttk": 16.733,
+      "min": 16.733,
+      "max": 16.733
+    },
+    {
+      "id": "flak",
+      "slot": "secondary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 16.167,
+          "damage": 700,
+          "volleys": 12,
+          "cooling": 7
+        },
+        {
+          "ttk": 16.167,
+          "damage": 700,
+          "volleys": 12,
+          "cooling": 7
+        },
+        {
+          "ttk": 16.167,
+          "damage": 700,
+          "volleys": 12,
+          "cooling": 7
+        }
+      ],
+      "ttk": 16.167,
+      "min": 16.167,
+      "max": 16.167
+    },
+    {
+      "id": "flak",
+      "slot": "secondary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 18.4,
+          "damage": 700,
+          "volleys": 14,
+          "cooling": 7
+        },
+        {
+          "ttk": 18.4,
+          "damage": 700,
+          "volleys": 14,
+          "cooling": 7
+        },
+        {
+          "ttk": 18.4,
+          "damage": 700,
+          "volleys": 14,
+          "cooling": 7
+        }
+      ],
+      "ttk": 18.4,
+      "min": 18.4,
+      "max": 18.4
+    },
+    {
+      "id": "flak",
+      "slot": "secondary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 31.75,
+          "damage": 700,
+          "volleys": 22,
+          "cooling": 14
+        },
+        {
+          "ttk": 31.75,
+          "damage": 700,
+          "volleys": 22,
+          "cooling": 14
+        },
+        {
+          "ttk": 31.75,
+          "damage": 700,
+          "volleys": 22,
+          "cooling": 14
+        }
+      ],
+      "ttk": 31.75,
+      "min": 31.75,
+      "max": 31.75
+    },
+    {
+      "id": "emp",
+      "slot": "secondary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 136.25,
+          "damage": 700,
+          "volleys": 18,
+          "cooling": 0
+        }
+      ],
+      "ttk": 136.25,
+      "min": 136.25,
+      "max": 136.25
+    },
+    {
+      "id": "emp",
+      "slot": "secondary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 136.683,
+          "damage": 700,
+          "volleys": 18,
+          "cooling": 0
+        }
+      ],
+      "ttk": 136.683,
+      "min": 136.683,
+      "max": 136.683
+    },
+    {
+      "id": "emp",
+      "slot": "secondary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 137.3,
+          "damage": 700,
+          "volleys": 18,
+          "cooling": 0
+        }
+      ],
+      "ttk": 137.3,
+      "min": 137.3,
+      "max": 137.3
+    },
+    {
+      "id": "harpoon",
+      "slot": "secondary",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 45.117,
+          "damage": 700,
+          "volleys": 10,
+          "cooling": 0
+        }
+      ],
+      "ttk": 45.117,
+      "min": 45.117,
+      "max": 45.117
+    },
+    {
+      "id": "harpoon",
+      "slot": "secondary",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 45.3,
+          "damage": 700,
+          "volleys": 10,
+          "cooling": 0
+        }
+      ],
+      "ttk": 45.3,
+      "min": 45.3,
+      "max": 45.3
+    },
+    {
+      "id": "harpoon",
+      "slot": "secondary",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 45.567,
+          "damage": 700,
+          "volleys": 10,
+          "cooling": 0
+        }
+      ],
+      "ttk": 45.567,
+      "min": 45.567,
+      "max": 45.567
+    },
+    {
+      "id": "swarm",
+      "slot": "support",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 24.767,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        },
+        {
+          "ttk": 24.767,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        },
+        {
+          "ttk": 24.767,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        }
+      ],
+      "ttk": 24.767,
+      "min": 24.767,
+      "max": 24.767
+    },
+    {
+      "id": "swarm",
+      "slot": "support",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 25.267,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        },
+        {
+          "ttk": 25.267,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        },
+        {
+          "ttk": 25.267,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        }
+      ],
+      "ttk": 25.267,
+      "min": 25.267,
+      "max": 25.267
+    },
+    {
+      "id": "swarm",
+      "slot": "support",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 25.967,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        },
+        {
+          "ttk": 25.967,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        },
+        {
+          "ttk": 25.967,
+          "damage": 700,
+          "volleys": 5,
+          "cooling": 0
+        }
+      ],
+      "ttk": 25.967,
+      "min": 25.967,
+      "max": 25.967
+    },
+    {
+      "id": "hunter",
+      "slot": "support",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 18.65,
+          "damage": 700,
+          "volleys": 3,
+          "cooling": 0
+        }
+      ],
+      "ttk": 18.65,
+      "min": 18.65,
+      "max": 18.65
+    },
+    {
+      "id": "hunter",
+      "slot": "support",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 19.167,
+          "damage": 700,
+          "volleys": 3,
+          "cooling": 0
+        }
+      ],
+      "ttk": 19.167,
+      "min": 19.167,
+      "max": 19.167
+    },
+    {
+      "id": "hunter",
+      "slot": "support",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 19.967,
+          "damage": 700,
+          "volleys": 3,
+          "cooling": 0
+        }
+      ],
+      "ttk": 19.967,
+      "min": 19.967,
+      "max": 19.967
+    },
+    {
+      "id": "barrage",
+      "slot": "support",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 21.95,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 21.95,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 21.95,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        }
+      ],
+      "ttk": 21.95,
+      "min": 21.95,
+      "max": 21.95
+    },
+    {
+      "id": "barrage",
+      "slot": "support",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 22.333,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 22.333,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 22.333,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        }
+      ],
+      "ttk": 22.333,
+      "min": 22.333,
+      "max": 22.333
+    },
+    {
+      "id": "barrage",
+      "slot": "support",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 22.917,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 22.917,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 22.917,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        }
+      ],
+      "ttk": 22.917,
+      "min": 22.917,
+      "max": 22.917
+    },
+    {
+      "id": "mines",
+      "slot": "support",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 70.917,
+          "damage": 700,
+          "volleys": 8,
+          "cooling": 0
+        },
+        {
+          "ttk": 70.917,
+          "damage": 700,
+          "volleys": 8,
+          "cooling": 0
+        },
+        {
+          "ttk": 70.917,
+          "damage": 700,
+          "volleys": 8,
+          "cooling": 0
+        }
+      ],
+      "ttk": 70.917,
+      "min": 70.917,
+      "max": 70.917
+    },
+    {
+      "id": "mines",
+      "slot": "support",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 18,
+          "cooling": 0
+        },
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 18,
+          "cooling": 0
+        },
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 18,
+          "cooling": 0
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "mines",
+      "slot": "support",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 18,
+          "cooling": 0
+        },
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 18,
+          "cooling": 0
+        },
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 18,
+          "cooling": 0
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "smoke",
+      "slot": "support",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 15,
+          "cooling": 0
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "smoke",
+      "slot": "support",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 15,
+          "cooling": 0
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "smoke",
+      "slot": "support",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": null,
+          "damage": 0,
+          "volleys": 15,
+          "cooling": 0
+        }
+      ],
+      "ttk": null,
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "mortar",
+      "slot": "support",
+      "distance": 300,
+      "trials": [
+        {
+          "ttk": 23.867,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 23.867,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 23.867,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        }
+      ],
+      "ttk": 23.867,
+      "min": 23.867,
+      "max": 23.867
+    },
+    {
+      "id": "mortar",
+      "slot": "support",
+      "distance": 500,
+      "trials": [
+        {
+          "ttk": 23.45,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 23.45,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 23.45,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        }
+      ],
+      "ttk": 23.45,
+      "min": 23.45,
+      "max": 23.45
+    },
+    {
+      "id": "mortar",
+      "slot": "support",
+      "distance": 800,
+      "trials": [
+        {
+          "ttk": 23.633,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 23.633,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        },
+        {
+          "ttk": 23.633,
+          "damage": 700,
+          "volleys": 4,
+          "cooling": 0
+        }
+      ],
+      "ttk": 23.633,
+      "min": 23.633,
+      "max": 23.633
+    }
+  ],
+  "combos": [
+    {
+      "loadout": [
+        "machine-gun",
+        "tri-salvo",
+        "swarm"
+      ],
+      "distance": 300,
+      "ttk": 6.25,
+      "volleys": 69,
+      "cooling": 0.233
+    },
+    {
+      "loadout": [
+        "machine-gun",
+        "tri-salvo",
+        "swarm"
+      ],
+      "distance": 500,
+      "ttk": 6.517,
+      "volleys": 72,
+      "cooling": 0.5
+    },
+    {
+      "loadout": [
+        "machine-gun",
+        "tri-salvo",
+        "swarm"
+      ],
+      "distance": 800,
+      "ttk": 6.717,
+      "volleys": 74,
+      "cooling": 0.7
+    },
+    {
+      "loadout": [
+        "pulse",
+        "railgun",
+        "hunter"
+      ],
+      "distance": 300,
+      "ttk": 2.55,
+      "volleys": 16,
+      "cooling": 0
+    },
+    {
+      "loadout": [
+        "pulse",
+        "railgun",
+        "hunter"
+      ],
+      "distance": 500,
+      "ttk": 2.633,
+      "volleys": 17,
+      "cooling": 0
+    },
+    {
+      "loadout": [
+        "pulse",
+        "railgun",
+        "hunter"
+      ],
+      "distance": 800,
+      "ttk": 2.75,
+      "volleys": 17,
+      "cooling": 0
+    },
+    {
+      "loadout": [
+        "smart",
+        "harpoon",
+        "mortar"
+      ],
+      "distance": 300,
+      "ttk": 6.467,
+      "volleys": 100,
+      "cooling": 0
+    },
+    {
+      "loadout": [
+        "smart",
+        "harpoon",
+        "mortar"
+      ],
+      "distance": 500,
+      "ttk": 6.583,
+      "volleys": 102,
+      "cooling": 0
+    },
+    {
+      "loadout": [
+        "smart",
+        "harpoon",
+        "mortar"
+      ],
+      "distance": 800,
+      "ttk": 6.75,
+      "volleys": 105,
+      "cooling": 0
+    }
+  ],
+  "comboMethod": "Automatic simultaneous fire: theoretical firepower ceiling, not two-thumb gameplay prediction."
+}
