@@ -23,8 +23,10 @@ function drawDeployment(c,w,h){const d=deployment;if(!d)return;const t=d.age,app
  if(t>1.4&&t<6.4){const strength=Math.sin(deploymentClamp((t-1.4)/5)*Math.PI)*.15;for(let i=0;i<24;i++){const a=i*2.39996+t*.12,r=90+((i*37+t*110)%200),x=p.x+Math.cos(a)*r,y=p.y+Math.sin(a)*r,size=42+i%14;const g=c.createRadialGradient(x,y,0,x,y,size);g.addColorStop(0,'rgba(173,161,134,'+strength+')');g.addColorStop(1,'rgba(173,161,134,0)');c.fillStyle=g;c.fillRect(x-size,y-size,size*2,size*2)}}
  const drop=deploymentEase((t-2)/2),mx=t<2?px:p.x,my=t<2?py:p.y;mech(c,mx,my,t<4?1.07-.22*drop:.85,p.heading,p.angle,build,p.parts,build.chassis==='biped'?bipedRig:null);
  if(t<4.5){c.save();c.strokeStyle='#afb4ab';c.lineWidth=2;for(const side of [-1,1]){c.beginPath();c.moveTo(px+side*42,py+24);c.lineTo(mx+side*80,my+61);c.stroke()}c.restore()}
- if(t<7.3)drawDeploymentAircraft(c,px,py,1,heading);
+
 }
  function drawDeploymentAircraft(c,x,y,scale,heading=0){const t=deployment.age;c.save();c.translate(x,y);c.rotate(heading);c.scale(scale,scale);c.drawImage(images['helicopter-snow'],150,0,360,1024,-72.5,-207,145,414);
  for(const[yy,sign]of [[-114,1],[114,-1]]){c.save();c.translate(0,yy);for(let j=0;j<4;j++){c.save();c.globalAlpha=j===0?.85:.12;c.rotate(sign*t*34-j*.15);c.drawImage(images['helicopter-snow'],690,130,780,760,-139,-135.5,278,271);c.restore()}c.restore()}
  const on=Math.sin(t*Math.PI*3)>0;for(const[x,y,col]of [[-49,-115,'#ff3525'],[49,-115,'#35ff55'],[-53,118,'#ff3525'],[53,118,'#35ff55'],[0,-197,'#ffffff'],[0,191,'#ffdc25']]){c.fillStyle=on?col:'#20262c';c.shadowColor=col;c.shadowBlur=on?15:0;c.beginPath();c.arc(x,y,3.5,0,Math.PI*2);c.fill()}c.restore()}
+
+function drawDeploymentAirLayer(c,w,h){const d=deployment;if(!d||d.age>=7.3)return;const t=d.age,approach=deploymentEase(t/2),u=deploymentClamp((t-4.5)/2.7),distance=arenaMode==='duel'?ARENA.height+450:h/(2*ZOOM)+420,x=p.x+(ARENA.width-p.x+500)*u*u,y=t<2?p.y+distance*(1-approach):p.y-370*u+105*u*u,a=t<=4.5?0:Math.atan2(2*(ARENA.width-p.x+500)*u,370-210*u);drawDeploymentAircraft(c,x,y,1,a)}
