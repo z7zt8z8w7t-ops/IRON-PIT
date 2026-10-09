@@ -1,8 +1,8 @@
-IRON PIT v42 — SIX CHASSIS / NAMED STADIUM ARENAS
+IRON PIT v43 — SIX CHASSIS / NAMED STADIUM ARENAS
 
-This is a changed-files update over v41. Extract the ZIP and upload its contents
+This is a changed-files update over v42. Extract the ZIP and upload its contents
 into the existing repository root, preserving assets/ paths. Keep all existing
-files and audio. Refresh while online until the visible label says v42, then
+files and audio. Refresh while online until the visible label says v43, then
 allow asset loading to finish before launching offline.
 
 FLOW
@@ -12,7 +12,8 @@ Two-player builds happen in turn; Player Two's entire Workshop rotates 180
  degrees, including weapon choices. Both humans play in the selected stadium.
 
 WORKSHOP
-Swipe the six chassis cards. Tap WPN 1, WPN 2 or WPN 3 on the green schematic
+Swipe the six chassis cards. The live mech is fully coloured and opaque, showing the selected paint job.
+Tap WPN 1, WPN 2 or WPN 3 on the schematic
 and swipe compatible weapons. Each choice shows its name, image, weight and
 victory requirement. Choose a modifier in the same panel. PAINT toggles the
 existing two complete paint schemes independently of chassis class.
@@ -53,7 +54,9 @@ ARENAS
 Dust Crucible: golden-hour sand and worn concrete, warm long mech shadows,
 fine drifting sand and intermittent obscuring sandstorms. First storm begins
 at 15 seconds, peaks after seven seconds, fades out by 48; repeats every 65.
-Lights and muzzle flashes remain above dust. AI, smart-gun and missile lock
+Dust extends over the crowd stands and baked stadium floodlights as well as
+the arena. The controller stays clear. Mech lights and muzzle flashes remain
+above dust. AI, smart-gun and missile lock
 visibility are restricted during storms; muzzle flashes briefly reveal a target.
 Drowned Sector: blue-hour flooded industrial floor, reflections, ripples/wakes.
 No rain, lightning, electrical shutdown or weather damage.
@@ -73,7 +76,7 @@ klaxon/yellow warning, then steady red before switching. Activation on top of
 any mech is lethal. Bullets collide with the same geometry as movement.
 
 OFFLINE / PERFORMANCE
-All v42 scripts, stylesheet, splash artwork and chassis parts are cached with
+All v43 scripts, stylesheet, splash artwork and chassis parts are cached with
 the existing assets and audio. No external fonts or online runtime dependency.
 Dust texture, mech shadows and paint variants are reused. Snow marks are
 capped at 240 and expire; dust uses a bounded particle/texture budget.
