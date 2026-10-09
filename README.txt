@@ -1,8 +1,8 @@
-IRON PIT v40 — NIGHTTIME STADIUM ONE-ON-ONE
+IRON PIT v41 — NIGHTTIME STADIUM ONE-ON-ONE
 
 Upload these changed/new files over the existing repository, preserving paths.
 Keep existing assets/audio. New assets/stadium-urban.png and audio/crowd-bed.wav
-and audio/crowd-cheer.wav are required. Refresh online and check the v40 label
+and audio/crowd-cheer.wav are required. Refresh online and check the v41 label
 before using offline. The service worker caches the new artwork and sounds.
 
 One-player mode: one armed enemy, the whole stadium visible. The stadium stands
@@ -37,7 +37,7 @@ Upload stadium.js and all included sound files, plus the updated cache/scripts.
 The edited siren sound is CC BY-SA 3.0; see audio/CREDITS.txt.
 
 
-v40 — SHIFTING FORCEFIELD 1v1 TEST
+v41 — SHIFTING FORCEFIELD 1v1 TEST
 One-player versus one armed enemy; two-player map unchanged.
 A single unique detailed floor image replaces all buildings in this test.
 Visible 3 x 4 grid; emitter nodes at every intersection. Cells measure 583 x 500 world units; narrow dimension after a wall is 482 (over twice the 225.25-unit full armed mech width).
@@ -46,29 +46,29 @@ Navigation rebuilds on wall changes. AI reacts to dangerous incoming walls. Perm
 Snow-camouflage tandem-rotor helicopter replaces delivery artwork at approved small scale, with separate opposite-spinning rotors, flashing red/green/white/yellow navigation lights and curved departure.
 All three crowd effects are louder. Siege reload and prior balancing unchanged.
 Generated art prompt: unique overhead worn blue-grey concrete and flat debris; snow-camouflage edit of approved rotorless helicopter / separate rotor sheet. Artwork produced with built-in image generation.
-Upload changed files over v33, preserving paths. Visible version/cache v40.
+Upload changed files over v33, preserving paths. Visible version/cache v41.
 
 
-v40 — SIX SELECTABLE 1v1 ARENAS
+v41 — SIX SELECTABLE 1v1 ARENAS
 Start-menu arena selector: Desert, Flooded, Dark nighttime, Rotating centre, Snow, Conveyor belts. Choice is saved locally; shared-iPad two-player map remains its existing separate test arena.
 Unique detailed desert/flood/snow ground images, fine-scale surface detail and low decorative edge debris; no extra debris collisions. Night version uses flooded ground under stronger night shading. Mechanical variants use desert ground with darker industrial lighting, separate metal platform and animated conveyor lanes.
 Rotating centre: 1000-unit turntable at 0.13 radians/second carries living mechs and their facing/turret angles. Two mounted forcefield walls rotate with it; three outer corner walls remain fixed. Layout alternates mounted horizontal/vertical pairs with the same 15-second changes and five-second lethal warnings. Visible beams, light clipping, movement and projectile collisions use transformed wall coordinates. Navigation refreshes during rotation.
 Conveyors: opposing 65-unit/second belts carry living mechs, stop against active walls and boundaries, with animated treads and arrows. No added ice/water movement penalties.
 Helicopter and rotor layers are now above the stadium stands without field clipping.
 One-time winner announcements after projectiles settle: You are victorious / Breaker wins / Player one or two wins, with stadium reverb. Audio bundled for offline play.
-All new assets included in v40 offline cache. Upload changed files over v34 preserving paths.
+All new assets included in v41 offline cache. Upload changed files over v34 preserving paths.
 Generated ground prompts: unique overhead finely detailed military desert/flooded/snow concrete and edge debris, no mechs/buildings/grid/lights. Separate transparent radial mechanical turntable, generated with built-in image tool.
 
 V36 UPDATE
-Upload changed files over v35, preserving directories. Visible version: v40.
+Upload changed files over v35, preserving directories. Visible version: v41.
 Rotating floor: doubled speed; covered fixed grid nodes omitted and excluded.
 Workshop is on the controller. Destroyed panels glitch for two seconds then show Signal Lost. Winner controls power down. Workshop and Rematch remain available.
 Victory: supplied Aggressive Huge Hit Logo with stadium PA reverb/echo, winner voice overlapping the clip and ten staggered fireworks.
 1v1 stadium: ten detailed perimeter flame units. Random 0.8-1.2-second bursts follow a 0.65-second amber warning; maximum two active. Flames cause 85 hull damage/second, shields absorb damage, and standing forcefields block the jets. Smoke and light linger. Cached flame atlas also improves mech flamethrower visuals.
-Offline: all new scripts/audio bundled in v40 cache. Physical iPad/Safari testing remains necessary.
+Offline: all new scripts/audio bundled in v41 cache. Physical iPad/Safari testing remains necessary.
 
 V37 UPDATE
-Upload this changed-files package over v36, preserving folder paths. Visible label and offline cache: v40.
+Upload this changed-files package over v36, preserving folder paths. Visible label and offline cache: v41.
 Smart Gun (Slot 1): 600-unit acquisition distance, +/-20-degree aim cone, 0.4s acquisition, line-of-sight and smoke checks; red ballistic tracers with target velocity lead. Outside lock range/cone it fires straight. Five weight units, unlocks at five victories. Uploaded Jim Rogers minigun start/fire/stop clips; bullets and flashes stop when winding down.
 Harpoon Cannon (Slot 2): seven weight units, unlocks at seven victories. Steel bolt embeds and its point disappears. Cable reels target towards the shooter for up to 2.5 seconds; it releases on death, obstruction or excessive distance. Shield prevents attachment.
 Cluster Mortar (Slot 3): replaces the previous cluster effect with one lofted shell, an early burst away from the enemy, seven staggered fan-out homing rockets, flight sounds and individual explosions.
@@ -83,8 +83,8 @@ Validation: native canvas game harness, actual weapon simulation at 60Hz; range/
 V38: Smart Gun tracers now match the approved preview: up to 55 world units long, five-unit bright red trail, pale 1.8-unit core and soft red glow. Damage, firing rate, projectile speed and audio timing remain at v37 values. Upload over v37 preserving folders.
 
 
-v40 — UNLOCK-ORDER WEAPON BALANCE
-Upload the v40 changed files over v38, preserving paths. Refresh online once before offline play.
+v41 — UNLOCK-ORDER WEAPON BALANCE
+Upload the v41 changed files over v38, preserving paths. Refresh online once before offline play.
 Slot 1 strength increases in unlock order: machine gun, rotary, pulse, smart, flame, arc, beam. Weights, firing rates, reload times and heat/cooling timings are unchanged.
 Slot 2 order: tri-salvo (0 wins), flak (2), Harpoon utility (7), plasma (9), twin siege (12), EMP utility (14), railgun (16). Harpoon damage reduced from 85 to 25; tether utility retained. EMP remains low damage with shield disruption/slow.
 Swarm damage increased from 36 to 51 per missile; six-hit raw salvo 306. Hunter 78, barrage 72 per projectile; Cluster Mortar 450 total split between seven rockets. Mines and Smoke unchanged.
@@ -92,5 +92,9 @@ Forcefields change every 15 seconds; five-second warning starts at 10 seconds.
 TTK_RESULTS.txt / .json contain actual simulation results including armour, reloads, cooling and projectile travel. Discrete volleys and heat pauses prevent exact target TTKs with damage-only changes. Real moving targets, manual controls and shields change outcomes. Physical iPad/Safari verification is still required.
 
 
-v40 — CONTROL PANEL LAYOUT
-Upload changed files over v39. Slot 1 remains beside chassis movement; Slot 2 is left of turret controls. Centre grid: Eject / Shield, Repair / Slot 3 beneath them. Eject and Shield have identical dimensions. Radar removed; Workshop and Rematch appear only after end-of-match shutdown (Workshop is also available to leave weapon range). Both human players share the same layout, rotated for Player Two. Visible version and offline cache v40.
+v41 — CONTROL PANEL LAYOUT
+Upload changed files over v39. Slot 1 remains beside chassis movement; Slot 2 is left of turret controls. Centre grid: Eject / Shield, Repair / Slot 3 beneath them. Eject and Shield have identical dimensions. Radar removed; Workshop and Rematch appear only after end-of-match shutdown (Workshop is also available to leave weapon range). Both human players share the same layout, rotated for Player Two. Visible version and offline cache v41.
+
+
+v41 — LARGER OUTER TOUCH CONTROLS
+Panel heights are unchanged from v40. Slot 1, Slot 2 and both turret turn buttons fill the available vertical control space, leaving their labels visible. Turret buttons stay side by side on narrow screens. The circular chassis stick grows to the largest diameter permitted by its column and the available height; its knob stays centred. Centre Eject/Shield/Repair/Slot 3 layout unchanged. Both players share these rules. Upload changed files over v40; refresh online and confirm v41.
