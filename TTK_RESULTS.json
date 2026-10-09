@@ -1,5 +1,5 @@
 {
-  "version": 37,
+  "version": 39,
   "hull": 700,
   "shield": false,
   "armourReduction": 0.25,
@@ -13,15 +13,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 10.283,
+          "ttk": 15.9,
           "damage": 700,
-          "volleys": 103,
-          "cooling": 0
+          "volleys": 125,
+          "cooling": 3.5
         }
       ],
-      "ttk": 10.283,
-      "min": 10.283,
-      "max": 10.283
+      "ttk": 15.9,
+      "min": 15.9,
+      "max": 15.9
     },
     {
       "id": "machine-gun",
@@ -29,15 +29,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 10.417,
+          "ttk": 16.033,
           "damage": 700,
-          "volleys": 105,
-          "cooling": 0
+          "volleys": 127,
+          "cooling": 3.5
         }
       ],
-      "ttk": 10.417,
-      "min": 10.417,
-      "max": 10.417
+      "ttk": 16.033,
+      "min": 16.033,
+      "max": 16.033
     },
     {
       "id": "machine-gun",
@@ -45,15 +45,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 10.617,
+          "ttk": 16.233,
           "damage": 700,
-          "volleys": 107,
-          "cooling": 0
+          "volleys": 129,
+          "cooling": 3.5
         }
       ],
-      "ttk": 10.617,
-      "min": 10.617,
-      "max": 10.617
+      "ttk": 16.233,
+      "min": 16.233,
+      "max": 16.233
     },
     {
       "id": "rotary",
@@ -61,15 +61,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 11.483,
+          "ttk": 13.733,
           "damage": 700,
-          "volleys": 61,
+          "volleys": 78,
           "cooling": 3.5
         }
       ],
-      "ttk": 11.483,
-      "min": 11.483,
-      "max": 11.483
+      "ttk": 13.733,
+      "min": 13.733,
+      "max": 13.733
     },
     {
       "id": "rotary",
@@ -77,15 +77,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 11.633,
+          "ttk": 13.9,
           "damage": 700,
-          "volleys": 62,
+          "volleys": 79,
           "cooling": 3.5
         }
       ],
-      "ttk": 11.633,
-      "min": 11.633,
-      "max": 11.633
+      "ttk": 13.9,
+      "min": 13.9,
+      "max": 13.9
     },
     {
       "id": "rotary",
@@ -93,15 +93,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 11.85,
+          "ttk": 14.117,
           "damage": 700,
-          "volleys": 64,
+          "volleys": 81,
           "cooling": 3.5
         }
       ],
-      "ttk": 11.85,
-      "min": 11.85,
-      "max": 11.85
+      "ttk": 14.117,
+      "min": 14.117,
+      "max": 14.117
     },
     {
       "id": "pulse",
@@ -109,15 +109,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 8.867,
+          "ttk": 13.183,
           "damage": 700,
-          "volleys": 45,
-          "cooling": 0
+          "volleys": 50,
+          "cooling": 3.5
         }
       ],
-      "ttk": 8.867,
-      "min": 8.867,
-      "max": 8.867
+      "ttk": 13.183,
+      "min": 13.183,
+      "max": 13.183
     },
     {
       "id": "pulse",
@@ -125,15 +125,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 8.95,
+          "ttk": 13.267,
           "damage": 700,
-          "volleys": 45,
-          "cooling": 0
+          "volleys": 50,
+          "cooling": 3.5
         }
       ],
-      "ttk": 8.95,
-      "min": 8.95,
-      "max": 8.95
+      "ttk": 13.267,
+      "min": 13.267,
+      "max": 13.267
     },
     {
       "id": "pulse",
@@ -141,15 +141,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 9.1,
+          "ttk": 13.417,
           "damage": 700,
-          "volleys": 46,
-          "cooling": 0
+          "volleys": 51,
+          "cooling": 3.5
         }
       ],
-      "ttk": 9.1,
-      "min": 9.1,
-      "max": 9.1
+      "ttk": 13.417,
+      "min": 13.417,
+      "max": 13.417
     },
     {
       "id": "beam",
@@ -157,15 +157,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 11.7,
+          "ttk": 5.183,
           "damage": 700,
-          "volleys": 100,
-          "cooling": 3.5
+          "volleys": 63,
+          "cooling": 0
         }
       ],
-      "ttk": 11.7,
-      "min": 11.7,
-      "max": 11.7
+      "ttk": 5.183,
+      "min": 5.183,
+      "max": 5.183
     },
     {
       "id": "beam",
@@ -173,15 +173,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 11.7,
+          "ttk": 5.183,
           "damage": 700,
-          "volleys": 100,
-          "cooling": 3.5
+          "volleys": 63,
+          "cooling": 0
         }
       ],
-      "ttk": 11.7,
-      "min": 11.7,
-      "max": 11.7
+      "ttk": 5.183,
+      "min": 5.183,
+      "max": 5.183
     },
     {
       "id": "beam",
@@ -189,15 +189,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 11.7,
+          "ttk": 5.183,
           "damage": 700,
-          "volleys": 100,
-          "cooling": 3.5
+          "volleys": 63,
+          "cooling": 0
         }
       ],
-      "ttk": 11.7,
-      "min": 11.7,
-      "max": 11.7
+      "ttk": 5.183,
+      "min": 5.183,
+      "max": 5.183
     },
     {
       "id": "flame",
@@ -205,15 +205,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 9.667,
+          "ttk": 10,
           "damage": 700,
-          "volleys": 94,
+          "volleys": 99,
           "cooling": 3.5
         }
       ],
-      "ttk": 9.667,
-      "min": 9.667,
-      "max": 9.667
+      "ttk": 10,
+      "min": 10,
+      "max": 10
     },
     {
       "id": "flame",
@@ -253,15 +253,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 13.933,
+          "ttk": 7.483,
           "damage": 700,
-          "volleys": 80,
-          "cooling": 3.5
+          "volleys": 57,
+          "cooling": 0
         }
       ],
-      "ttk": 13.933,
-      "min": 13.933,
-      "max": 13.933
+      "ttk": 7.483,
+      "min": 7.483,
+      "max": 7.483
     },
     {
       "id": "arc",
@@ -269,15 +269,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 13.933,
+          "ttk": 7.483,
           "damage": 700,
-          "volleys": 80,
-          "cooling": 3.5
+          "volleys": 57,
+          "cooling": 0
         }
       ],
-      "ttk": 13.933,
-      "min": 13.933,
-      "max": 13.933
+      "ttk": 7.483,
+      "min": 7.483,
+      "max": 7.483
     },
     {
       "id": "arc",
@@ -301,15 +301,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 15.717,
+          "ttk": 11.533,
           "damage": 700,
-          "volleys": 184,
+          "volleys": 122,
           "cooling": 3.5
         }
       ],
-      "ttk": 15.717,
-      "min": 15.717,
-      "max": 15.717
+      "ttk": 11.533,
+      "min": 11.533,
+      "max": 11.533
     },
     {
       "id": "smart",
@@ -317,15 +317,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 15.833,
+          "ttk": 11.65,
           "damage": 700,
-          "volleys": 186,
+          "volleys": 123,
           "cooling": 3.5
         }
       ],
-      "ttk": 15.833,
-      "min": 15.833,
-      "max": 15.833
+      "ttk": 11.65,
+      "min": 11.65,
+      "max": 11.65
     },
     {
       "id": "smart",
@@ -333,15 +333,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 16,
+          "ttk": 11.817,
           "damage": 700,
-          "volleys": 189,
+          "volleys": 126,
           "cooling": 3.5
         }
       ],
-      "ttk": 16,
-      "min": 16,
-      "max": 16
+      "ttk": 11.817,
+      "min": 11.817,
+      "max": 11.817
     },
     {
       "id": "siege",
@@ -349,15 +349,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 15.15,
+          "ttk": 9.15,
           "damage": 700,
-          "volleys": 5,
-          "cooling": 5.983
+          "volleys": 4,
+          "cooling": 0.133
         }
       ],
-      "ttk": 15.15,
-      "min": 15.15,
-      "max": 15.15
+      "ttk": 9.15,
+      "min": 9.15,
+      "max": 9.15
     },
     {
       "id": "siege",
@@ -365,15 +365,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 15.4,
+          "ttk": 9.4,
           "damage": 700,
-          "volleys": 5,
-          "cooling": 5.983
+          "volleys": 4,
+          "cooling": 0.383
         }
       ],
-      "ttk": 15.4,
-      "min": 15.4,
-      "max": 15.4
+      "ttk": 9.4,
+      "min": 9.4,
+      "max": 9.4
     },
     {
       "id": "siege",
@@ -381,15 +381,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 15.767,
+          "ttk": 9.767,
           "damage": 700,
-          "volleys": 5,
-          "cooling": 5.983
+          "volleys": 4,
+          "cooling": 0.75
         }
       ],
-      "ttk": 15.767,
-      "min": 15.767,
-      "max": 15.767
+      "ttk": 9.767,
+      "min": 9.767,
+      "max": 9.767
     },
     {
       "id": "railgun",
@@ -445,15 +445,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 11.533,
+          "ttk": 13.333,
           "damage": 700,
-          "volleys": 9,
+          "volleys": 11,
           "cooling": 4.717
         }
       ],
-      "ttk": 11.533,
-      "min": 11.533,
-      "max": 11.533
+      "ttk": 13.333,
+      "min": 13.333,
+      "max": 13.333
     },
     {
       "id": "plasma",
@@ -461,15 +461,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 11.917,
+          "ttk": 13.717,
           "damage": 700,
-          "volleys": 9,
+          "volleys": 11,
           "cooling": 4.717
         }
       ],
-      "ttk": 11.917,
-      "min": 11.917,
-      "max": 11.917
+      "ttk": 13.717,
+      "min": 13.717,
+      "max": 13.717
     },
     {
       "id": "plasma",
@@ -477,15 +477,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 12.483,
+          "ttk": 14.283,
           "damage": 700,
-          "volleys": 10,
+          "volleys": 12,
           "cooling": 4.717
         }
       ],
-      "ttk": 12.483,
-      "min": 12.483,
-      "max": 12.483
+      "ttk": 14.283,
+      "min": 14.283,
+      "max": 14.283
     },
     {
       "id": "tri-salvo",
@@ -493,15 +493,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 15.65,
+          "ttk": 20.283,
           "damage": 700,
-          "volleys": 7,
-          "cooling": 5.617
+          "volleys": 8,
+          "cooling": 10
         }
       ],
-      "ttk": 15.65,
-      "min": 15.65,
-      "max": 15.65
+      "ttk": 20.283,
+      "min": 20.283,
+      "max": 20.283
     },
     {
       "id": "tri-salvo",
@@ -509,15 +509,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 16.083,
+          "ttk": 20.7,
           "damage": 700,
-          "volleys": 7,
-          "cooling": 6.05
+          "volleys": 8,
+          "cooling": 10
         }
       ],
-      "ttk": 16.083,
-      "min": 16.083,
-      "max": 16.083
+      "ttk": 20.7,
+      "min": 20.7,
+      "max": 20.7
     },
     {
       "id": "tri-salvo",
@@ -525,15 +525,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 16.733,
+          "ttk": 21.367,
           "damage": 700,
-          "volleys": 7,
-          "cooling": 6.7
+          "volleys": 8,
+          "cooling": 10
         }
       ],
-      "ttk": 16.733,
-      "min": 16.733,
-      "max": 16.733
+      "ttk": 21.367,
+      "min": 21.367,
+      "max": 21.367
     },
     {
       "id": "flak",
@@ -541,27 +541,27 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 16.167,
+          "ttk": 12.65,
           "damage": 700,
-          "volleys": 12,
-          "cooling": 7
+          "volleys": 11,
+          "cooling": 3.617
         },
         {
-          "ttk": 16.167,
+          "ttk": 12.65,
           "damage": 700,
-          "volleys": 12,
-          "cooling": 7
+          "volleys": 11,
+          "cooling": 3.617
         },
         {
-          "ttk": 16.167,
+          "ttk": 12.65,
           "damage": 700,
-          "volleys": 12,
-          "cooling": 7
+          "volleys": 11,
+          "cooling": 3.617
         }
       ],
-      "ttk": 16.167,
-      "min": 16.167,
-      "max": 16.167
+      "ttk": 12.65,
+      "min": 12.65,
+      "max": 12.65
     },
     {
       "id": "flak",
@@ -569,27 +569,27 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 18.4,
+          "ttk": 18.383,
           "damage": 700,
           "volleys": 14,
           "cooling": 7
         },
         {
-          "ttk": 18.4,
+          "ttk": 18.383,
           "damage": 700,
           "volleys": 14,
           "cooling": 7
         },
         {
-          "ttk": 18.4,
+          "ttk": 18.383,
           "damage": 700,
           "volleys": 14,
           "cooling": 7
         }
       ],
-      "ttk": 18.4,
-      "min": 18.4,
-      "max": 18.4
+      "ttk": 18.383,
+      "min": 18.383,
+      "max": 18.383
     },
     {
       "id": "flak",
@@ -597,27 +597,27 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 31.75,
+          "ttk": 28.233,
           "damage": 700,
-          "volleys": 22,
-          "cooling": 14
+          "volleys": 21,
+          "cooling": 11.167
         },
         {
-          "ttk": 31.75,
+          "ttk": 28.233,
           "damage": 700,
-          "volleys": 22,
-          "cooling": 14
+          "volleys": 21,
+          "cooling": 11.167
         },
         {
-          "ttk": 31.75,
+          "ttk": 28.233,
           "damage": 700,
-          "volleys": 22,
-          "cooling": 14
+          "volleys": 21,
+          "cooling": 11.167
         }
       ],
-      "ttk": 31.75,
-      "min": 31.75,
-      "max": 31.75
+      "ttk": 28.233,
+      "min": 28.233,
+      "max": 28.233
     },
     {
       "id": "emp",
@@ -673,15 +673,15 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 45.117,
+          "ttk": 165.117,
           "damage": 700,
-          "volleys": 10,
+          "volleys": 34,
           "cooling": 0
         }
       ],
-      "ttk": 45.117,
-      "min": 45.117,
-      "max": 45.117
+      "ttk": 165.117,
+      "min": 165.117,
+      "max": 165.117
     },
     {
       "id": "harpoon",
@@ -689,15 +689,15 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 45.3,
+          "ttk": 165.3,
           "damage": 700,
-          "volleys": 10,
+          "volleys": 34,
           "cooling": 0
         }
       ],
-      "ttk": 45.3,
-      "min": 45.3,
-      "max": 45.3
+      "ttk": 165.3,
+      "min": 165.3,
+      "max": 165.3
     },
     {
       "id": "harpoon",
@@ -705,15 +705,15 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 45.567,
+          "ttk": 165.567,
           "damage": 700,
-          "volleys": 10,
+          "volleys": 34,
           "cooling": 0
         }
       ],
-      "ttk": 45.567,
-      "min": 45.567,
-      "max": 45.567
+      "ttk": 165.567,
+      "min": 165.567,
+      "max": 165.567
     },
     {
       "id": "swarm",
@@ -721,27 +721,27 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 24.767,
+          "ttk": 18.717,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         },
         {
-          "ttk": 24.767,
+          "ttk": 18.717,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         },
         {
-          "ttk": 24.767,
+          "ttk": 18.717,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         }
       ],
-      "ttk": 24.767,
-      "min": 24.767,
-      "max": 24.767
+      "ttk": 18.717,
+      "min": 18.717,
+      "max": 18.717
     },
     {
       "id": "swarm",
@@ -749,27 +749,27 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 25.267,
+          "ttk": 19.15,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         },
         {
-          "ttk": 25.267,
+          "ttk": 19.15,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         },
         {
-          "ttk": 25.267,
+          "ttk": 19.15,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         }
       ],
-      "ttk": 25.267,
-      "min": 25.267,
-      "max": 25.267
+      "ttk": 19.15,
+      "min": 19.15,
+      "max": 19.15
     },
     {
       "id": "swarm",
@@ -777,27 +777,27 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 25.967,
+          "ttk": 19.767,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         },
         {
-          "ttk": 25.967,
+          "ttk": 19.767,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         },
         {
-          "ttk": 25.967,
+          "ttk": 19.767,
           "damage": 700,
-          "volleys": 5,
+          "volleys": 4,
           "cooling": 0
         }
       ],
-      "ttk": 25.967,
-      "min": 25.967,
-      "max": 25.967
+      "ttk": 19.767,
+      "min": 19.767,
+      "max": 19.767
     },
     {
       "id": "hunter",
@@ -853,27 +853,27 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 21.95,
+          "ttk": 15.45,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         },
         {
-          "ttk": 21.95,
+          "ttk": 15.45,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         },
         {
-          "ttk": 21.95,
+          "ttk": 15.45,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         }
       ],
-      "ttk": 21.95,
-      "min": 21.95,
-      "max": 21.95
+      "ttk": 15.45,
+      "min": 15.45,
+      "max": 15.45
     },
     {
       "id": "barrage",
@@ -881,27 +881,27 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 22.333,
+          "ttk": 15.85,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         },
         {
-          "ttk": 22.333,
+          "ttk": 15.85,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         },
         {
-          "ttk": 22.333,
+          "ttk": 15.85,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         }
       ],
-      "ttk": 22.333,
-      "min": 22.333,
-      "max": 22.333
+      "ttk": 15.85,
+      "min": 15.85,
+      "max": 15.85
     },
     {
       "id": "barrage",
@@ -909,27 +909,27 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 22.917,
+          "ttk": 16.417,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         },
         {
-          "ttk": 22.917,
+          "ttk": 16.417,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         },
         {
-          "ttk": 22.917,
+          "ttk": 16.417,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 3,
           "cooling": 0
         }
       ],
-      "ttk": 22.917,
-      "min": 22.917,
-      "max": 22.917
+      "ttk": 16.417,
+      "min": 16.417,
+      "max": 16.417
     },
     {
       "id": "mines",
@@ -1069,27 +1069,27 @@
       "distance": 300,
       "trials": [
         {
-          "ttk": 23.867,
+          "ttk": 9.933,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         },
         {
-          "ttk": 23.867,
+          "ttk": 9.933,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         },
         {
-          "ttk": 23.867,
+          "ttk": 9.933,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         }
       ],
-      "ttk": 23.867,
-      "min": 23.867,
-      "max": 23.867
+      "ttk": 9.933,
+      "min": 9.933,
+      "max": 9.933
     },
     {
       "id": "mortar",
@@ -1097,27 +1097,27 @@
       "distance": 500,
       "trials": [
         {
-          "ttk": 23.45,
+          "ttk": 10.033,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         },
         {
-          "ttk": 23.45,
+          "ttk": 10.033,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         },
         {
-          "ttk": 23.45,
+          "ttk": 10.033,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         }
       ],
-      "ttk": 23.45,
-      "min": 23.45,
-      "max": 23.45
+      "ttk": 10.033,
+      "min": 10.033,
+      "max": 10.033
     },
     {
       "id": "mortar",
@@ -1125,27 +1125,27 @@
       "distance": 800,
       "trials": [
         {
-          "ttk": 23.633,
+          "ttk": 10.283,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         },
         {
-          "ttk": 23.633,
+          "ttk": 10.283,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         },
         {
-          "ttk": 23.633,
+          "ttk": 10.283,
           "damage": 700,
-          "volleys": 4,
+          "volleys": 2,
           "cooling": 0
         }
       ],
-      "ttk": 23.633,
-      "min": 23.633,
-      "max": 23.633
+      "ttk": 10.283,
+      "min": 10.283,
+      "max": 10.283
     }
   ],
   "combos": [
@@ -1167,9 +1167,9 @@
         "swarm"
       ],
       "distance": 500,
-      "ttk": 6.517,
-      "volleys": 72,
-      "cooling": 0.5
+      "ttk": 6.667,
+      "volleys": 73,
+      "cooling": 0.65
     },
     {
       "loadout": [
@@ -1178,9 +1178,9 @@
         "swarm"
       ],
       "distance": 800,
-      "ttk": 6.717,
-      "volleys": 74,
-      "cooling": 0.7
+      "ttk": 6.917,
+      "volleys": 76,
+      "cooling": 0.9
     },
     {
       "loadout": [
@@ -1222,8 +1222,8 @@
         "mortar"
       ],
       "distance": 300,
-      "ttk": 6.467,
-      "volleys": 100,
+      "ttk": 3.733,
+      "volleys": 58,
       "cooling": 0
     },
     {
@@ -1233,8 +1233,8 @@
         "mortar"
       ],
       "distance": 500,
-      "ttk": 6.583,
-      "volleys": 102,
+      "ttk": 3.85,
+      "volleys": 60,
       "cooling": 0
     },
     {
@@ -1244,10 +1244,132 @@
         "mortar"
       ],
       "distance": 800,
-      "ttk": 6.75,
-      "volleys": 105,
+      "ttk": 4.017,
+      "volleys": 63,
       "cooling": 0
     }
   ],
-  "comboMethod": "Automatic simultaneous fire: theoretical firepower ceiling, not two-thumb gameplay prediction."
+  "comboMethod": "Automatic simultaneous fire: theoretical firepower ceiling, not two-thumb gameplay prediction.",
+  "balance": {
+    "smart": {
+      "rawDamage": 7.7,
+      "weight": 5.0,
+      "unlockWins": 5.0,
+      "utility": false
+    },
+    "harpoon": {
+      "rawDamage": 25.0,
+      "weight": 7.0,
+      "unlockWins": 7.0,
+      "utility": true
+    },
+    "machine-gun": {
+      "rawDamage": 7.4,
+      "weight": 2.0,
+      "unlockWins": 0.0,
+      "utility": false
+    },
+    "rotary": {
+      "rawDamage": 11.6,
+      "weight": 5.0,
+      "unlockWins": 1.0,
+      "utility": false
+    },
+    "pulse": {
+      "rawDamage": 9.0,
+      "weight": 4.0,
+      "unlockWins": 4.0,
+      "utility": false
+    },
+    "beam": {
+      "rawDamage": 190.0,
+      "weight": 8.0,
+      "unlockWins": 16.0,
+      "utility": false
+    },
+    "flame": {
+      "rawDamage": 112.0,
+      "weight": 5.0,
+      "unlockWins": 7.0,
+      "utility": false
+    },
+    "arc": {
+      "rawDamage": 112.0,
+      "weight": 6.0,
+      "unlockWins": 10.0,
+      "utility": false
+    },
+    "siege": {
+      "rawDamage": 105.0,
+      "weight": 10.0,
+      "unlockWins": 12.0,
+      "utility": false
+    },
+    "railgun": {
+      "rawDamage": 180.0,
+      "weight": 9.0,
+      "unlockWins": 16.0,
+      "utility": false
+    },
+    "plasma": {
+      "rawDamage": 75.0,
+      "weight": 8.0,
+      "unlockWins": 9.0,
+      "utility": false
+    },
+    "tri-salvo": {
+      "rawDamage": 44.0,
+      "weight": 6.0,
+      "unlockWins": 0.0,
+      "utility": false
+    },
+    "flak": {
+      "rawDamage": 19.0,
+      "weight": 5.0,
+      "unlockWins": 2.0,
+      "utility": false
+    },
+    "emp": {
+      "rawDamage": 40.0,
+      "weight": 7.0,
+      "unlockWins": 14.0,
+      "utility": true
+    },
+    "swarm": {
+      "rawDamage": 51.0,
+      "weight": 6.0,
+      "unlockWins": 3.0,
+      "utility": false
+    },
+    "hunter": {
+      "rawDamage": 78.0,
+      "weight": 9.0,
+      "unlockWins": 9.0,
+      "utility": false
+    },
+    "barrage": {
+      "rawDamage": 72.0,
+      "weight": 10.0,
+      "unlockWins": 14.0,
+      "utility": false
+    },
+    "mines": {
+      "rawDamage": 66.0,
+      "weight": 4.0,
+      "unlockWins": 0.0,
+      "utility": false
+    },
+    "smoke": {
+      "rawDamage": 0.0,
+      "weight": 3.0,
+      "unlockWins": 5.0,
+      "utility": true
+    },
+    "mortar": {
+      "rawDamage": 450.0,
+      "weight": 8.0,
+      "unlockWins": 20.0,
+      "utility": false
+    }
+  }
 }

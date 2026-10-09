@@ -1,48 +1,48 @@
-IRON PIT v37 — VIRTUAL WEAPON TEST RESULTS
+IRON PIT v39 — VIRTUAL WEAPON TEST RESULTS
 
-Actual game simulation at 60 Hz, 700-health stationary tracked target, standard modifiers, shields and repairs off. Centre-to-centre distances of 300 / 500 / 800 units. No obstacles, correct muzzle alignment, missiles supplied a target lock. Heat, cooling, reloads, charge, projectile travel, armour and burn are included. Harpoon physically pulls the target. Mines are measured behind the shooter. Time starts at first firing command, including Smart Gun startup and plasma/mortar charge/flight.
-Timing resolution approximately 0.017 seconds. This is ideal aiming, not a prediction for a moving opponent, manual two-thumb operation or terrain/forcefield interference.
-Three trials for flak, swarm, mortar, mines and barrage; one for deterministic weapons. Results below are means. No kill means no destruction within 180 seconds. Smoke is non-damaging. Mines only reach close targets.
+Actual game simulation at 60 Hz against a stationary 700-health tracked target, standard modifiers, no shields, repairs or obstacles. TTK includes reloads, cooling, armour, charge, projectile travel and burn. Accurate muzzle alignment; guided missile target lock. Harpoon pulls the target. Mines target behind shooter. Distances are centre-to-centre.
+One trial per deterministic weapon; three for flak/swarm/mortar/mines/barrage. TTK is the mean. NO KILL means no kill within 180 seconds. These are ideal firing tests, not moving-opponent or two-thumb combat predictions.
+Weights, firing rates, reload times and heat/cooling settings remain unchanged. Damage was calibrated to make combat weapons progressively stronger in unlock order. Discrete volleys and heat pauses prevent exact target times. Harpoon and EMP are utility; Smoke does no damage.
 
-Weapon                         Slot     300 units  500 units  800 units
-----------------------------------------------------------------------------
-Belt-fed machine gun           Slot 1   10.28s     10.42s     10.62s    
-Rotary autocannon              Slot 1   11.48s     11.63s     11.85s    
-Pulse lasers                   Slot 1   8.87s      8.95s      9.10s     
-Heavy beam laser               Slot 1   11.70s     11.70s     11.70s    
-Flamethrower                   Slot 1   9.67s      No kill    No kill   
-Arc projector                  Slot 1   13.93s     13.93s     No kill   
-Smart Gun                      Slot 1   15.72s     15.83s     16.00s    
-Twin siege cannons             Slot 2   15.15s     15.40s     15.77s    
-Railgun                        Slot 2   7.55s      7.63s      7.75s     
-Plasma cannon                  Slot 2   11.53s     11.92s     12.48s    
-Tri-salvo rockets              Slot 2   15.65s     16.08s     16.73s    
-Flak cannon                    Slot 2   16.17s     18.40s     31.75s    
-EMP launcher                   Slot 2   136.25s    136.68s    137.30s   
-Harpoon Cannon                 Slot 2   45.12s     45.30s     45.57s    
-Swarm missiles                 Slot 3   24.77s     25.27s     25.97s    
-Heavy hunter missiles          Slot 3   18.65s     19.17s     19.97s    
-Rocket barrage                 Slot 3   21.95s     22.33s     22.92s    
-Mine dispenser                 Slot 3   70.92s     No kill    No kill   
-Smoke screen                   Slot 3   No kill    No kill    No kill   
-Cluster Mortar                 Slot 3   23.87s     23.45s     23.63s    
+SLOT 1
+Weapon                          Wins  Wt  Damage*       300u       500u       800u
+machine-gun                        0   2      7.4     15.90s     16.03s     16.23s
+rotary                             1   5     11.6     13.73s     13.90s     14.12s
+pulse                              4   4        9     13.18s     13.27s     13.42s
+smart                              5   5      7.7     11.53s     11.65s     11.82s
+flame                              7   5      112     10.00s    NO KILL    NO KILL
+arc                               10   6      112      7.48s      7.48s    NO KILL
+arc                               16   8      190      5.18s      5.18s      5.18s
 
-AUTOMATIC ALL-SLOT BUILD TESTS
-Simultaneous firing is a theoretical firepower ceiling; normal two-thumb gameplay will take longer.
-Belt-fed machine gun + Tri-salvo rockets + Swarm missiles at 300 units: 6.25s
-Belt-fed machine gun + Tri-salvo rockets + Swarm missiles at 500 units: 6.52s
-Belt-fed machine gun + Tri-salvo rockets + Swarm missiles at 800 units: 6.72s
-Pulse lasers + Railgun + Heavy hunter missiles at 300 units: 2.55s
-Pulse lasers + Railgun + Heavy hunter missiles at 500 units: 2.63s
-Pulse lasers + Railgun + Heavy hunter missiles at 800 units: 2.75s
-Smart Gun + Harpoon Cannon + Cluster Mortar at 300 units: 6.47s
-Smart Gun + Harpoon Cannon + Cluster Mortar at 500 units: 6.58s
-Smart Gun + Harpoon Cannon + Cluster Mortar at 800 units: 6.75s
+SLOT 2
+Weapon                          Wins  Wt  Damage*       300u       500u       800u
+tri-salvo                          0   6       44     20.28s     20.70s     21.37s
+flak                               2   5       19     12.65s     18.38s     28.23s
+harpoon                            7   7       25    165.12s    165.30s    165.57s
+plasma                             9   8       75     13.33s     13.72s     14.28s
+siege                             12  10      105      9.15s      9.40s      9.77s
+emp                               14   7       40    136.25s    136.68s    137.30s
+railgun                           16   9      180      7.55s      7.63s      7.75s
 
-OBSERVATIONS
-Railgun is the fastest individual weapon in this stationary-target test (~7.6s), followed by pulse lasers (~8.9s).
-The Smart Gun (~15.8s) trades raw damage and weight for aim assistance. Harpoon (~45.3s) is a utility weapon, not a damage leader.
-EMP (~136.7s) and smoke are specialist tools: direct damage TTK alone does not value shield disruption or visual cover.
-Flak loses damage at longer distances. Flame and arc have limited reach. Mines need targets to cross their deployed area.
-Pulse + railgun + hunter has an extremely fast ideal burst (~2.6s at medium distance). This combination deserves playtesting before further damage changes.
-These figures describe the current v37 damage values. No automatic rebalance was applied after testing.
+SLOT 3
+Weapon                          Wins  Wt  Damage*       300u       500u       800u
+mines                              0   4       66     70.92s    NO KILL    NO KILL
+swarm                              3   6       51     18.72s     19.15s     19.77s
+smoke                              5   3        0    NO KILL    NO KILL    NO KILL
+hunter                             9   9       78     18.65s     19.17s     19.97s
+barrage                           14  10       72     15.45s     15.85s     16.42s
+mortar                            20   8      450      9.93s     10.03s     10.28s
+
+*Raw damage per projectile/pellet, per second for continuous weapons; Mortar shows total split across seven children. Actual hits apply armour/falloff; flame adds burn.
+
+EXAMPLE BUILDS — SIMULTANEOUS AUTOMATIC FIRE CEILING
+These tests fire all slots together; human two-thumb controls limit this in actual play.
+machine-gun + tri-salvo + swarm at 300u: 6.250s
+machine-gun + tri-salvo + swarm at 500u: 6.667s
+machine-gun + tri-salvo + swarm at 800u: 6.917s
+pulse + railgun + hunter at 300u: 2.550s
+pulse + railgun + hunter at 500u: 2.633s
+pulse + railgun + hunter at 800u: 2.750s
+smart + harpoon + mortar at 300u: 3.733s
+smart + harpoon + mortar at 500u: 3.850s
+smart + harpoon + mortar at 800u: 4.017s

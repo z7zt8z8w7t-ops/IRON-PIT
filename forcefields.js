@@ -1,6 +1,6 @@
 'use strict';
 // Grid cells have >= two fully armed mech widths of clear floor.
-const FIELD_GRID={cols:3,rows:4,thickness:18,period:20,warning:5};
+const FIELD_GRID={cols:3,rows:4,thickness:18,period:15,warning:5};
 let fieldState=null,fieldRevision=0;
 function fieldEnabled(){return arenaMode==='solo'&&!weaponRange}
 function fieldEdges(){if(arenaKind==='rotating')return rotatingFieldEdges();const out=[],g=FIELD_GRID,cw=ARENA.width/g.cols,ch=ARENA.height/g.rows;for(let y=0;y<g.rows;y++)for(let x=1;x<g.cols;x++)out.push({key:'v'+x+':'+y,a:y*g.cols+x-1,b:y*g.cols+x,x:x*cw-g.thickness/2,y:y*ch,w:g.thickness,h:ch});for(let y=1;y<g.rows;y++)for(let x=0;x<g.cols;x++)out.push({key:'h'+x+':'+y,a:(y-1)*g.cols+x,b:y*g.cols+x,x:x*cw,y:y*ch-g.thickness/2,w:cw,h:g.thickness});return out}
