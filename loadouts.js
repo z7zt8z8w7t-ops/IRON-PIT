@@ -2,7 +2,7 @@
 const WEAPON_WEIGHT={smart:5,harpoon:7,'machine-gun':2,rotary:5,pulse:4,beam:8,flame:5,arc:6,siege:10,railgun:9,plasma:8,'tri-salvo':6,flak:5,emp:7,swarm:6,hunter:9,barrage:10,mines:4,smoke:3,mortar:8};
 const WEAPON_UNLOCK={smart:5,harpoon:7,'machine-gun':0,'tri-salvo':0,mines:0,rotary:1,flak:2,swarm:3,pulse:4,smoke:5,plasma:9,flame:7,siege:12,hunter:9,arc:10,railgun:16,barrage:14,beam:16,emp:14,mortar:20};
 function loadoutWeight(b){return ['left','right','rear'].reduce((n,k)=>n+(WEAPON_WEIGHT[b[k]]||0),0)}
-function loadoutSpeed(b){return Math.max(b.chassis==='biped'?110:100,(b.chassis==='biped'?220:170)-loadoutWeight(b)*(b.chassis==='biped'?3:1.7))}
+function loadoutSpeed(b){const c=chassisProfile(b);return Math.max(c.minimum,c.speed-loadoutWeight(b)*c.weightPenalty)}
 let victoryProfiles=[{wins:0},{wins:0}],testLoadouts=false,matchProgress=null;
 try{const v=JSON.parse(localStorage.getItem('iron-pit-victories'));if(Array.isArray(v)&&v.length===2)victoryProfiles=v.map(p=>({wins:Math.max(0,Math.floor(Number(p.wins)||0))}));testLoadouts=localStorage.getItem('iron-pit-test-loadouts')==='true'}catch(e){}
 function builderProfile(){return typeof buildTurn!=='undefined'&&buildTurn===1?1:0}

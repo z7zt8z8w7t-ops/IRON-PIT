@@ -21,7 +21,7 @@ function drawDeployment(c,w,h){const d=deployment;if(!d)return;const t=d.age,app
  if(t<7.3){c.save();c.globalAlpha=.20*(1-depart);c.fillStyle='#000';c.beginPath();c.ellipse(px+20,py+28,75,190,heading,0,Math.PI*2);c.fill();c.restore()}
  // Low-opacity downwash wisps and touchdown dust remain below the airframe.
  if(t>1.4&&t<6.4){const strength=Math.sin(deploymentClamp((t-1.4)/5)*Math.PI)*.15;for(let i=0;i<24;i++){const a=i*2.39996+t*.12,r=90+((i*37+t*110)%200),x=p.x+Math.cos(a)*r,y=p.y+Math.sin(a)*r,size=42+i%14;const g=c.createRadialGradient(x,y,0,x,y,size);g.addColorStop(0,'rgba(173,161,134,'+strength+')');g.addColorStop(1,'rgba(173,161,134,0)');c.fillStyle=g;c.fillRect(x-size,y-size,size*2,size*2)}}
- const drop=deploymentEase((t-2)/2),mx=t<2?px:p.x,my=t<2?py:p.y;mech(c,mx,my,t<4?1.07-.22*drop:.85,p.heading,p.angle,build,p.parts,build.chassis==='biped'?bipedRig:null);
+ const drop=deploymentEase((t-2)/2),mx=t<2?px:p.x,my=t<2?py:p.y;mech(c,mx,my,t<4?1.07-.22*drop:.85,p.heading,p.angle,build,p.parts,isBiped(build)?bipedRig:null);
  if(t<4.5){c.save();c.strokeStyle='#afb4ab';c.lineWidth=2;for(const side of [-1,1]){c.beginPath();c.moveTo(px+side*42,py+24);c.lineTo(mx+side*80,my+61);c.stroke()}c.restore()}
 
 }

@@ -1,18 +1,1 @@
-IRON PIT v25 — RADIAL BLOCKOUT
-
-ARENA / MATCH
-3,000 x 3,000 units, open 1,200-unit central circle, six radial avenues, and an
-outer ring 450 units wide. Horizontal avenues are 675 units wide; diagonal ones
-450 units. Blue streets/plaza, purple fixed building blocks, ochre central monument.
-This is deliberately plain coloured-block artwork to test layout and clearances.
-Three enemies: Breaker (rotary/siege/hunter), Volt (pulse/plasma/swarm),
-Salvo (machine gun/tri-salvo/barrage). Every enemy targets any surviving rival,
-including other enemies, navigates connected roads, traverses its turret, and fires
-when aimed with line of sight. Reload and heat budgets match standard player weapons.
-Enemies use energy shields when damaged. All four mechs have component damage;
-destroyed guns cannot fire, track/leg damage slows movement, turret loss stops fire.
-No automatic respawn; the last survivor wins. Return to Mech Build and deploy to
-start a new match. Enemy names and different minimap markers identify opponents.
-
-
-Controls moved: movement+weapons left; radar centre; shield/eject column left of right-side turret buttons. Enemies now use two-thumb action states rather than simultaneous system fire.
+v42: named stadium arenas and diagonal forcefields. See README.txt for current layouts, effects, controls, clearances and validation.
