@@ -60,3 +60,21 @@ V32 crowd ambience and victory cheer: "Clapping hurray" by starlite / Zack and f
 https://commons.wikimedia.org/wiki/File:Clapping_hurray.ogg
 Public domain. Edited to mono 22.05 kHz, filtered, levelled and faded;
 a delayed layer thickens the quieter looping crowd bed.
+
+V33 replaces the V32 small-group crowd with user-supplied football recordings:
+Crowd bed: noise#01.aif, huubjeroen, Feyenoord / De Kuip. CC0.
+https://freesound.org/people/huubjeroen/sounds/39733/
+Hit swell: Millerntor Stadium Crowd Reaction Excited, itmightgetloud / Philipp Feit. CC0.
+https://freesound.org/people/itmightgetloud/sounds/829453/
+Destruction cheer: Millerntor Stadium Crowd Reaction Goal, same author, CC0.
+https://freesound.org/people/itmightgetloud/sounds/829455/
+Announcer: three two one FIGHT (deep voice), Audeption, CC0.
+https://freesound.org/people/Audeption/sounds/541822/
+Edits: removed FIGHT, levelled, mono 22.05 kHz, added stadium echo/reverb.
+Siren: Sirene.ogg, GeoTrinity, https://commons.wikimedia.org/wiki/File:Sirene.ogg
+CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0/
+Edited stadium-siren.wav (trimmed, levelled and faded) is distributed under
+CC BY-SA 3.0. The source is a 2016 recording of a warning siren of the type
+used during WWII, not an archival wartime recording.
+Firework launches/bangs adapt the credited magnuswaker firework and existing
+CC0 explosion recordings above; trimmed/faded.
