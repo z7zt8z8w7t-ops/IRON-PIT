@@ -24,4 +24,4 @@ document.addEventListener('pointerdown',()=>Sound.unlock(),{passive:true});docum
 
 document.addEventListener('visibilitychange',()=>{if(document.hidden)Sound.stopAll();else{Sound.startMusic();if(typeof p!=='undefined')for(const actor of [p,...enemies])if((actor===p||actor.human)&&actor.ejecting&&!actor.dead&&actor.ejecting.age<3)Sound.play('eject-siren',actor.x,actor.y,.85,1,true,actor.ejecting.age)}});
 
-function updateCrowdAudio(){if(!inArena||document.hidden){Sound.stopLoop('stadium-crowd');return}const listener=duelActive?{x:ARENA.width/2,y:ARENA.height/2}:p;Sound.loop('crowd-bed','stadium-crowd',listener.x,listener.y,crowdDuck>0?.06:.20,1)}
+function updateCrowdAudio(){if(!inArena||document.hidden){Sound.stopLoop('stadium-crowd');return}const listener=duelActive?{x:ARENA.width/2,y:ARENA.height/2}:p;Sound.loop('crowd-bed','stadium-crowd',listener.x,listener.y,crowdDuck>0?.12:.38,1)}

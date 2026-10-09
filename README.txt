@@ -1,8 +1,8 @@
-IRON PIT v33 — NIGHTTIME STADIUM ONE-ON-ONE
+IRON PIT v34 — NIGHTTIME STADIUM ONE-ON-ONE
 
 Upload these changed/new files over the existing repository, preserving paths.
 Keep existing assets/audio. New assets/stadium-urban.png and audio/crowd-bed.wav
-and audio/crowd-cheer.wav are required. Refresh online and check the v33 label
+and audio/crowd-cheer.wav are required. Refresh online and check the v34 label
 before using offline. The service worker caches the new artwork and sounds.
 
 One-player mode: one armed enemy, the whole stadium visible. The stadium stands
@@ -35,3 +35,15 @@ text. Explosions, smoke and their lighting now extend above the stands.
 Twin siege cannon damage reduced from 130 to 97.5 per shell (25%); reload unchanged.
 Upload stadium.js and all included sound files, plus the updated cache/scripts.
 The edited siren sound is CC BY-SA 3.0; see audio/CREDITS.txt.
+
+
+v34 — SHIFTING FORCEFIELD 1v1 TEST
+One-player versus one armed enemy; two-player map unchanged.
+A single unique detailed floor image replaces all buildings in this test.
+Visible 3 x 4 grid; emitter nodes at every intersection. Cells measure 583 x 500 world units; narrow dimension after a wall is 482 (over twice the 225.25-unit full armed mech width).
+Connected randomized five-wall layouts change every 30 combat seconds. Last five seconds: crowd swell, existing siren, accelerating yellow side lamps, then solid red in final second. Incoming walls show footprints. New-wall activation instantly destroys any overlapping mech, bypassing shields. Timer pauses when hidden, during delivery/countdown, and after match end.
+Navigation rebuilds on wall changes. AI reacts to dangerous incoming walls. Permanent spectator shield remains active.
+Snow-camouflage tandem-rotor helicopter replaces delivery artwork at approved small scale, with separate opposite-spinning rotors, flashing red/green/white/yellow navigation lights and curved departure.
+All three crowd effects are louder. Siege reload and prior balancing unchanged.
+Generated art prompt: unique overhead worn blue-grey concrete and flat debris; snow-camouflage edit of approved rotorless helicopter / separate rotor sheet. Artwork produced with built-in image generation.
+Upload changed files over v33, preserving paths. Visible version/cache v34.
