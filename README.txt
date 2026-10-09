@@ -1,8 +1,8 @@
-IRON PIT v35 — NIGHTTIME STADIUM ONE-ON-ONE
+IRON PIT v36 — NIGHTTIME STADIUM ONE-ON-ONE
 
 Upload these changed/new files over the existing repository, preserving paths.
 Keep existing assets/audio. New assets/stadium-urban.png and audio/crowd-bed.wav
-and audio/crowd-cheer.wav are required. Refresh online and check the v35 label
+and audio/crowd-cheer.wav are required. Refresh online and check the v36 label
 before using offline. The service worker caches the new artwork and sounds.
 
 One-player mode: one armed enemy, the whole stadium visible. The stadium stands
@@ -37,7 +37,7 @@ Upload stadium.js and all included sound files, plus the updated cache/scripts.
 The edited siren sound is CC BY-SA 3.0; see audio/CREDITS.txt.
 
 
-v35 — SHIFTING FORCEFIELD 1v1 TEST
+v36 — SHIFTING FORCEFIELD 1v1 TEST
 One-player versus one armed enemy; two-player map unchanged.
 A single unique detailed floor image replaces all buildings in this test.
 Visible 3 x 4 grid; emitter nodes at every intersection. Cells measure 583 x 500 world units; narrow dimension after a wall is 482 (over twice the 225.25-unit full armed mech width).
@@ -46,15 +46,23 @@ Navigation rebuilds on wall changes. AI reacts to dangerous incoming walls. Perm
 Snow-camouflage tandem-rotor helicopter replaces delivery artwork at approved small scale, with separate opposite-spinning rotors, flashing red/green/white/yellow navigation lights and curved departure.
 All three crowd effects are louder. Siege reload and prior balancing unchanged.
 Generated art prompt: unique overhead worn blue-grey concrete and flat debris; snow-camouflage edit of approved rotorless helicopter / separate rotor sheet. Artwork produced with built-in image generation.
-Upload changed files over v33, preserving paths. Visible version/cache v35.
+Upload changed files over v33, preserving paths. Visible version/cache v36.
 
 
-v35 — SIX SELECTABLE 1v1 ARENAS
+v36 — SIX SELECTABLE 1v1 ARENAS
 Start-menu arena selector: Desert, Flooded, Dark nighttime, Rotating centre, Snow, Conveyor belts. Choice is saved locally; shared-iPad two-player map remains its existing separate test arena.
 Unique detailed desert/flood/snow ground images, fine-scale surface detail and low decorative edge debris; no extra debris collisions. Night version uses flooded ground under stronger night shading. Mechanical variants use desert ground with darker industrial lighting, separate metal platform and animated conveyor lanes.
 Rotating centre: 1000-unit turntable at 0.065 radians/second carries living mechs and their facing/turret angles. Two mounted forcefield walls rotate with it; three outer corner walls remain fixed. Layout alternates mounted horizontal/vertical pairs with the same 30-second changes and five-second lethal warnings. Visible beams, light clipping, movement and projectile collisions use transformed wall coordinates. Navigation refreshes during rotation.
 Conveyors: opposing 65-unit/second belts carry living mechs, stop against active walls and boundaries, with animated treads and arrows. No added ice/water movement penalties.
 Helicopter and rotor layers are now above the stadium stands without field clipping.
 One-time winner announcements after projectiles settle: You are victorious / Breaker wins / Player one or two wins, with stadium reverb. Audio bundled for offline play.
-All new assets included in v35 offline cache. Upload changed files over v34 preserving paths.
+All new assets included in v36 offline cache. Upload changed files over v34 preserving paths.
 Generated ground prompts: unique overhead finely detailed military desert/flooded/snow concrete and edge debris, no mechs/buildings/grid/lights. Separate transparent radial mechanical turntable, generated with built-in image tool.
+
+V36 UPDATE
+Upload changed files over v35, preserving directories. Visible version: v36.
+Rotating floor: doubled speed; covered fixed grid nodes omitted and excluded.
+Workshop is on the controller. Destroyed panels glitch for two seconds then show Signal Lost. Winner controls power down. Workshop and Rematch remain available.
+Victory: supplied Aggressive Huge Hit Logo with stadium PA reverb/echo, winner voice overlapping the clip and ten staggered fireworks.
+1v1 stadium: ten detailed perimeter flame units. Random 0.8-1.2-second bursts follow a 0.65-second amber warning; maximum two active. Flames cause 85 hull damage/second, shields absorb damage, and standing forcefields block the jets. Smoke and light linger. Cached flame atlas also improves mech flamethrower visuals.
+Offline: all new scripts/audio bundled in v36 cache. Physical iPad/Safari testing remains necessary.
