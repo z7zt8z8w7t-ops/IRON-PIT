@@ -85,3 +85,6 @@ Victory: Aggressive Huge Hit Logo by Alex_Kizenkov (Pixabay asset 139134), suppl
 
 Smart Gun: Minigun by Jim Rogers, https://soundbible.com/1920-Minigun.html , CC BY 3.0. Uploaded original split into start, sustained firing and spin-down; no shots during spin-down.
 Harpoon/cluster layers derived from the credited existing weapon and turret sounds.
+
+v45 comms-in.wav / comms-out.wav: original synthesized terminal chirps and
+brief static for incoming/outgoing transmissions; generated for Iron Pit.
