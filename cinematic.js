@@ -1,23 +1,38 @@
-'use strict';
+ 'use strict';
 let openingMovieSession=null;
+const COMIC_PAGES=[
+ {src:'assets/intro-comic-1.jpg',alt:'Page 1: Daves Fix n Spray exterior; Dave and Rourke repairing a customer mech. Dave: You’ve spent half your life fixing these things for other people. I think it’s about time you drove one. Rourke: Hmmm, I can drive em, but I can’t afford em.'},
+ {src:'assets/intro-comic-2.jpg',alt:'Page 2: Dave reveals the bare-steel mech. Dave: Well maybe you don’t need to. Rourke: Is that for me? Beside the cockpit, Rourke: You really think we can compete with the sponsored teams? Dave: Their machines cost more. Doesn’t mean their pilots are better.'},
+ {src:'assets/intro-comic-3.jpg',alt:'Page 3: Rourke’s mech enters the Iron Pit. Rourke: And if we lose? Dave: Then I guess we’re walking home.'}
+];
+// Start loading comic art during the quote, before the audio fade-in.
+for(const page of COMIC_PAGES){const image=new Image();image.src=page.src;}
 function playOpeningCinematic(done){
- if(openingMovieSession)return;resetBattleInputs();hideGameMenus();storyScreen().hidden=true;
- const el=document.createElement('section');el.id='openingMovie';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit opening cinematic');
- el.innerHTML='<div class="movie-stage"><img class="movie-shot" alt=""><div class="movie-effects"></div><div class="movie-caption" aria-live="polite"><strong></strong><span></span></div></div><div class="movie-controls"><button class="movie-skip">SKIP</button><small></small><button class="movie-pause">PAUSE</button><button class="movie-next">NEXT →</button></div>';
+ if(openingMovieSession)return;
+ workshopAudioSession=true;resetBattleInputs();hideGameMenus();storyScreen().hidden=true;
+ const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='black';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
+ el.innerHTML='<div class="comic-book"><div class="comic-art"><img class="comic-page" alt=""></div><div class="comic-footer"><small class="comic-count"></small><button class="comic-next" disabled>TURN PAGE →</button></div></div>';
  document.body.append(el);
- // The interior reveal deliberately precedes the exterior, as approved.
- const beats=[{phase:'black',time:3},{phase:'interior',shot:'intro-interior',time:4},{phase:'exterior',shot:'workshop-exterior',time:5},...OPENING_LINES.map((line,i)=>({phase:'dialogue',shot:i<3?'intro-2':'intro-1',line:i,time:[9,6,6,8,7,5,6][i]})),{phase:'arena',shot:'intro-0',time:5}];
- const session=openingMovieSession={page:0,elapsed:0,totalElapsed:0,phase:'black',paused:false,last:performance.now(),raf:0,closed:false};let previous=null;
- const finish=()=>{if(session.closed)return;session.closed=true;cancelAnimationFrame(session.raf);document.removeEventListener('keydown',onKey);el.remove();openingMovieSession=null;Sound.startMusic();resetBattleInputs();done()};
- const show=()=>{const beat=beats[session.page],im=el.querySelector('.movie-shot');session.phase=beat.phase;el.dataset.phase=beat.phase;im.hidden=!beat.shot;if(beat.shot&&previous!==beat.shot){previous=beat.shot;im.src='assets/'+beat.shot+'.jpg';im.alt=({ 'intro-interior':'Inside Daves Fix n Spray','workshop-exterior':'Daves Fix n Spray with the Iron Pit arena behind it','intro-2':'Rourke repairing the bare-steel mech with Dave','intro-1':'Rourke and Dave beside the cockpit','intro-0':'The bare-steel mech enters the Iron Pit'})[beat.shot];im.style.animation='none';void im.offsetWidth;im.style.animation='';}
- const caption=el.querySelector('.movie-caption');caption.hidden=beat.line===undefined;if(beat.line!==undefined){const[who,line]=OPENING_LINES[beat.line];caption.dataset.speaker=who;caption.dataset.shot=beat.shot;el.querySelector('.movie-caption strong').textContent=STORY_CAST[who].name.toUpperCase();el.querySelector('.movie-caption span').textContent=line;}
- el.querySelector('.movie-controls small').textContent=(session.page+1)+' / '+beats.length;el.querySelector('.movie-next').textContent=session.page===beats.length-1?'ENTER THE PIT →':'NEXT →';Sound.startMusic();};
- const next=()=>{session.elapsed=0;if(++session.page>=beats.length)finish();else show()};
- const pause=()=>{session.paused=!session.paused;el.querySelector('.movie-pause').textContent=session.paused?'RESUME':'PAUSE';el.querySelectorAll('.movie-shot,.movie-effects,.movie-effects i').forEach(n=>n.style.animationPlayState=session.paused?'paused':'running');Sound.startMusic();};
- const onKey=e=>{if(e.key==='Escape'){e.preventDefault();finish()}else if(e.key==='ArrowRight'){e.preventDefault();next()}else if(e.key===' '){e.preventDefault();pause()}};
- el.querySelector('.movie-skip').onclick=finish;el.querySelector('.movie-next').onclick=next;el.querySelector('.movie-pause').onclick=pause;el.querySelector('.movie-stage').onclick=next;document.addEventListener('keydown',onKey);
- const tick=now=>{const dt=Math.min(.1,(now-session.last)/1000);session.last=now;if(!session.paused&&!document.hidden){session.elapsed+=dt;session.totalElapsed+=dt;Sound.startMusic();if(session.elapsed>=beats[session.page].time)next()}else Sound.pauseMusic();if(!session.closed)session.raf=requestAnimationFrame(tick)};
- show();el.querySelector('.movie-skip').focus();session.raf=requestAnimationFrame(tick);
+ const session=openingMovieSession={page:0,totalElapsed:0,waitElapsed:0,phase:'black',paused:false,last:performance.now(),raf:0,closed:false,turning:false};
+ const button=el.querySelector('.comic-next'),art=el.querySelector('.comic-art'),image=el.querySelector('.comic-page');button.disabled=true;
+ let transitionTimer=0;
+ const show=()=>{const page=COMIC_PAGES[session.page];image.src=page.src;image.alt=page.alt;el.querySelector('.comic-count').textContent=(session.page+1)+' / 3';button.textContent=session.page===2?'PREPARE FOR BATTLE →':'TURN PAGE →';};
+ const finish=()=>{if(session.closed)return;session.closed=true;clearTimeout(transitionTimer);cancelAnimationFrame(session.raf);document.removeEventListener('keydown',onKey);el.remove();openingMovieSession=null;resetBattleInputs();done();Sound.startMusic();};
+ const next=()=>{if(session.closed||session.turning||session.phase!=='comic')return;session.turning=true;button.disabled=true;
+  if(session.page===2){session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,850);return}
+  const sheet=document.createElement('img');sheet.className='comic-turn-sheet';sheet.src=COMIC_PAGES[session.page].src;sheet.alt='';sheet.setAttribute('aria-hidden','true');art.append(sheet);session.page++;show();
+  transitionTimer=setTimeout(()=>{sheet.remove();session.turning=false;button.disabled=false;button.focus();},820);
+ };
+ const onKey=e=>{if(e.key==='ArrowRight'){e.preventDefault();next()}};
+ button.onclick=next;document.addEventListener('keydown',onKey);show();
+ const tick=now=>{if(session.closed)return;const dt=Math.max(0,Math.min(.1,(now-session.last)/1000));session.last=now;
+  if(!document.hidden){if(session.phase==='black'){session.waitElapsed+=dt;const tracksReady=Sound.muted||workshopTracksReady();if(tracksReady)session.totalElapsed+=dt;
+    // Allow the mixer to reach its final quiet levels before revealing page one.
+    if(session.totalElapsed>=5.8){session.phase='comic';el.dataset.phase='comic';button.disabled=false;button.focus();}}
+   Sound.startMusic();}else Sound.pauseMusic();
+  session.raf=requestAnimationFrame(tick);
+ };
+ Sound.startMusic();session.raf=requestAnimationFrame(tick);
 }
 const splashArt=document.createElement('img');splashArt.id='splashCast';splashArt.src='assets/splash-cast.jpg';splashArt.alt='Iron Pit: Rourke, Dave, Rivet, Skitter, Bastion, Zane, Silas Voss and Dr Lilith Kane';node('splash').prepend(splashArt);
 node('splashCampaign').classList.add('ready-flash');node('splashCampaign').setAttribute('aria-label','Championship');node('splashStart').setAttribute('aria-label','Quick Battle');

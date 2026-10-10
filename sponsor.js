@@ -16,10 +16,10 @@ function showSponsorIntroduction(){
  },SPONSOR_BRIEF,{hudson:'focused'});
 }
 const OPENING_LINES=[["dave", "You’ve spent half your life fixing these things for other people. I think it’s about time you drove one."], ["jim", "Hmmm, I can drive em, but I can’t afford em."], ["dave", "Maybe I’ve got a surprise for you."], ["jim", "You really think we can compete with the sponsored teams?"], ["dave", "Their machines cost more. Doesn’t mean their pilots are better."], ["jim", "And if we lose?"], ["dave", "Then I guess we’re walking home."]];
-function showOpeningBackstory(){quoteIntroRequested55=false;playOpeningCinematic(()=>{rookieProgress.introSeen=true;rookieProgress.cinematicSeen=true;rookieProgress.cinematicVersion=55;saveRookie();showRookieLadder()})}
+function showOpeningBackstory(){quoteIntroRequested55=false;playOpeningCinematic(()=>{rookieProgress.introSeen=true;rookieProgress.cinematicSeen=true;rookieProgress.cinematicVersion=57;saveRookie();campaignMission=0;showStoryDialogue(ROOKIE_MATCHES[0].lines,prepareCampaignWorkshop,ROOKIE_MATCHES[0])})}
 const sponsorLadder=showRookieLadder;
 showRookieLadder=function(){
- if(quoteIntroRequested55||(rookieProgress.completed===0&&(!rookieProgress.cinematicSeen||rookieProgress.cinematicVersion!==55))){showOpeningBackstory();return}
+ if(quoteIntroRequested55||(rookieProgress.completed===0&&(!rookieProgress.cinematicSeen||rookieProgress.cinematicVersion!==57))){showOpeningBackstory();return}
  if(rookieProgress.completed===5&&!rookieProgress.sponsorSeen){showSponsorIntroduction();return}
  sponsorLadder();
  const replay=document.createElement('button');replay.textContent='REPLAY BACKSTORY';replay.onclick=showOpeningBackstory;node('storyBody').append(replay);

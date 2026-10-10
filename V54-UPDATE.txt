@@ -1,0 +1,11 @@
+IRON PIT v54 — combined update from v51
+
+Extract into the existing v51 GitHub repository, overwrite matching files, and preserve assets/ and audio/ folders. Includes all changed and new files since v51; no intermediate update is required. Existing progress is preserved. Delete audio/systemkollaps.mp3 from the repository; the game no longer references or plays it.
+
+Retains approved portraits, poses, eight-character splash, selectable pilots, four workshop tabs, arena selection and liveries from v53.
+
+New: approved intro order, updated Rourke and Dave faces and bare-steel repair/cockpit scenes, workshop interior and exterior establishing shots, exact approved dialogue, top comic speech balloons, workshop ambient noise and filtered radio fades. Paine opening keeps its slow fade and left-to-right burn with timed audio. Original game song removed; workshop radio retained.
+
+Kane meets Rourke after Rookie using her STANDARD portrait. The supplied league-win picture is reserved for the NEXT league after Rookie, using the league-win portrait lookup. The championship image is supplied separately with championship-win lookup and celebration function. These two later progression events are not reachable yet: the current campaign implements only Rookie league. Neither later image replaces Rookie sponsorship or her ordinary match-win portrait.
+
+Verified: JavaScript syntax, complete-script DOM integration, intro shot order and dialogue, pause/skip/timed completion and cleanup, audio fade/pause/exit, portrait stage mapping, campaign livery locks, arena/workshop navigation, collision regressions, offline media byte ranges, all HTML/service-worker paths and ZIP integrity. Actual Safari/iPad rendering was not available.
