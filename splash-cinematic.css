@@ -1,0 +1,26 @@
+#splash{padding:0 12px calc(12px + env(safe-area-inset-bottom));gap:5px;background:#0b1010;height:100dvh;overflow:hidden;justify-content:flex-end}
+#splash .splash-title{display:none}
+#splashCast{display:block;flex:1;min-height:0;width:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 0 20px #b47d2833)}
+#splash :is(#splashCampaign,#splashStart){flex:none;display:block;width:min(520px,95vw);aspect-ratio:895/162;height:auto;min-height:0;max-height:13dvh;padding:0;margin:0;border:0;border-radius:0;background:transparent center/100% 100% no-repeat;font-size:0;letter-spacing:0;box-shadow:none;animation:splashPulse 1.4s ease-in-out infinite}
+#splash #splashCampaign{background-image:url('assets/button-championship.png')}
+#splash #splashStart{background-image:url('assets/button-quick-battle.png')}
+#splash :is(#splashCampaign,#splashStart):focus-visible{outline:3px solid white;outline-offset:2px}
+#splash>small{flex:none;font-size:11px;color:#b8c890;margin:2px}
+@keyframes splashPulse{50%{filter:brightness(1.24) drop-shadow(0 0 7px #a5ff3b88)}}
+#openingMovie{position:fixed;inset:0;z-index:150;background:#030607;color:white;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+#openingMovie[hidden]{display:none}
+.movie-stage{position:relative;flex:1;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#050808}
+.movie-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;animation:movieCamera 10s ease-out both}
+.movie-stage:after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,#0009);pointer-events:none}
+.movie-caption{position:absolute;left:5%;right:5%;bottom:6%;z-index:3;text-align:center;background:#050a0de8;border-bottom:2px solid #a2c663;padding:14px;border-radius:6px;font-size:clamp(15px,2.6vw,24px);line-height:1.4;box-shadow:0 0 24px #000}
+.movie-caption strong{display:block;font-size:12px;letter-spacing:3px;color:#bddd76;margin-bottom:7px}
+.movie-effects{position:absolute;inset:0;pointer-events:none;opacity:.35;background:radial-gradient(ellipse at 30% 75%,#bac7cd55,transparent 35%);animation:movieSmoke 5s ease-in-out infinite alternate}
+.movie-effects i{position:absolute;left:var(--x);top:var(--y);width:3px;height:3px;background:#ffe2a4;box-shadow:0 0 8px #ff9d25;animation:movieSpark var(--speed) linear infinite}
+.movie-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 5%;background:#0d1515;flex:none}
+.movie-controls button{min-height:44px;padding:10px 18px;border:1px solid #bddd76;background:#233128;color:white}
+.movie-controls small{color:#b8c890}
+@keyframes movieCamera{from{transform:scale(1.01) translate(-.5%,0)}to{transform:scale(1.055) translate(.5%,-.5%)}}
+@keyframes movieSmoke{to{transform:translate(4%,-2%);opacity:.55}}
+@keyframes movieSpark{from{transform:translate(0,20px);opacity:0}25%{opacity:1}to{transform:translate(40px,-130px);opacity:0}}
+@media(orientation:landscape) and (max-height:600px){#splash{padding-left:55%;position:relative;justify-content:center}#splashCast{position:absolute;left:0;top:0;width:55%;height:100%}#splash :is(#splashCampaign,#splashStart){width:100%;max-height:24dvh}.movie-caption{bottom:3%;padding:8px;font-size:15px}.movie-controls{padding:6px 4%}}
+@media(prefers-reduced-motion:reduce){#splash :is(#splashCampaign,#splashStart),.movie-shot,.movie-effects,.movie-effects i{animation:none}}
