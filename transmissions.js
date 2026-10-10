@@ -54,8 +54,8 @@ const resultReturn=node('return').onclick;node('return').onclick=()=>{
  if(!campaignActive){resultReturn();showPendingWeapon();return}if(!battleResult||!currentPanel().classList.contains('panel-off'))return;
  resetBattleInputs();cancelDeployment();Sound.stopAll();const outcome={...campaignOutcome},m=ROOKIE_MATCHES[outcome.mission];
  const moods={jim:outcome.won?'win':'loss',dave:outcome.won?'win':'loss'};for(const b of m.bots)moods[b.name.toLowerCase()]=outcome.won?'loss':'win';
- if(!outcome.won){const rival=m.bots[0].name.toLowerCase();showStoryDialogue([[rival,'You’ll need a better answer next time, Jim.'],['jim','Next time, I’ll have one.'],['dave','Pilot intact. Mech… less so. Let’s change the loadout and try again.']],prepareCampaignWorkshop,m,moods);return}
- const lines=[['jim',outcome.mission===4?'Rookie Champion. We actually did it.':'That’s one more down.'],...m.win];
+ if(!outcome.won){showStoryDialogue(m.loss,prepareCampaignWorkshop,m,moods);return}
+ const lines=m.win;
  showStoryDialogue(lines,()=>{if(outcome.mission===4){showRookieLadder();return}campaignMission=outcome.mission+1;const next=ROOKIE_MATCHES[campaignMission];showStoryDialogue(next.lines,prepareCampaignWorkshop,next)}, {...m,brief:'MATCH COMPLETE · '+rookieProgress.completed+' / 5 VICTORIES'},moods);
 };
 // Some iPads allow playback at boot; otherwise the first gesture starts it.
