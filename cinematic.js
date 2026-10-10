@@ -20,23 +20,10 @@ function playOpeningCinematic(done){
 }
 const splashArt=document.createElement('img');splashArt.id='splashCast';splashArt.src='assets/splash-cast.jpg';splashArt.alt='Iron Pit: Jim, Dave, Rivet, Skitter, Bastion and Dr Hudson';node('splash').prepend(splashArt);
 node('splashCampaign').classList.add('ready-flash');node('splashCampaign').setAttribute('aria-label','Championship');node('splashStart').setAttribute('aria-label','Quick Battle');
-// Hit targets follow the uniformly scaled full-screen artwork, including crop offsets.
-function splashButtonGeometry(width,height,imageWidth=1049,imageHeight=1500){
- const scale=Math.max(width/imageWidth,height/imageHeight),ox=(width-imageWidth*scale)/2,oy=(height-imageHeight*scale)/2;
- if(width>height){const w=Math.min(width*.40,height*.13*895/162),h=w*162/895;return [.68,.83].map(y=>({x:width-w-width*.04,y:height*y,w,h}))}
- return [1135,1275].map(y=>({x:ox+130*scale,y:oy+y*scale,w:790*scale,h:125*scale}));
+// Real controls retain their existing game handlers when moved above the artwork.
+const splashActions=document.createElement('div');splashActions.id='splashActions';
+for(const [id,asset,label] of [['splashCampaign','button-championship.png','Championship'],['splashStart','button-quick-battle.png','Quick Battle']]){
+ const button=node(id);button.type='button';button.replaceChildren();
+ const image=document.createElement('img');image.src='assets/'+asset;image.alt='';image.setAttribute('aria-hidden','true');button.append(image);button.setAttribute('aria-label',label);splashActions.append(button);
 }
-function fitSplashButtons(){
- const host=node('splash'),rect=host.getBoundingClientRect();
- const boxes=splashButtonGeometry(rect.width,rect.height,splashArt.naturalWidth||1049,splashArt.naturalHeight||1500);
- for(const[i,id]of ['splashCampaign','splashStart'].entries()){
-  const button=node(id),b=boxes[i];
-  for(const[key,value]of Object.entries({left:b.x,top:b.y,width:b.w,height:b.h}))button.style[key]=value+'px';
-  // Landscape reflows real button artwork so both actions remain on-screen.
-  button.style.backgroundImage=rect.width>rect.height?'url(assets/'+(i?'button-quick-battle.png':'button-championship.png')+')':'none';
-  button.style.backgroundSize='contain';button.style.backgroundRepeat='no-repeat';button.style.backgroundPosition='center';
- }
-}
-splashArt.addEventListener('load',fitSplashButtons);window.addEventListener('resize',fitSplashButtons);
-if(typeof ResizeObserver!=='undefined')new ResizeObserver(fitSplashButtons).observe(node('splash'));
-fitSplashButtons();
+node('splash').append(splashActions);
