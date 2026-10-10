@@ -1,0 +1,11 @@
+IRON PIT v55 — PATCH FOR WORKING v53 OR v54
+
+Upload extracted files over your existing v53 or v54 repository. Preserve assets/ and audio/ folders and replace matching files. All v54 changes are included, so you do not need the problematic combined v54 ZIP. Delete audio/systemkollaps.mp3 if it remains.
+
+v55: full-screen transmission frame with portraits contained inside the transparent window; brief picture glitch/flicker on speaker or portrait change; framed Dave equipment briefings. Intro uses solid cream, black-outlined speech balloons near each speaker. Fixed late stylesheet override that made text unreadable. Quote completion, error, Skip and visible-time timeout share one exactly-once handoff. Championship starts the workshop intro even with previously watched/saved campaign progress.
+
+Workshop radio: 15% volume, existing high-pass/low-pass/distortion radio effect plus subtle 0.4-second room reverb (12% wet). Ambience is unfiltered and prominent, plays in workshop and intro, and uses an overlapping two-second equal-power crossfade at the loop join. Stops/pauses for combat, quote, hidden pages and intro pause; resumes its loop offset.
+
+Includes v54 approved new intro images/order/dialogue and separate later Kane victory portraits. Kane's first Rookie meeting uses her standard portrait. Later league and overall championship progression are not implemented in the Rookie-only campaign.
+
+Verified: full-script game integration, frame containment and speaker updates, exactly-once quote end/error/skip, replay handoff with saved progress, visible-time watchdog, crossfade sample continuity, quiet radio setting, intro timing/pause/skip, offline byte-range media, JavaScript syntax, asset references and ZIP integrity. Browser/iPad rendering unavailable in this environment.
