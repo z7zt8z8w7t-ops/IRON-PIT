@@ -1,11 +1,7 @@
-IRON PIT v58 — changed-files update for v57
-Apply over a complete v57 installation. Replace matching files and preserve folder paths. This ZIP is not a standalone game.
-Fixed the invalid pilot-bio element lookup that interrupted workshop setup and prevented the game render loop starting. Deployment no longer waits for the entire sound bank to load.
-Quote stays on screen with NEXT until pressed. NEXT starts the workshop audio fade; the comic appears after that fade completes.
-Workshop radio volume is 7%, with a longer, stronger room reverb. Ambience retains its crossfade loop.
-Remote comms dialogue is bottom left; Rourke replies stay bottom right without changing the remote image.
-After opening qualifier comms, new pilots get START TUTORIAL / SKIP TUTORIAL. Tutorial returns directly to the workshop.
-Championship hides Pilot permanently and Livery until Rookie sponsorship. Quick Battle retains all four tabs.
-Upper workshop shows a green schematic with the chosen chassis and mounted weapons. Selected weapon slots show weapon images. Deploy spans the bottom panel.
-Offline cache updated to v58. Reload online after upload to install the new cache.
-Verified strict DOM ID lookup, tutorial and comms routing, 449 actual game frames through deployment into combat, audio-node gains/reverb, JavaScript syntax, cached asset paths and media byte ranges. Actual iPad playback and appearance still require device testing.
+IRON PIT v59 — changed-files update for v58
+Apply over the complete v58 installation, replacing matching files and preserving folder paths. This ZIP is not standalone.
+Workshop radio keeps 7% volume and radio filtering, with a 2.5-second reverb tail and 50% wet mix.
+Workshop ambience and music fade in over two seconds. Comic reveal begins after a short 0.3-second settling period once both tracks are ready.
+Comms dialogue is positioned at the top inside the frame: other speakers top left, Rourke top right. Cream comic text and remote-image/glitch behaviour remain.
+Offline cache updated to v59. Reload online after upload.
+Code and ZIP checks passed. Actual iPad audio and layout require device testing.

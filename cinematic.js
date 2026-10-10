@@ -28,7 +28,7 @@ function playOpeningCinematic(done){
  const tick=now=>{if(session.closed)return;const dt=Math.max(0,Math.min(.1,(now-session.last)/1000));session.last=now;
   if(!document.hidden){if(session.phase==='black'){session.waitElapsed+=dt;const tracksReady=Sound.muted||workshopTracksReady();if(tracksReady)session.totalElapsed+=dt;
     // Allow the mixer to reach its final quiet levels before revealing page one.
-    if(session.totalElapsed>=5.8){session.phase='comic';el.dataset.phase='comic';button.disabled=false;button.focus();}}
+    if(session.totalElapsed>=2.3){session.phase='comic';el.dataset.phase='comic';button.disabled=false;button.focus();}}
    Sound.startMusic();}else Sound.pauseMusic();
   session.raf=requestAnimationFrame(tick);
  };

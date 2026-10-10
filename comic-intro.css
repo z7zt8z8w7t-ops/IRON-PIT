@@ -12,8 +12,8 @@
 .comic-turn-sheet:after{content:'';position:absolute;right:0;bottom:0;width:23%;height:22%;background:linear-gradient(135deg,transparent 48%,#fff0cd 49%,#fff8e6 60%,#b1a38b 100%);clip-path:polygon(100% 0,100% 100%,0 100%);transform-origin:bottom right;animation:comicCurl .8s ease-in-out forwards}
 @keyframes comicPageTurn{0%{transform:rotateY(0deg);filter:brightness(1)}45%{transform:rotateY(-70deg);filter:brightness(.8)}100%{transform:rotateY(-180deg);filter:brightness(.65)}}
 @keyframes comicCurl{0%{opacity:0;transform:scale(.05)}30%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.8)}}
-.comms-screen .story-dialogue-copy{font-family:'Chalkboard SE','Comic Sans MS',sans-serif;font-weight:800;text-transform:uppercase;box-shadow:3px 3px 0 #0008;left:17%;right:28%;bottom:24%;top:auto}
-.comms-screen .story-dialogue-copy[data-speaker='jim'],.comms-screen .story-dialogue-copy[data-speaker='rourke']{left:35%;right:17%;top:auto;bottom:24%}
+.comms-screen .story-dialogue-copy{font-family:'Chalkboard SE','Comic Sans MS',sans-serif;font-weight:800;text-transform:uppercase;box-shadow:3px 3px 0 #0008;left:17%;right:28%;bottom:auto;top:19%}
+.comms-screen .story-dialogue-copy[data-speaker='jim'],.comms-screen .story-dialogue-copy[data-speaker='rourke']{left:35%;right:17%;top:19%;bottom:auto}
 .comms-screen #storyRole{display:none}
 .comms-screen #storyLine{font-family:inherit;font-weight:800;font-size:clamp(16px,2.2vw,24px)}
 .comms-screen .transmission.comms-boot .comms-window{animation:commsBoot .95s ease-out both}
