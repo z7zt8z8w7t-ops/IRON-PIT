@@ -88,3 +88,5 @@ Harpoon/cluster layers derived from the credited existing weapon and turret soun
 
 v45 comms-in.wav / comms-out.wav: original synthesized terminal chirps and
 brief static for incoming/outgoing transmissions; generated for Iron Pit.
+
+V52 workshop/intro music: user-supplied hell waits for a snowflake.mp3, played through radio filters. Quote scene: user-supplied sci-fi ambient drone and procedural fire/crackle mix from approved preview.
