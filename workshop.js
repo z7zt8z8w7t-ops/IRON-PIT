@@ -39,3 +39,11 @@ function sizeControlPanels(){for(const id of ['p1-panel','p2-panel']){const pane
 if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(sizeControlPanels);for(const id of ['p1-panel','p2-panel'])observer.observe(node(id))}window.addEventListener('resize',sizeControlPanels);
 
 node('paintCycle').onclick=()=>{node('paintChoice').value=build.colour==='red'?'green':'red';node('paintChoice').onchange()};
+
+function drawWorkshopSchematic(c,w,h){
+ c.fillStyle='#031811';c.fillRect(0,0,w,h);c.strokeStyle='#124d35';c.lineWidth=1;
+ for(let x=0;x<w;x+=24){c.beginPath();c.moveTo(x,0);c.lineTo(x,h);c.stroke()}
+ for(let y=0;y<h;y+=24){c.beginPath();c.moveTo(0,y);c.lineTo(w,y);c.stroke()}
+ c.save();c.filter='grayscale(1) sepia(1) saturate(6) hue-rotate(65deg)';
+ mech(c,w/2,h/2+5,Math.min(w/350,h/350),0,0,{...build,colour:'green'});c.restore();
+}

@@ -9,11 +9,11 @@ const COMIC_PAGES=[
 for(const page of COMIC_PAGES){const image=new Image();image.src=page.src;}
 function playOpeningCinematic(done){
  if(openingMovieSession)return;
+ const session=openingMovieSession={page:0,totalElapsed:0,waitElapsed:0,phase:'black',paused:false,last:performance.now(),raf:0,closed:false,turning:false};
  workshopAudioSession=true;resetBattleInputs();hideGameMenus();storyScreen().hidden=true;
  const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='black';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
  el.innerHTML='<div class="comic-book"><div class="comic-art"><img class="comic-page" alt=""></div><div class="comic-footer"><small class="comic-count"></small><button class="comic-next" disabled>TURN PAGE →</button></div></div>';
  document.body.append(el);
- const session=openingMovieSession={page:0,totalElapsed:0,waitElapsed:0,phase:'black',paused:false,last:performance.now(),raf:0,closed:false,turning:false};
  const button=el.querySelector('.comic-next'),art=el.querySelector('.comic-art'),image=el.querySelector('.comic-page');button.disabled=true;
  let transitionTimer=0;
  const show=()=>{const page=COMIC_PAGES[session.page];image.src=page.src;image.alt=page.alt;el.querySelector('.comic-count').textContent=(session.page+1)+' / 3';button.textContent=session.page===2?'PREPARE FOR BATTLE →':'TURN PAGE →';};

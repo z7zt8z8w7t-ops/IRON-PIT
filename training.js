@@ -52,3 +52,14 @@ const trainingReturn=node('return').onclick;node('return').onclick=()=>trainingA
 // cannot destroy the target or eject the pilot before the lesson is ready.
 const trainingPanel=updateBattlePanel;updateBattlePanel=function(){trainingPanel();if(!trainingActive||deployment)return;const stage=trainingState.stage,allowed={primary:stage===2||stage===8,secondary:stage===3||stage===8,support:stage===4||stage===8,shield:stage===5||stage===8,repair:stage===6||stage===8,eject:stage===9};for(const[id,ok]of Object.entries(allowed))if(!ok)node(id).disabled=true;};
 const trainingPlayer=stepPlayer;stepPlayer=function(dt){if(trainingActive){const stage=trainingState.stage;if(stage!==2&&stage!==8){firing.primary=false;keys.delete(' ')}if(stage!==3&&stage!==8)firing.secondary=false;if(stage!==4&&stage!==8)firing.support=false;if(stage!==9){ejectHeld=false;ejectPress=0;keys.delete('x')}}trainingPlayer(dt)};
+
+// The opening qualifier comms have already played; training returns directly to the workshop.
+function offerIntroTraining(){
+ if(trainingCompleted()){prepareCampaignWorkshop();return}
+ hideGameMenus();const screen=storyScreen();screen.hidden=false;screen.classList.remove('comms-screen');
+ const offer=document.createElement('div');offer.id='trainingOffer';offer.className='training-offer';
+ offer.innerHTML='<h2>PILOT TRAINING</h2><p>Learn movement, weapons, shields, repairs and escape before your first qualifier.</p><button class="ready-flash">START TUTORIAL</button><button class="skip">SKIP TUTORIAL · WORKSHOP →</button>';
+ node('storyBody').replaceChildren(offer);
+ offer.querySelector('.ready-flash').onclick=()=>{if(!ready)return;screen.hidden=true;prepareCampaignWorkshop();startPilotTraining(prepareCampaignWorkshop)};
+ offer.querySelector('.skip').onclick=prepareCampaignWorkshop;
+}
