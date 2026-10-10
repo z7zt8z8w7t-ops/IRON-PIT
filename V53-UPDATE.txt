@@ -1,0 +1,9 @@
+IRON PIT v53 — combined update from v51
+
+Upload the extracted contents into the same GitHub repository as v51, replacing matching files and retaining the assets/ and audio/ directory structure. This package includes all changed and new files since v51; v52 does not need uploading separately. The splash and in-game label display v53. Existing saved progress is preserved.
+
+Included: v52 arena selection and 1–3 enemies, four workshop tabs, component liveries and campaign unlocks, portrait intro with bare-steel mech and top subtitles, workshop radio music, slow quote fade and left-to-right fire opening. Updated approved cast portraits and alternate poses; Rourke and Dr Lilith Kane display names; Professor Felix Quinn portrait, approved bio and Quick Battle selection. Approved eight-character splash, excluding Quinn, with real clickable Championship and smaller Quick Battle buttons.
+
+Voss laughing at Rourke losing and furious at Rourke winning are supplied as narrative reaction assets with an explicit outcome lookup. They are not inserted into the existing Rookie dialogue, which has no Voss lines. Quinn uses his standard portrait for results because no alternate poses were approved.
+
+Checked: full-script DOM game integration, names and pilot choices, campaign livery locks, arena selection, collision regressions, cinematic playback logic, offline byte-range media, JavaScript syntax, all service-worker/HTML/portrait references, ZIP integrity and byte comparison against the v51 baseline. Actual Safari/iPad rendering was not available.

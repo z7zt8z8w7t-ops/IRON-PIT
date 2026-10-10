@@ -1,0 +1,8 @@
+'use strict';
+// Approved 20-second pre-rendered fire scene includes the timed drone and crackles.
+let quoteOpeningActive=false;
+function playQuoteOpening(done){if(quoteOpeningActive)return;quoteOpeningActive=true;Sound.stopAll();resetBattleInputs();const el=document.createElement('section');el.id='quoteOpening';el.setAttribute('role','dialog');el.setAttribute('aria-label','The harder the conflict, the more glorious the triumph. Thomas Paine.');const video=document.createElement('video');video.src='assets/quote-opening.mp4';video.preload='auto';video.playsInline=true;video.setAttribute('playsinline','');video.volume=Sound.muted?0:1;const skip=document.createElement('button');skip.textContent='SKIP';el.append(video,skip);document.body.append(el);let closed=false,timer;
+const finish=()=>{if(closed)return;closed=true;clearTimeout(timer);video.pause();video.removeAttribute('src');video.load();document.removeEventListener('visibilitychange',visibility);document.removeEventListener('keydown',key);el.remove();quoteOpeningActive=false;done();};
+const key=e=>{if(e.key==='Escape')finish();};const visibility=()=>{if(document.hidden)video.pause();else video.play().catch(()=>{});};video.onended=finish;video.onerror=finish;skip.onclick=finish;document.addEventListener('keydown',key);document.addEventListener('visibilitychange',visibility);requestAnimationFrame(()=>el.classList.add('visible'));timer=setTimeout(()=>{video.play().catch(()=>{skip.textContent='PLAY INTRO';skip.onclick=()=>{video.play().then(()=>{skip.textContent='SKIP';skip.onclick=finish;}).catch(finish);};});},1200);
+}
+const campaignStart52=enterCampaign;node('splashCampaign').onclick=()=>playQuoteOpening(campaignStart52);
