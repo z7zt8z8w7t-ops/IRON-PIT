@@ -5,7 +5,7 @@ function rgbHue(r,g,b){const max=Math.max(r,g,b),min=Math.min(r,g,b),d=max-min;l
 function hsvRGB(h,s,v){const n=h*6,i=Math.floor(n),f=n-i,p=v*(1-s),q=v*(1-f*s),t=v*(1-(1-f)*s);return [[v,t,p],[q,v,p],[p,v,t],[p,q,v],[t,p,v],[v,p,q]][i%6]}
 function prepareColourSprites(){if(!document.createElement)return;for(const id of ['chassis','turret',...BIPED_ASSETS,...CHASSIS_ASSETS,...side.map(v=>v[0]),...rear.map(v=>v[0])]){const im=images[id],canvas=document.createElement('canvas');canvas.width=im.width;canvas.height=im.height;const c=canvas.getContext('2d');c.drawImage(im,0,0);const pixels=c.getImageData(0,0,canvas.width,canvas.height),d=pixels.data;for(let i=0;i<d.length;i+=4){if(d[i+3]===0)continue;const hsv=rgbHue(d[i]/255,d[i+1]/255,d[i+2]/255);let replacement=null;if(hsv.h>=.105&&hsv.h<=.48&&hsv.s>=.06&&hsv.s<.55&&hsv.v>=.16&&hsv.v<.65){replacement=hsvRGB(.012,Math.min(.72,hsv.s*1.8+.25),hsv.v)}else if(id==='turret'&&hsv.h>.46&&hsv.h<.60&&hsv.s>.45){replacement=hsvRGB(.095,hsv.s,hsv.v)}if(replacement)for(let k=0;k<3;k++)d[i+k]=Math.round(replacement[k]*255)}c.putImageData(pixels,0,0);colourSprites[id]=canvas}}
 function colouredSprite(id,colour){return colour==='red'&&colourSprites[id]?colourSprites[id]:images[id]}
-// v53 paint layers are clipped to armour pixels, retaining mechanical details.
+// v54 paint layers are clipped to armour pixels, retaining mechanical details.
 Object.assign(PALETTES,{
  starter:{name:'Bare Steel · Scorched',cockpit:'Cyan',base:[.48,.50,.52]},
  inferno:{name:'Inferno',cockpit:'Cyan',base:[.13,.15,.17],accent:'#ff681c',pattern:'flames'},

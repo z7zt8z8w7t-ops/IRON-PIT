@@ -12,19 +12,19 @@ function showSponsorIntroduction(){
   rookieProgress.sponsorSeen=true;
   saveRookie();
   showRookieLadder();
- },SPONSOR_BRIEF,{hudson:'win'});
+ },SPONSOR_BRIEF,{hudson:'focused'});
 }
-const OPENING_LINES=[["dave", "You’ve spent half your life fixing these things for other people. About time you drove one."], ["jim", "Most of the ones I fix haven’t got someone shooting at them."], ["dave", "Give it time."], ["jim", "You really think we can compete with the sponsored teams?"], ["dave", "Their machines cost more. Doesn’t mean their pilots are better."], ["jim", "And if we lose?"], ["dave", "Then we’re walking home."]];
-function showOpeningBackstory(){playOpeningCinematic(()=>{rookieProgress.introSeen=true;rookieProgress.cinematicSeen=true;rookieProgress.cinematicVersion=53;saveRookie();showRookieLadder()})}
+const OPENING_LINES=[["dave", "You’ve spent half your life fixing these things for other people. I think it’s about time you drove one."], ["jim", "Hmmm, I can drive em, but I can’t afford em."], ["dave", "Maybe I’ve got a surprise for you."], ["jim", "You really think we can compete with the sponsored teams?"], ["dave", "Their machines cost more. Doesn’t mean their pilots are better."], ["jim", "And if we lose?"], ["dave", "Then I guess we’re walking home."]];
+function showOpeningBackstory(){playOpeningCinematic(()=>{rookieProgress.introSeen=true;rookieProgress.cinematicSeen=true;rookieProgress.cinematicVersion=54;saveRookie();showRookieLadder()})}
 const sponsorLadder=showRookieLadder;
 showRookieLadder=function(){
- if(rookieProgress.completed===0&&(!rookieProgress.cinematicSeen||rookieProgress.cinematicVersion!==53)){showOpeningBackstory();return}
+ if(rookieProgress.completed===0&&(!rookieProgress.cinematicSeen||rookieProgress.cinematicVersion!==54)){showOpeningBackstory();return}
  if(rookieProgress.completed===5&&!rookieProgress.sponsorSeen){showSponsorIntroduction();return}
  sponsorLadder();
  const replay=document.createElement('button');replay.textContent='REPLAY BACKSTORY';replay.onclick=showOpeningBackstory;node('storyBody').append(replay);
  if(rookieProgress.completed!==5)return;
  const card=document.createElement('button');card.className='sponsor-card';
- const portrait=document.createElement('img');portrait.src=portraitFor('hudson');portrait.alt='Dr Lilith Kane';
+ const portrait=document.createElement('img');portrait.src=portraitFor('hudson','focused');portrait.alt='Dr Lilith Kane';
  const copy=document.createElement('span');
  const label=document.createElement('small');label.textContent='SPONSORSHIP SECURED';
  const name=document.createElement('strong');name.textContent='DR LILITH KANE';

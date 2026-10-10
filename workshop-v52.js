@@ -81,3 +81,6 @@ if(build.colour==='green'&&pilotId()==='jim'&&!localStorage.getItem('iron-pit-bu
 
 function vossReactionPortrait(rourkeWon){return 'assets/story-voss-rourke-'+(rourkeWon?'win':'loss')+'.jpg'}
 const basePortrait53=portraitFor;portraitFor=function(who,mood='focused'){if(who==='voss'&&['rourke-win','rourke-loss'].includes(mood))return 'assets/story-voss-'+mood+'.jpg';if(who==='quinn')return pilotPortrait('quinn');return basePortrait53(who,mood)};
+
+const kanePortrait54=portraitFor;portraitFor=function(who,mood='focused'){if(who==='hudson'&&mood==='league-win')return 'assets/story-kane-league-win.jpg';if(who==='hudson'&&mood==='championship-win')return 'assets/story-kane-championship-win.jpg';return kanePortrait54(who,mood)};
+function showChampionshipVictory(done){showStoryDialogue([['hudson','Champion.']],done,{title:'Champion',round:'CHAMPIONSHIP WON',arena:'desert',brief:'Championship complete'},{hudson:'championship-win'});}

@@ -13,8 +13,8 @@ const Sound={context:null,buffers:{},voices:[],muted:false,last:{},loading:null,
  bipedSwing(side,moving,progress=0){const c=this.context;if(!c||c.state!=='running'||this.muted||document.hidden)return;let node=this.bipedNodes[side];if(!moving){this.fadeMotionNode(node);delete this.bipedNodes[side];return}if(!node&&this.buffers['biped-hydraulic']){node=this.motionNode('biped-hydraulic',c.currentTime,true);this.bipedNodes[side]=node}if(node){node.source.playbackRate.setTargetAtTime(.85+.3*progress,c.currentTime,.025);node.gain.gain.setTargetAtTime(.24+.12*progress,c.currentTime,.025)}},
  bipedLand(side){this.bipedSwing(side,false);const c=this.context;if(!c||c.state!=='running'||this.muted||document.hidden||!this.buffers['biped-step'])return;const node=this.motionNode('biped-step',c.currentTime);node.source.playbackRate.value=.98+Math.random()*.04;node.gain.gain.cancelScheduledValues(c.currentTime);node.gain.gain.setValueAtTime(.85,c.currentTime)},
  stopMotion(){for(const loop of Object.values(this.motionLoops)){try{loop.source.stop()}catch(e){}loop.source.disconnect();loop.gain.disconnect()}this.motionLoops={};for(const node of this.motionNodes){try{node.source.stop()}catch(e){}node.source.disconnect();node.gain.disconnect()}this.motionNodes.clear();this.bipedNodes={};this.turretSession=null;this.turretTail=null},
- startMusic(){if(typeof inArena==='undefined')return;if(inArena){this.pauseMusic();return}if(this.muted||document.hidden)return;if(!this.music){this.music=new Audio('audio/systemkollaps.mp3');this.music.loop=true;this.music.preload='auto'}this.music.volume=1;this.musicTarget=1;if(this.music.paused)this.music.play().catch(()=>{})},
- stepMusic(dt){if(inArena){this.pauseMusic();return}if(this.music&&!this.music.paused)this.music.volume=1},
+ startMusic(){this.music?.pause()},
+ stepMusic(){this.music?.pause()},
  pauseMusic(){this.music?.pause()},
  toggle(){this.muted=!this.muted;if(this.muted)this.stopAll();if(this.master)this.master.gain.value=this.muted?0:.7;document.getElementById('mute').textContent=this.muted?'SOUND OFF':'SOUND ON';if(!this.muted)this.startMusic()}
 };

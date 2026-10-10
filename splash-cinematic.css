@@ -27,6 +27,16 @@
 @media(orientation:landscape) and (max-height:600px){.movie-caption{bottom:3%;padding:8px;font-size:15px}.movie-controls{padding:6px 4%}}
 @media(prefers-reduced-motion:reduce){#splash :is(#splashCampaign,#splashStart),.movie-shot,.movie-effects,.movie-effects i{animation:none}}
 
-/* v53 approved size hierarchy; artwork never intercepts controls. */
+/* v54 approved size hierarchy; artwork never intercepts controls. */
 #splashActions{width:84%;bottom:calc(7% + env(safe-area-inset-bottom));align-items:center}
 #splashActions #splashStart{width:65%;animation:none}
+/* Gritty comic dialogue overlays; quotation opener retains its elegant font. */
+.movie-shot{object-fit:cover;animation:comicShot 9s ease-out both}
+.movie-caption{top:4%;bottom:auto;background:#fff3d5;color:#141414;border:3px solid #171717;border-radius:45% / 16%;padding:16px 24px;box-shadow:5px 6px 0 #0008;font-family:'Comic Sans MS','Chalkboard SE',cursive;font-weight:800;text-transform:uppercase;letter-spacing:.3px;font-size:clamp(16px,2.4vw,25px)}
+.movie-caption strong{display:inline-block;background:#b42924;color:white;padding:4px 10px;font-size:12px;letter-spacing:1px;margin-bottom:8px;border:2px solid #171717}
+.movie-caption[data-speaker='jim'] strong{background:#4c6543}
+.movie-caption span{display:block}
+.movie-caption:after{content:'';position:absolute;bottom:-19px;left:22%;width:22px;height:22px;background:#fff3d5;border-right:3px solid #171717;border-bottom:3px solid #171717;transform:skew(-20deg) rotate(45deg)}
+.movie-caption[hidden],.movie-shot[hidden]{display:none}
+#openingMovie[data-phase='black'] .movie-stage:after,#openingMovie[data-phase='black'] .movie-effects{display:none}
+@keyframes comicShot{from{opacity:0;transform:scale(1)}20%{opacity:1}to{opacity:1;transform:scale(1.04)}}

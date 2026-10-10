@@ -1,0 +1,5 @@
+IRON PIT v54 PATCH FOR WORKING v53
+
+Apply this ONLY over the working v53 build. Extract and upload the contents to the same repository, replacing matching files and retaining assets/ and audio/ folders. Do not upload the ZIP itself. Delete audio/systemkollaps.mp3; it is no longer used. Do not use the earlier combined v54 ZIP.
+
+Updates: approved intro order and dialogue, new Rourke/Dave repair and cockpit scenes, workshop interior, comic captions, filtered workshop radio and ambient fades, and original game-song removal. Kane meets Rourke after Rookie with her standard portrait. Her next-league win and overall championship images are supplied for those later events; only Rookie progression currently exists.
