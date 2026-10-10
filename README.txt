@@ -1,89 +1,63 @@
-IRON PIT v43 — SIX CHASSIS / NAMED STADIUM ARENAS
+IRON PIT v44 — ROOKIE LEAGUE
 
-This is a changed-files update over v42. Extract the ZIP and upload its contents
-into the existing repository root, preserving assets/ paths. Keep all existing
-files and audio. Refresh while online until the visible label says v43, then
-allow asset loading to finish before launching offline.
+CHANGED-FILES UPDATE OVER v43
+Extract this ZIP and upload all included files into your existing GitHub
+repository root. Keep assets/ and audio/ folders and all other existing files.
+Do not delete the previous build. Allow the online version to load completely
+until v44 appears, then launch the installed PWA offline.
 
-FLOW
-START -> choose 1v1, 1v2, 1v3 free-for-all, two-player, or weapon test -> choose
-arena -> flashing CONFIRM -> Workshop -> DEPLOY. Both selections are required.
-Two-player builds happen in turn; Player Two's entire Workshop rotates 180
- degrees, including weapon choices. Both humans play in the selected stadium.
+CHAMPIONSHIP
+Choose CHAMPIONSHIP on the splash screen or Mission Select.
+Jim is the player pilot. Dave is the mechanic. Rivet and Skitter are female
+rivals; Bastion pilots a heavy tank. Approved portraits accompany tap-through
+briefings and post-match dialogue. SKIP advances to the next playable screen.
 
-WORKSHOP
-Swipe the six chassis cards. The live mech is fully coloured and opaque, showing the selected paint job.
-Tap WPN 1, WPN 2 or WPN 3 on the schematic
-and swipe compatible weapons. Each choice shows its name, image, weight and
-victory requirement. Choose a modifier in the same panel. PAINT toggles the
-existing two complete paint schemes independently of chassis class.
-The Workshop fits one screen without vertical scrolling on portrait iPads.
+The Rookie ladder runs upwards: qualifier at the bottom, final at the top.
+1. First Blood: Rivet, Dust Crucible in clear golden-hour conditions.
+   Starter Light tank or Light biped; machine gun, tri-salvo and mines available.
+   Reward: Championship entry and Rotary autocannon.
+2. Catch Me If You Can: Skitter, Frostbite. Rotary + mines, Light biped.
+   Reward: Flak cannon.
+3. Heavy Metal: Bastion, Blackout. Heavy tank, Rotary + Flak.
+   Reward: Swarm missiles.
+4. Three's a Crowd: Skitter and Bastion, Chainworks. All against all.
+   Reward: Pulse lasers.
+5. The Rematch: upgraded Rivet, Dust Crucible with stadium-wide sandstorms.
+   Reward: Smart gun, sponsorship and Rookie Champion status.
 
-CHASSIS                          UNLOADED SPEED   ARMOUR REDUCTION
-Light tank                            210 U/s          12%
-Assault tank (four track pods)         170 U/s          25%
-Heavy tank                            140 U/s          38%
-Light biped                           260 U/s          12%
-Assault biped                         220 U/s          25%
-Heavy biped                           180 U/s          38%
-Weapon weight subtracts 1.7 U/s per weight unit from tanks, 3 U/s from bipeds,
-with class-specific minimum speeds. Penetration reduces armour protection.
-All classes retain one 700 HP hull; individual component damage stays removed.
-Existing turret, weapon positions, health/repair/eject lights and weapon
-balance are retained. Bipeds use the direct movement control and forward gait.
+The qualifier restricts chassis to Light variants. Later matches allow all
+six existing chassis classes. Weapon damage, heat, reload, weights and speed
+penalties retain the existing balance. Rival behaviour preserves two-thumb
+limits: movement pauses to fire one system; shield activation pauses aiming.
+Skitter repositions between firing sequences. AI tolerates empty hardpoints.
 
-TTK
-Workshop EST. TOTAL TTK is an ideal approximate simulation of all equipped
-systems firing together against a stationary 700 HP assault target at 300 U,
-shields off. Includes standard heat, reloads, armour, modifiers and approximate
-travel time. It is not a promise of real match time: misses, shields, movement,
-two-thumb controls and area effects change results. Mines and smoke do not
-contribute to forward-fire TTK. Use WEAPON TEST ARENA for actual game collision
-measurements at 300/500/800 U. Results remain saved locally on the device.
+Campaign saves and rewards are separate from Quick Battle wins. The testing
+unlock toggle does not bypass campaign equipment progression. Losses give no
+rewards; retry from the Workshop. Completed matches can be replayed without
+duplicate rewards. The Contender League is not implemented in this update.
+Progress is stored locally on this device; clearing site data removes it.
 
-CONTROLS
-WPN 1 sits directly beside the chassis stick; WPN 2 directly beside turret
-arrows. Combined turret arrow width matches chassis stick diameter. Outer
-controls use available panel height. Middle top: SHIELD / REPAIR / WPN 3.
-EJECT spans the row beneath. Panel height is preserved. Each chassis has its
-own accent colour. WPN labels stay centred; heat fills the button red upwards,
-then drains during cooling. Missile lock is indicated by a bright border.
-Post-match Workshop and Rematch still appear only after complete shutdown.
+WORKSHOP AND MISSION SELECT
+The main assembly is a digital green schematic. Chassis carousel thumbnails
+show your chosen paint. The prominent PAINT SCHEME row changes the scheme.
+Mission Select has a large selected-stadium preview, navigation arrows,
+thumbnail carousel, combat mode cards and a flashing CONFIRM -> WORKSHOP.
+The existing control panel geometry remains unchanged.
 
-ARENAS
-Dust Crucible: golden-hour sand and worn concrete, warm long mech shadows,
-fine drifting sand and intermittent obscuring sandstorms. First storm begins
-at 15 seconds, peaks after seven seconds, fades out by 48; repeats every 65.
-Dust extends over the crowd stands and baked stadium floodlights as well as
-the arena. The controller stays clear. Mech lights and muzzle flashes remain
-above dust. AI, smart-gun and missile lock
-visibility are restricted during storms; muzzle flashes briefly reveal a target.
-Drowned Sector: blue-hour flooded industrial floor, reflections, ripples/wakes.
-No rain, lightning, electrical shutdown or weather damage.
-Blackout: dark ground, restrained lighting and under-arm headlights.
-Rotor Pit: fast rotating central steel platform and stationary outer routes.
-Nodes covered by the platform stay excluded.
-Frostbite: snow-covered floor in cold daylight; fading track marks/footprints
-and small moving-mech powder effects. No slippery movement penalty.
-Chainworks: moving industrial conveyor belts alter mech position.
+PILOT ESCAPE
+Fatal damage automatically launches the cockpit pod, then the ordinary mech
+explosion follows. Manual eject retains the three-second reactor alarm and
+nuclear sequence. The pod jets upwards on a steep arc, falls away slightly,
+then opens an olive military parachute. The canopy is above the pod and drifts
+off screen. Escape effects draw above the stadium and explosion overlays.
+All temporary escape objects are cleared on redeploy.
 
-FORCEFIELDS
-Horizontal, vertical and true 45-degree diagonal barriers. The grid uses square
-cells; nodes sit at intersections. Random layouts are checked by flood-filling
-floor with clearance inflated beyond the largest mech's radius. Starting
-positions stay clear. Walls change every 15 seconds, with a five-second
-klaxon/yellow warning, then steady red before switching. Activation on top of
-any mech is lethal. Bullets collide with the same geometry as movement.
-
-OFFLINE / PERFORMANCE
-All v43 scripts, stylesheet, splash artwork and chassis parts are cached with
-the existing assets and audio. No external fonts or online runtime dependency.
-Dust texture, mech shadows and paint variants are reused. Snow marks are
-capped at 240 and expire; dust uses a bounded particle/texture budget.
-
-VALIDATION
-Native-canvas renders of all six chassis and arenas; 60 generated layouts
-checked for connected floor and spawn clearance; diagonal collision, storm
-visibility/reveal, snow marks, solo counts, two-player builds/controls, weapon
-range, post-match shutdown and service-worker offline requests checked.
-Physical Safari/iPad touch layout, sound and frame rate need device testing.
+VERIFICATION
+JavaScript syntax checks; runtime integration of all five missions, reward
+saves/reload, loss/retry, replays, unlock isolation, empty-hardpoint AI, native
+canvas rendering, normal and nuclear escape, shared-iPad startup and damage,
+Quick Battle 1v2/1v3, and Weapon Test startup/simulation/return.
+All service-worker cache entries checked for existing files; patch applied to
+a fresh v43 baseline and checked against the completed v44 tree.
+Safari touch behaviour and exact iPad layout require device testing. No claim
+of measured iPhone/iPad performance or browser-level layout validation.
