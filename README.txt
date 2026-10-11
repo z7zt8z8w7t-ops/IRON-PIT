@@ -1,4 +1,4 @@
-IRON PIT v65 — DRONES — CHANGED FILES ONLY
+IRON PIT v66 — DRONES — CHANGED FILES ONLY
 
 Apply over v62, preserving folders and replacing matching files.
 
@@ -13,3 +13,5 @@ Validation: full script startup, seven league rounds and targeted drone launch/o
 V64: Built-in comms SKIP/NEXT hardware controls. Quote NEXT explodes into the comic cover; cover TURN PAGE starts workshop audio. Two randomly selected workshop radio tracks at 10% with four-second large-room reverb. Apply changed files over v63.
 
 V65: Workshop radio streams through Web Audio filters and room reverb; playback is requested in the page-turn gesture, without decoding whole songs or waiting on radio readiness to fade the ambience. Apply over v64.
+
+V66 music isolation test: Restore the v63 decoded Web Audio player with the original song only, 10% gain and four-second room reverb. Quote NEXT reveals the cover and starts music; cover TURN PAGE still fades in ambience. Apply over v65.
