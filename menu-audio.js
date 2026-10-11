@@ -5,7 +5,7 @@ let workshopAudioSession=false;
 let radioFailed=false,ambientFailed=false;
 let radioChain=null,radioBuffer=null,radioLoading=null,radioSource=null,radioOffset=0,radioStarted=0;
 let ambientBuffer=null,ambientLoading=null,ambientSource=null,ambientGain=null,ambientOffset=0,ambientStarted=0;
-function workshopRadioWanted(){return !inArena&&(!!openingMovieSession||workshopAudioSession||node('builder').style.display!=='none');}
+function workshopRadioWanted(){return !inArena&&(!!openingMovieSession?.audioStarted||workshopAudioSession||node('builder').style.display!=='none');}
 function ensureRadioChain(){const c=Sound.context;if(!c||radioChain)return;const high=c.createBiquadFilter(),low=c.createBiquadFilter(),drive=c.createWaveShaper(),gain=c.createGain();high.type='highpass';high.frequency.value=360;low.type='lowpass';low.frequency.value=3200;low.Q.value=.7;const curve=new Float32Array(1024);for(let i=0;i<curve.length;i++){const x=i*2/(curve.length-1)-1;curve[i]=Math.tanh(x*1.7)/Math.tanh(1.7)}drive.curve=curve;gain.gain.value=0;high.connect(low);low.connect(drive);let reverb=null;
  if(c.createConvolver){const convolver=c.createConvolver(),dry=c.createGain(),wet=c.createGain(),impulse=c.createBuffer(2,Math.round(c.sampleRate*4),c.sampleRate);for(let ch=0;ch<2;ch++){const a=impulse.getChannelData(ch);for(let i=0;i<a.length;i++)a[i]=(Math.random()*2-1)*Math.pow(1-i/a.length,2)}convolver.buffer=impulse;dry.gain.value=.6;wet.gain.value=.4;drive.connect(dry);dry.connect(gain);drive.connect(convolver);convolver.connect(wet);wet.connect(gain);reverb={convolver,dry,wet}}else drive.connect(gain);
  gain.connect(Sound.master);radioChain={high,low,drive,gain,reverb};
