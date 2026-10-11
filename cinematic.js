@@ -21,16 +21,16 @@ function playOpeningCinematic(done,pages=COMIC_PAGES,lastLabel='PREPARE FOR BATT
  const enableControls=()=>{button.disabled=session.turning;skipButton.disabled=session.turning;previousButton.disabled=session.turning||session.page===0;};
  const startAudio=()=>{if(comicInterludeActive)return;if(!session.audioStarted){session.audioStarted=true;workshopAudioSession=true;Sound.unlock();Sound.startMusic();}};
  const show=()=>{const page=pages[session.page];image.src=page.src;image.alt=page.alt;el.querySelector('.comic-count').textContent=(session.page+1)+' / '+pages.length;button.textContent=session.page===pages.length-1?lastLabel:'TURN PAGE →';};
- const finish=()=>{if(session.closed)return;session.closed=true;clearTimeout(transitionTimer);cancelTurn();cancelAnimationFrame(session.raf);document.removeEventListener('keydown',onKey);el.remove();openingMovieSession=null;comicInterludeActive=false;if(Sound.dry)Sound.dry.gain.value=.88;resetBattleInputs();done();Sound.startMusic();};
+ const finish=()=>{if(session.closed)return;session.closed=true;if(comicInterludeActive)ComicAudio.end(0);clearTimeout(transitionTimer);cancelTurn();cancelAnimationFrame(session.raf);document.removeEventListener('keydown',onKey);el.remove();openingMovieSession=null;comicInterludeActive=false;if(Sound.dry)Sound.dry.gain.value=.88;resetBattleInputs();done();Sound.startMusic();};
  const next=()=>{if(session.closed||session.turning||session.phase!=='comic')return;session.turning=true;enableControls();
-  if(session.page===pages.length-1){session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,fadeTime);return}
+  if(session.page===pages.length-1){if(comicInterludeActive)ComicAudio.end(2);session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,fadeTime);return}
   startAudio();
   const front=pages[session.page].src;session.page++;show();
   cancelTurn=turnComicPage(art,front,pages[session.page].src,()=>{session.turning=false;enableControls();button.focus();});
  };
  const onKey=e=>{if(e.key==='ArrowRight'){e.preventDefault();next()}};
  previousButton.onclick=()=>{if(session.closed||session.turning||session.page===0||session.phase!=='comic')return;session.turning=true;enableControls();const front=pages[session.page].src;session.page--;show();cancelTurn=turnComicPage(art,front,pages[session.page].src,()=>{session.turning=false;enableControls();previousButton.focus();},true);};
- skipButton.onclick=()=>{if(session.closed||session.turning||session.phase!=='comic')return;startAudio();session.turning=true;enableControls();session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,fadeTime);};
+ skipButton.onclick=()=>{if(session.closed||session.turning||session.phase!=='comic')return;if(comicInterludeActive)ComicAudio.end(2);startAudio();session.turning=true;enableControls();session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,fadeTime);};
  button.onclick=next;document.addEventListener('keydown',onKey);show();enableControls();
  if(comicInterludeActive){session.phase='entering';session.turning=true;enableControls();preloadComicArtwork(pages).then(()=>{if(session.closed)return;show();void el.offsetWidth;el.dataset.phase='comic';transitionTimer=setTimeout(()=>{if(session.closed)return;session.phase='comic';session.turning=false;enableControls();},2000);});}
  const tick=now=>{if(session.closed)return;const dt=Math.max(0,Math.min(.1,(now-session.last)/1000));session.last=now;
@@ -68,6 +68,7 @@ function playComicInterlude(done,pages,lastLabel='NEXT →'){
  if(radioChain){radioChain.gain.gain.cancelScheduledValues?.(Sound.context.currentTime);radioChain.gain.gain.value=0;}
  if(Sound.dry){Sound.dry.gain.cancelScheduledValues?.(Sound.context.currentTime);Sound.dry.gain.value=0;}
  hideGameMenus();storyScreen().hidden=true;
+ if(pages===BLAZE_INTERLUDE_PAGES)ComicAudio.begin('blaze');else if(pages===SKITTER_INTERLUDE_PAGES)ComicAudio.begin('skitter');
  playOpeningCinematic(done,pages,lastLabel);
 }
 function playBlazeInterlude(done){playComicInterlude(done,BLAZE_INTERLUDE_PAGES)}

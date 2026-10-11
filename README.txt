@@ -1,12 +1,9 @@
-v74: Qualifier win -> fixtures -> victory comms -> fade to black -> approved four-page Blaze bar comic -> final NEXT/fade -> Skitter briefing -> workshop. Uses corrected approved faces. PREVIOUS, SKIP, page curl and existing workshop audio continue. Changed files only; apply over v72.
+IRON PIT v75 — changed files over v74
 
-v74 update: Rookie fixture mechs share the exact battle loadouts and signature liveries. Skitter uses red armour with black/white checks; Bastion uses Anarchy; Blaze uses Flames, including upgraded final weapons. Fixture images are bounded to their cells and no Rourke portrait is shown. League roster wording is now league fixtures. Apply changed files over v71.
+Blaze comic: Bar sounds ambience with a two-second equal-power loop crossfade, plus Blaze Bar on a normal loop. Both use the approved four-second large-room reverb, 35 ms predelay, and preview balance. Start on victory transmission NEXT; final NEXT and SKIP fade both out over two seconds.
 
-IRON PIT v74 — changed files over v70
+Skitter comic: Voss Towers loops from NEXT into the tower establishing page through all comic pages, then fades out over two seconds on final NEXT or SKIP.
 
-Championship starts fresh on reload/reopen; progress stays in memory during the current session. Existing Championship saves are ignored and removed. Quick Battle records and settings remain.
+Prior workshop music and sound effects stop at comic entry. Comic audio respects mute and app visibility, does not restart on page turns, and cannot continue into the next transmission. Audio files are cached for offline play.
 
-First Skitter round victory: fixtures, victory comms, three-page comic interlude, Next fades to black, Bastion briefing powers on, then workshop. Previous and Skip remain available.
-
-V74 UPDATE (apply these changed files over v73):
-Comic interludes cut immediately to black and silence all audio on the final transmission NEXT. Fade into the comic over two seconds; final NEXT fades out over two seconds, then the next comms boots. Skitter opens with the captioned Voss Industries tower. Blaze opens with Some hours later. The reader prepares clean high-detail textures that exclude printed navigation and page numbers, including during page curls, and gives every interlude the same cream margins and black outer frame. Dave speaks top right; other remote speakers top left; Rourke bottom left with self view bottom right. Chassis cards use Retina-sized live mech rendering. Destroyed mechs leave translucent ragged scorch marks and thicker smoke drifting downwind, fading away by fifteen seconds. Fatal-hit and manual escape-pod sequences are preserved.
+Upload these files over v74, preserving the audio folder.

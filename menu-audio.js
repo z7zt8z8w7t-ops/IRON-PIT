@@ -27,9 +27,9 @@ function setAmbientLevel(level){const c=Sound.context;ensureAmbient();if(!c||c.s
 function workshopTracksReady(){return !!(radioBuffer||radioFailed)&&!!(ambientBuffer||ambientFailed)&&(!Sound.context||Sound.context.state==='running')}
 function introAudioMix(){const s=openingMovieSession;return s?.audioStarted?Math.min(1,s.totalElapsed):s?0:1}
 const normalPauseMusic=Sound.pauseMusic.bind(Sound);
-Sound.startMusic=function(){this.music?.pause();if(inArena)workshopAudioSession=false;const s=openingMovieSession;if((typeof comicInterludeActive!=='undefined'&&comicInterludeActive)||node('quoteOpening')||inArena||this.muted||document.hidden||s?.paused){this.pauseMusic();return}if(workshopRadioWanted()){const mix=introAudioMix();setRadioLevel(1);setAmbientLevel(mix)}else{stopRadio();stopAmbient()}};
+Sound.startMusic=function(){if(typeof ComicAudio!=='undefined')ComicAudio.update();this.music?.pause();if(inArena)workshopAudioSession=false;const s=openingMovieSession;if((typeof comicInterludeActive!=='undefined'&&comicInterludeActive)||node('quoteOpening')||inArena||this.muted||document.hidden||s?.paused){this.pauseMusic();return}if(workshopRadioWanted()){const mix=introAudioMix();setRadioLevel(1);setAmbientLevel(mix)}else{stopRadio();stopAmbient()}};
 Sound.pauseMusic=function(){stopRadio();stopAmbient();normalPauseMusic()};Sound.stepMusic=function(){this.startMusic()};
-const radioUnlock=Sound.unlock.bind(Sound);Sound.unlock=async function(){await radioUnlock();loadWorkshopTrack('radio');ensureAmbient();this.startMusic()};
+const radioUnlock=Sound.unlock.bind(Sound);Sound.unlock=async function(){await radioUnlock();if(typeof ComicAudio!=='undefined')ComicAudio.preload();loadWorkshopTrack('radio');ensureAmbient();this.startMusic()};
 // Resume Web Audio from the gesture itself, before any asynchronous loading.
 for(const type of ['pointerdown','touchstart','keydown'])document.addEventListener(type,()=>{if(Sound.context&&Sound.context.state!=='running')Sound.context.resume().then(()=>Sound.startMusic()).catch(()=>{})},{capture:true,passive:true});
 
