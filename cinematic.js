@@ -1,6 +1,7 @@
  'use strict';
 let openingMovieSession=null;
 const COMIC_PAGES=[
+ {src:'assets/splash-cast.jpg',alt:'Iron Pit comic cover: the approved pilots, sponsors and arena mechs.'},
  {src:'assets/intro-comic-1.jpg',alt:'Page 1: Daves Fix n Spray exterior; Dave and Rourke repairing a customer mech. Dave: You’ve spent half your life fixing these things for other people. I think it’s about time you drove one. Rourke: Hmmm, I can drive em, but I can’t afford em.'},
  {src:'assets/intro-comic-2.jpg',alt:'Page 2: Dave reveals the bare-steel mech. Dave: Well maybe you don’t need to. Rourke: Is that for me? Beside the cockpit, Rourke: You really think we can compete with the sponsored teams? Dave: Their machines cost more. Doesn’t mean their pilots are better.'},
  {src:'assets/intro-comic-3.jpg',alt:'Page 3: Rourke’s mech enters the Iron Pit. Rourke: And if we lose? Dave: Then I guess we’re walking home.'}
@@ -15,13 +16,13 @@ function playOpeningCinematic(done){
  el.innerHTML='<div class="comic-book"><div class="comic-art"><img class="comic-page" alt=""></div><div class="comic-footer"><small class="comic-count"></small><button class="comic-next" disabled>TURN PAGE →</button></div></div>';
  document.body.append(el);
  const button=el.querySelector('.comic-next'),art=el.querySelector('.comic-art'),image=el.querySelector('.comic-page');button.disabled=true;
- let transitionTimer=0;
- const show=()=>{const page=COMIC_PAGES[session.page];image.src=page.src;image.alt=page.alt;el.querySelector('.comic-count').textContent=(session.page+1)+' / 3';button.textContent=session.page===2?'PREPARE FOR BATTLE →':'TURN PAGE →';};
- const finish=()=>{if(session.closed)return;session.closed=true;clearTimeout(transitionTimer);cancelAnimationFrame(session.raf);document.removeEventListener('keydown',onKey);el.remove();openingMovieSession=null;resetBattleInputs();done();Sound.startMusic();};
+ let transitionTimer=0,cancelTurn=()=>{};
+ const show=()=>{const page=COMIC_PAGES[session.page];image.src=page.src;image.alt=page.alt;el.querySelector('.comic-count').textContent=(session.page+1)+' / '+COMIC_PAGES.length;button.textContent=session.page===COMIC_PAGES.length-1?'PREPARE FOR BATTLE →':'TURN PAGE →';};
+ const finish=()=>{if(session.closed)return;session.closed=true;clearTimeout(transitionTimer);cancelTurn();cancelAnimationFrame(session.raf);document.removeEventListener('keydown',onKey);el.remove();openingMovieSession=null;resetBattleInputs();done();Sound.startMusic();};
  const next=()=>{if(session.closed||session.turning||session.phase!=='comic')return;session.turning=true;button.disabled=true;
-  if(session.page===2){session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,850);return}
-  const sheet=document.createElement('img');sheet.className='comic-turn-sheet';sheet.src=COMIC_PAGES[session.page].src;sheet.alt='';sheet.setAttribute('aria-hidden','true');art.append(sheet);session.page++;show();
-  transitionTimer=setTimeout(()=>{sheet.remove();session.turning=false;button.disabled=false;button.focus();},820);
+  if(session.page===COMIC_PAGES.length-1){session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,850);return}
+  const front=COMIC_PAGES[session.page].src;session.page++;show();
+  cancelTurn=turnComicPage(art,front,COMIC_PAGES[session.page].src,()=>{session.turning=false;button.disabled=false;button.focus();});
  };
  const onKey=e=>{if(e.key==='ArrowRight'){e.preventDefault();next()}};
  button.onclick=next;document.addEventListener('keydown',onKey);show();

@@ -32,5 +32,5 @@ showRookieLadder=function(){
  const action=document.createElement('span');action.textContent='REPLAY TRANSMISSION →';
  copy.append(label,name,action);card.append(portrait,copy);
  card.onclick=showSponsorIntroduction;
- node('storyBody').querySelector('.league-intro').after(card);
+ node('storyBody').append(card);
 };
