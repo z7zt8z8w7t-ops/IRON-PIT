@@ -1,7 +1,9 @@
 /* The live hit areas match the buttons painted on the approved new cover. */
-#splashCast{width:min(100vw,75dvh);height:min(100dvh,133.3333vw);left:50%;top:50%;inset:auto;transform:translate(-50%,-50%);object-fit:contain}
-#splashActions{inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,75dvh);height:min(100dvh,133.3333vw);max-width:none;display:block;pointer-events:none}
-#splashActions :is(#splashCampaign,#splashStart){position:absolute;left:12%;width:76%;height:8%;min-height:0;aspect-ratio:auto;pointer-events:auto;animation:none;border-radius:8px;background:transparent}
+#splashCast,#splashActions{position:absolute;inset:auto;left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);width:min(100%,75vh);height:min(100vh,133.3333vw);max-width:none;max-height:none}
+@supports(height:100dvh){#splashCast,#splashActions{width:min(100%,75dvh);height:min(100dvh,133.3333vw)}}
+#splashCast{object-fit:contain;object-position:center;display:block}
+#splashActions{display:block;pointer-events:none}
+#splashActions :is(#splashCampaign,#splashStart){position:absolute;left:12%;width:76%;height:8%;min-height:0;aspect-ratio:auto;pointer-events:auto;animation:none!important;border:0;padding:0;margin:0;box-shadow:none;filter:none;border-radius:8px;background:transparent}
 #splashActions #splashCampaign{top:82%}#splashActions #splashStart{top:91%;left:28%;width:44%;height:5%}
 #splashActions button img{opacity:0}#splashActions button:hover{background:#e9ff7d18}#splashActions button:active{background:#faffbd44}
 .league-links{display:flex;gap:10px;flex-wrap:wrap}.league-links button{flex:1;min-height:44px}
