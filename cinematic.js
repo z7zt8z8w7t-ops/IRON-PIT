@@ -12,7 +12,7 @@ function playOpeningCinematic(done,pages=COMIC_PAGES,lastLabel='PREPARE FOR BATT
  if(openingMovieSession)return;
  const session=openingMovieSession={page:0,totalElapsed:0,waitElapsed:0,phase:'comic',audioStarted:pages!==COMIC_PAGES,paused:false,last:performance.now(),raf:0,closed:false,turning:false};
  workshopAudioSession=session.audioStarted;resetBattleInputs();hideGameMenus();storyScreen().hidden=true;
- const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='comic';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
+ const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='comic';if(pages===SKITTER_INTERLUDE_PAGES)el.classList.add('skitter-interlude');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
  el.innerHTML='<div class="comic-book"><div class="comic-art"><img class="comic-page" alt=""></div><div class="comic-footer"><small class="comic-count"></small><div class="comic-controls"><button class="comic-previous" disabled>PREVIOUS</button><button class="comic-skip">SKIP</button><button class="comic-next" disabled>TURN PAGE →</button></div></div></div>';
  document.body.append(el);
  const button=el.querySelector('.comic-next'),art=el.querySelector('.comic-art'),image=el.querySelector('.comic-page');button.disabled=false;
@@ -43,3 +43,12 @@ const splashArt=document.createElement('img');splashArt.id='splashCast';splashAr
 node('splashCampaign').classList.add('ready-flash');node('splashCampaign').setAttribute('aria-label','Championship');node('splashStart').setAttribute('aria-label','Quick Battle');
 const splashActions=document.createElement('div');splashActions.id='splashActions';
 for(const[id,asset,label]of [['splashCampaign','button-championship.png','Championship'],['splashStart','button-quick-battle.png','Quick Battle']]){const button=node(id);button.type='button';button.replaceChildren();const image=document.createElement('img');image.src='assets/'+asset;image.alt='';image.setAttribute('aria-hidden','true');button.append(image);button.setAttribute('aria-label',label);splashActions.append(button);}node('splash').append(splashActions);
+
+// Approved Skitter interlude: the final Next fades out before Bastion's comms boot.
+const SKITTER_INTERLUDE_PAGES=[
+ {src:'assets/skitter-interlude-1.png',alt:'Voss, concealed in shadow: A newcomer. In a machine held together by scrap and optimism. Explain to me how he defeated you. Skitter: He was better than I expected. Voss: Then perhaps the problem was your expectations. Quinn watches nervously.'},
+ {src:'assets/skitter-interlude-2.png',alt:'Voss: You will face him again. And you will win. Skitter: And if I don’t? Voss: There will be consequences. Your sponsorship can be withdrawn. Your debts cannot. Skitter cries alone in the rainy street as people pass without noticing.'},
+ {src:'assets/skitter-interlude-3.png',alt:'Voss sits completely hidden in shadow, with a few lights on his motorised chair. He tells Quinn: Get me Bastion.'}
+];
+function playSkitterInterlude(done){workshopAudioSession=true;playOpeningCinematic(done,SKITTER_INTERLUDE_PAGES,'NEXT →')}
+for(const page of SKITTER_INTERLUDE_PAGES){const image=new Image();image.src=page.src}

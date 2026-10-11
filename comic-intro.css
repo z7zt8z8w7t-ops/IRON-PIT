@@ -30,3 +30,6 @@
 .comic-controls .comic-next{margin-left:auto}
 .comms-self-view{right:11%;bottom:20%}
 .comms-screen .story-dialogue-copy[data-speaker='jim'],.comms-screen .story-dialogue-copy[data-speaker='rourke']{left:11%;bottom:20%}
+
+/* Cover the preview's printed footer; interactive navigation remains below. */
+#openingMovie.skitter-interlude .comic-art:after{content:'';position:absolute;left:0;right:0;bottom:0;height:3.8%;background:#fff5dd;z-index:5;pointer-events:none}

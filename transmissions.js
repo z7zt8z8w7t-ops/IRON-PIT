@@ -29,7 +29,7 @@ showStoryDialogue=function(lines,done,mission=campaignMatches()[campaignMission]
  terminal.classList.add('comms-boot');node('storyNext').disabled=true;terminal.querySelector('.transmission-label').textContent='COMMS SYSTEM · BOOTING';
  const firstRemote=lines.find(([who])=>who!=='jim'&&who!=='rourke')?.[0]||'dave';node('storyPortrait').src=portraitFor(firstRemote,mood[firstRemote]||'focused');node('storyPortrait').alt=STORY_CAST[firstRemote].name;commsSound('comms-in');
  setTimeout(()=>{if(ticket!==transmissionGeneration||transmissionClosing||storyScreen().hidden||!terminal.parentElement)return;booting=false;terminal.classList.remove('comms-boot');show();node('storyNext').disabled=false;node('storyNext').focus();},1000);Sound.startMusic();
- node('storySaveStatus').textContent='PROGRESS SAVED ON THIS DEVICE · '+campaignCompleted()+' / '+campaignMatches().length+' VICTORIES';
+ node('storySaveStatus').textContent='CHAMPIONSHIP · THIS SESSION ONLY · '+campaignCompleted()+' / '+campaignMatches().length+' VICTORIES';
 };
 const guidedLadder=showRookieLadder;showRookieLadder=function(){transmissionGeneration++;transmissionClosing=false;resetBattleInputs();storyScreen().classList.remove('comms-screen');guidedLadder();node('storyBody').querySelector('.league-current')?.classList.add('ready-flash');const im=node('storyBody').querySelector('.league-intro img');if(im)im.src=portraitFor('jim',rookieProgress.completed===5?'win':'focused')};
 const guidedMenus=hideGameMenus;hideGameMenus=function(){resetBattleInputs();storyScreen().classList.remove('comms-screen');guidedMenus()};
@@ -67,7 +67,7 @@ const resultReturn=node('return').onclick;node('return').onclick=()=>{
  const moods={jim:outcome.won?'win':'loss',dave:outcome.won?'win':'loss'};for(const b of m.bots)moods[b.name==='BLAZE'?'rivet':b.name.toLowerCase()]=outcome.won?'loss':'win';if(campaignLeague==='challenger'&&outcome.mission===campaignMatches().length-1){moods.hudson='league-win';moods.voss=outcome.won?'rourke-win':'rourke-loss'}
  if(!outcome.won){showStoryDialogue(m.loss,prepareCampaignWorkshop,m,moods);return}
  const lines=m.win;
- showLeagueFixturesTransmission(()=>showStoryDialogue(lines,()=>{if(outcome.mission===campaignMatches().length-1){showRookieLadder();return}campaignMission=outcome.mission+1;const next=campaignMatches()[campaignMission];showStoryDialogue(next.lines,prepareCampaignWorkshop,next)}, {...m,brief:'MATCH COMPLETE · '+campaignCompleted()+' / '+campaignMatches().length+' VICTORIES'},moods));
+ showLeagueFixturesTransmission(()=>showStoryDialogue(lines,()=>{if(outcome.mission===campaignMatches().length-1){showRookieLadder();return}const nextBriefing=()=>{campaignMission=outcome.mission+1;const next=campaignMatches()[campaignMission];showStoryDialogue(next.lines,prepareCampaignWorkshop,next)};if(outcome.league==='rookie'&&outcome.mission===1&&outcome.first)playSkitterInterlude(nextBriefing);else nextBriefing()}, {...m,brief:'MATCH COMPLETE · '+campaignCompleted()+' / '+campaignMatches().length+' VICTORIES'},moods));
 };
 // Some iPads allow playback at boot; otherwise the first gesture starts it.
 Sound.startMusic();for(const type of ['pointerdown','touchstart','keydown'])document.addEventListener(type,()=>{if(!inArena){Sound.unlock();Sound.startMusic()}},{passive:true});
