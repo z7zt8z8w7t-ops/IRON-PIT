@@ -1,7 +1,7 @@
 'use strict';
 let workshopLesson=null,workshopLessonRAF=0;
 const WORKSHOP_LESSONS=[
- {target:'.preview',text:'This is your Mech. The green schematic shows what you’re taking into the arena.',read:true},
+ {target:'.preview',text:'Start with an empty build. Choose a chassis and fit your weapons; each selection will appear in the green schematic.',read:true},
  {target:'#tab-chassis',text:'First, choose your chassis. Armour keeps you alive, but weight slows you down.'},
  {target:'.chassis-card:not(:disabled)',text:'Pick a chassis. Watch the schematic and the stats change.'},
  {target:'#tab-weapons',text:'Now let’s fit some weapons.'},

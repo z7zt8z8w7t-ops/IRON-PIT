@@ -3,7 +3,7 @@
 const radioMusic={paused:true,volume:.08};
 let workshopAudioSession=false;
 let radioFailed=false,ambientFailed=false;
-let selectedRadioTrack=null;
+let selectedRadioTrack=null,radioGeneration=0;
 let radioChain=null,radioBuffer=null,radioLoading=null,radioSource=null,radioOffset=0,radioStarted=0;
 let ambientBuffer=null,ambientLoading=null,ambientSource=null,ambientGain=null,ambientOffset=0,ambientStarted=0;
 function workshopRadioWanted(){return !inArena&&(!!openingMovieSession?.audioStarted||workshopAudioSession||node('builder').style.display!=='none');}
@@ -14,9 +14,9 @@ function ensureRadioChain(){const c=Sound.context;if(!c||radioChain)return;const
 function crossfadeAmbient(c,input){const n=Math.min(Math.round(input.sampleRate*2),Math.floor(input.length/4)),length=input.length-n,out=c.createBuffer(input.numberOfChannels,length,input.sampleRate);for(let ch=0;ch<input.numberOfChannels;ch++){const a=input.getChannelData(ch),b=out.getChannelData(ch);b.set(a.subarray(n,input.length-n));for(let i=0;i<n;i++){const t=n>1?i/(n-1):1;b[length-n+i]=a[input.length-n+i]*Math.cos(t*Math.PI/2)+a[i]*Math.sin(t*Math.PI/2)}}return out}
 function loadWorkshopTrack(kind){const c=Sound.context;if(!c||!c.decodeAudioData)return;const radio=kind==='radio';if(radio?(radioBuffer||radioLoading):(ambientBuffer||ambientLoading))return;
  if(radio&&selectedRadioTrack===null)selectedRadioTrack=WORKSHOP_PLAYLIST[Math.floor(Math.random()*WORKSHOP_PLAYLIST.length)];
- const loading=(async()=>{const paths=radio?[selectedRadioTrack,...WORKSHOP_PLAYLIST.filter(path=>path!==selectedRadioTrack)]:['audio/workshop-ambient.mp3'];let lastError;
-  for(const path of paths){try{const response=await fetch(path);if(!response.ok)throw Error('Workshop audio unavailable: '+path);const input=await c.decodeAudioData(await response.arrayBuffer());if(radio){selectedRadioTrack=path;radioBuffer=input;}else ambientBuffer=crossfadeAmbient(c,input);Sound.startMusic();return;}catch(e){lastError=e;}}
-  if(radio)radioFailed=true;else ambientFailed=true;console.warn(lastError?.message);
+ const generation=radioGeneration;const loading=(async()=>{const paths=radio?[selectedRadioTrack,...WORKSHOP_PLAYLIST.filter(path=>path!==selectedRadioTrack)]:['audio/workshop-ambient.mp3'];let lastError;
+  for(const path of paths){try{const response=await fetch(path);if(!response.ok)throw Error('Workshop audio unavailable: '+path);const input=await c.decodeAudioData(await response.arrayBuffer());if(radio&&generation!==radioGeneration)return;if(radio){selectedRadioTrack=path;radioBuffer=input;}else ambientBuffer=crossfadeAmbient(c,input);Sound.startMusic();return;}catch(e){lastError=e;}}
+  if(radio&&generation!==radioGeneration)return;if(radio)radioFailed=true;else ambientFailed=true;console.warn(lastError?.message);
  })();if(radio)radioLoading=loading;else ambientLoading=loading;
 }
 function ensureAmbient(){loadWorkshopTrack('ambient')}
@@ -37,3 +37,12 @@ for(const type of ['pointerdown','touchstart','keydown'])document.addEventListen
 const audioLeague57=showRookieLadder;showRookieLadder=function(){audioLeague57();if(!openingMovieSession&&node('storyBody').querySelector('.rookie-ladder')){workshopAudioSession=false;Sound.pauseMusic()}};
 const audioTraining57=startPilotTraining;startPilotTraining=function(after){if(ready){workshopAudioSession=false;Sound.pauseMusic()}return audioTraining57(after)};
 const audioExit57=exitCampaign;exitCampaign=function(){workshopAudioSession=false;return audioExit57()};
+
+// Change only on an accepted post-battle navigation, preserving ambience.
+function selectNextWorkshopSong(){
+ const candidates=WORKSHOP_PLAYLIST.filter(path=>path!==selectedRadioTrack);
+ if(!candidates.length)return;
+ stopRadio();radioGeneration++;selectedRadioTrack=candidates[Math.floor(Math.random()*candidates.length)];
+ radioBuffer=null;radioLoading=null;radioOffset=0;radioFailed=false;
+ Sound.unlock();loadWorkshopTrack('radio');Sound.startMusic();
+}

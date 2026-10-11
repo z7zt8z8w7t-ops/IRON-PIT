@@ -1,0 +1,23 @@
+/* Live industrial fixture cards, with the comms hardware on top. */
+.comms-window.fixture-feed{padding:2% 1.5%;background:linear-gradient(#152124e8,#0a1014ee),url('assets/intro-interior.jpg') center/cover;gap:5px;clip-path:none}
+.fixture-feed h2{flex:none;font:bold clamp(15px,2.8vw,32px) 'Chalkboard SE','Comic Sans MS',sans-serif;color:#fff3d5;text-shadow:2px 3px #000;letter-spacing:1px;margin:0;padding:5px;border:4px ridge #717a76;background:repeating-linear-gradient(135deg,#ceac35 0 10px,#1b2225 10px 20px)}
+.comms-fixtures{gap:7px;overflow:auto;min-height:0}
+.fixture-card70{position:relative;isolation:isolate;display:grid;grid-template-columns:57% 43%;flex:1;min-height:100px;padding:7px;border:5px ridge #77827d;border-radius:9px;color:#fff3d5;background:radial-gradient(ellipse at top,#60686655,transparent),repeating-linear-gradient(125deg,#192125 0 3px,#202a2c 3px 5px);box-shadow:inset 0 0 20px #000,0 3px 4px #000;overflow:hidden;text-align:left;box-sizing:border-box}
+.fixture-card70:before,.fixture-card70:after{content:'';position:absolute;width:7px;height:7px;background:radial-gradient(circle,#b8c0b9 15%,#3a4345 45%,#070b0c 70%);border-radius:50%;top:3px;left:3px;z-index:2}.fixture-card70:after{left:auto;right:3px}
+.fixture-copy70{display:flex;flex-direction:column;justify-content:space-around;gap:3px;min-width:0;z-index:1}
+.fixture-copy70>small{background:#e5c34c;color:#0a1013;font:bold clamp(9px,1.1vw,14px) 'Chalkboard SE','Comic Sans MS',sans-serif;padding:2px 10px;clip-path:polygon(5% 0,100% 0,94% 100%,0 100%);align-self:flex-start}
+.fixture-copy70>strong{font:bold clamp(11px,1.65vw,21px) 'Chalkboard SE','Comic Sans MS',sans-serif;color:#fff3d5;text-shadow:1px 2px #000;line-height:1.12}
+.fixture-arena70,.fixture-reward70{display:flex;align-items:center;gap:5px;font:bold clamp(8px,1vw,12px) 'Chalkboard SE','Comic Sans MS',sans-serif;line-height:1.1;min-height:0}
+.fixture-arena70 img{width:20%;height:27px;object-fit:cover;border:2px ridge #7d8780}.fixture-reward70 img{width:19%;height:25px;object-fit:contain}.fixture-arena70 span,.fixture-reward70 span{min-width:0}
+.fixture-rivals70{display:flex;min-width:0;gap:2px;align-self:stretch}.fixture-rival70{flex:1;min-width:0;position:relative;border-left:3px ridge #d4ac42;background:#0e191c;overflow:hidden}.fixture-rival70 img{width:58%!important;height:100%!important;object-fit:cover!important;object-position:50% 15%!important;max-height:none!important;display:block!important;opacity:1}.fixture-rival70 canvas{position:absolute;width:66%;height:85%;right:-6%;bottom:0;object-fit:contain;filter:drop-shadow(2px 3px 2px #000);background:radial-gradient(ellipse,#14322c70,transparent 70%)}
+.fixture-state70{position:absolute;top:4px;right:5px;font:bold clamp(7px,.9vw,11px) monospace;background:#111c20dc;color:#c8d6cd;padding:3px;z-index:2}.fixture-card70.current{border-color:#b0f43c;box-shadow:0 0 8px #b4fa3c,inset 0 0 10px #65ed5733}.current .fixture-state70{background:#a8ed41;color:#112012}.fixture-card70:disabled{opacity:.85}
+.fixture-card70 .fixture-cross{z-index:4}.fixture-total70{text-align:center;color:#fff3d5;font:bold clamp(11px,1.5vw,18px) 'Chalkboard SE','Comic Sans MS',sans-serif;flex:none;padding:3px}
+.comms-screen:has(.fixture-feed) .transmission-label{display:none}
+#storyScreen.fixtures-screen .rookie-ladder{display:flex;flex-direction:column;flex:1;min-height:0;overflow:auto;gap:8px}#storyScreen.fixtures-screen .fixture-card70{width:100%;min-height:105px;flex:1}#storyScreen.fixtures-screen{height:100dvh;box-sizing:border-box}
+#modifierChoices,#workshopModifier,.fields label:has(#primaryMod),.fields label:has(#secondaryMod),.fields label:has(#supportMod){display:none!important}
+@media(max-height:750px){.fixture-card70{min-height:90px}.comms-fixtures{overflow:auto}}
+#storyScreen.fixtures-screen .league-match.fixture-card70{grid-template-columns:57% 43%;grid-template-rows:auto;gap:0;padding:7px;min-height:105px!important}
+#builder #buildBack[hidden]{display:none!important}
+.fixture-feed h2{background:linear-gradient(#283235,#0e1518);border-left-color:#d2ad3b;border-right-color:#d2ad3b}
+.comms-screen .rookie-ladder.comms-fixtures{border:0;padding:0;display:flex;flex-direction:column;flex:1;min-height:0}
+.fixture-feed .league-links{flex:none}.fixture-feed .league-links button{min-height:30px;padding:4px;font-size:10px}
