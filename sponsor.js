@@ -4,23 +4,19 @@ let quoteIntroRequested55=false;
 STORY_CAST.hudson={name:'Dr Lilith Kane',role:'CORPORATE SPONSOR'};
 const hudsonPortrait=portraitFor;
 portraitFor=function(who,mood){return who==='hudson'?(mood==='win'?'assets/story-hudson-win.png':mood==='loss'?'assets/story-hudson-loss.png':'assets/story-hudson.png'):hudsonPortrait(who,mood)};
-const SPONSOR_BRIEF={title:'The Sponsor',round:'ROOKIE CHAMPION',arena:'desert',brief:'Sponsorship secured · Contender League entry earned'};
+const SPONSOR_BRIEF={title:'The Sponsor',round:'ROOKIE CHAMPION',arena:'desert',brief:'Sponsorship secured · Challenger League entry earned'};
 const SPONSOR_LINES=[
  ['hudson','Hello, it’s good to finally meet. I’ve been watching your performance, and let’s just say I’m very interested. When the time comes, I’ll expect you to return that interest.']
 ];
-function showSponsorIntroduction(){
- showStoryDialogue(SPONSOR_LINES,()=>{
-  rookieProgress.sponsorSeen=true;
-  saveRookie();
-  showRookieLadder();
- },SPONSOR_BRIEF,{hudson:'focused'});
-}
+function showSponsorIntroduction(){playIssueTwo()}
+
 const OPENING_LINES=[["dave", "You’ve spent half your life fixing these things for other people. I think it’s about time you drove one."], ["jim", "Hmmm, I can drive em, but I can’t afford em."], ["dave", "Maybe I’ve got a surprise for you."], ["jim", "You really think we can compete with the sponsored teams?"], ["dave", "Their machines cost more. Doesn’t mean their pilots are better."], ["jim", "And if we lose?"], ["dave", "Then I guess we’re walking home."]];
 function showOpeningBackstory(){quoteIntroRequested55=false;playOpeningCinematic(()=>{rookieProgress.introSeen=true;rookieProgress.cinematicSeen=true;rookieProgress.cinematicVersion=57;saveRookie();campaignMission=0;showStoryDialogue(ROOKIE_MATCHES[0].lines,offerIntroTraining,ROOKIE_MATCHES[0])})}
 const sponsorLadder=showRookieLadder;
 showRookieLadder=function(){
+ if(campaignLeague==='challenger'){sponsorLadder();return}
  if(quoteIntroRequested55||(rookieProgress.completed===0&&(!rookieProgress.cinematicSeen||rookieProgress.cinematicVersion!==57))){showOpeningBackstory();return}
- if(rookieProgress.completed===5&&!rookieProgress.sponsorSeen){showSponsorIntroduction();return}
+ if(rookieProgress.completed===5&&!rookieProgress.issue2Seen){showSponsorIntroduction();return}
  sponsorLadder();
  const replay=document.createElement('button');replay.textContent='REPLAY BACKSTORY';replay.onclick=showOpeningBackstory;node('storyBody').append(replay);
  if(rookieProgress.completed!==5)return;
