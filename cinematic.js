@@ -10,26 +10,25 @@ const COMIC_PAGES=[
 for(const page of COMIC_PAGES){const image=new Image();image.src=page.src;}
 function playOpeningCinematic(done,pages=COMIC_PAGES,lastLabel='PREPARE FOR BATTLE →'){
  if(openingMovieSession)return;
- const session=openingMovieSession={page:0,totalElapsed:0,waitElapsed:0,phase:'black',paused:false,last:performance.now(),raf:0,closed:false,turning:false};
- workshopAudioSession=true;resetBattleInputs();hideGameMenus();storyScreen().hidden=true;
- const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='black';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
+ const session=openingMovieSession={page:0,totalElapsed:0,waitElapsed:0,phase:'comic',audioStarted:pages!==COMIC_PAGES,paused:false,last:performance.now(),raf:0,closed:false,turning:false};
+ workshopAudioSession=session.audioStarted;resetBattleInputs();hideGameMenus();storyScreen().hidden=true;
+ const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='comic';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
  el.innerHTML='<div class="comic-book"><div class="comic-art"><img class="comic-page" alt=""></div><div class="comic-footer"><small class="comic-count"></small><button class="comic-next" disabled>TURN PAGE →</button></div></div>';
  document.body.append(el);
- const button=el.querySelector('.comic-next'),art=el.querySelector('.comic-art'),image=el.querySelector('.comic-page');button.disabled=true;
+ const button=el.querySelector('.comic-next'),art=el.querySelector('.comic-art'),image=el.querySelector('.comic-page');button.disabled=false;
  let transitionTimer=0,cancelTurn=()=>{};
  const show=()=>{const page=pages[session.page];image.src=page.src;image.alt=page.alt;el.querySelector('.comic-count').textContent=(session.page+1)+' / '+pages.length;button.textContent=session.page===pages.length-1?lastLabel:'TURN PAGE →';};
  const finish=()=>{if(session.closed)return;session.closed=true;clearTimeout(transitionTimer);cancelTurn();cancelAnimationFrame(session.raf);document.removeEventListener('keydown',onKey);el.remove();openingMovieSession=null;resetBattleInputs();done();Sound.startMusic();};
  const next=()=>{if(session.closed||session.turning||session.phase!=='comic')return;session.turning=true;button.disabled=true;
   if(session.page===pages.length-1){session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,850);return}
+  if(!session.audioStarted){session.audioStarted=true;workshopAudioSession=true;Sound.unlock();Sound.startMusic();}
   const front=pages[session.page].src;session.page++;show();
   cancelTurn=turnComicPage(art,front,pages[session.page].src,()=>{session.turning=false;button.disabled=false;button.focus();});
  };
  const onKey=e=>{if(e.key==='ArrowRight'){e.preventDefault();next()}};
  button.onclick=next;document.addEventListener('keydown',onKey);show();
  const tick=now=>{if(session.closed)return;const dt=Math.max(0,Math.min(.1,(now-session.last)/1000));session.last=now;
-  if(!document.hidden){if(session.phase==='black'){session.waitElapsed+=dt;const tracksReady=Sound.muted||workshopTracksReady();if(tracksReady)session.totalElapsed+=dt;
-    // Allow the mixer to reach its final quiet levels before revealing page one.
-    if(session.totalElapsed>=2.3){session.phase='comic';el.dataset.phase='comic';button.disabled=false;button.focus();}}
+  if(!document.hidden){if(session.audioStarted&&(Sound.muted||workshopTracksReady()))session.totalElapsed+=dt;
    Sound.startMusic();}else Sound.pauseMusic();
   session.raf=requestAnimationFrame(tick);
  };

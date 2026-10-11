@@ -11,7 +11,7 @@ function playQuoteOpening(done){
  const key=e=>{if(e.key==='Enter'){e.preventDefault();skip.onclick()}};
  const visibility=()=>{last=performance.now();if(document.hidden)video.pause();else if(!closed&&!video.ended)attempt()};
  const tick=now=>{if(closed)return;const dt=Math.max(0,Math.min(1,(now-last)/1000));last=now;if(!document.hidden){elapsed+=dt;if(video.ended){video.pause();}}raf=requestAnimationFrame(tick)};
- video.onended=()=>{video.pause();};video.onerror=()=>{play.hidden=false;};skip.onclick=()=>{Sound.unlock();finish()};play.onclick=attempt;document.addEventListener('keydown',key);document.addEventListener('visibilitychange',visibility);
+ video.onended=()=>{video.pause();};video.onerror=()=>{play.hidden=false;};skip.onclick=()=>{if(closed)return;const audioReady=Sound.unlock();finish();Promise.resolve(audioReady).then(()=>Sound.loading).then(()=>{if(openingMovieSession?.page===0)Sound.play('mech-explosion',p.x,p.y,1,1,true)});};play.onclick=attempt;document.addEventListener('keydown',key);document.addEventListener('visibilitychange',visibility);
  // Request playback during the Championship gesture, rather than after a timer.
  attempt();reveal=setTimeout(()=>{if(!closed)el.classList.add('visible')},1000);raf=requestAnimationFrame(tick);
 }

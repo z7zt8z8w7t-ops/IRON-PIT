@@ -1,4 +1,4 @@
-IRON PIT v63 — DRONES — CHANGED FILES ONLY
+IRON PIT v64 — DRONES — CHANGED FILES ONLY
 
 Apply over v62, preserving folders and replacing matching files.
 
@@ -9,3 +9,5 @@ Available after Challenger round 3, or after nine Quick Battle wins (or All Weap
 Workshop mount artwork, hit masks, weapon cards, loadout saving and offline cache include the new pod. v62 splash fix retained.
 
 Validation: full script startup, seven league rounds and targeted drone launch/ownership/cadence/collision/reset checks. Real iPad verification remains.
+
+V64: Built-in comms SKIP/NEXT hardware controls. Quote NEXT explodes into the comic cover; cover TURN PAGE starts workshop audio. Two randomly selected workshop radio tracks at 10% with four-second large-room reverb. Apply changed files over v63.

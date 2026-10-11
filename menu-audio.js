@@ -1,30 +1,35 @@
 'use strict';
 // Web Audio controls the actual volume; iPad media-element volume is unreliable.
-const radioMusic={paused:true,volume:.07};
+const radioMusic={paused:true,volume:.10};
 let workshopAudioSession=false;
 let radioFailed=false,ambientFailed=false;
+const workshopRadioTracks=['audio/workshop-radio.mp3','audio/workshop-radio-alternative.mp3'];
+const workshopRadioBuffers=new Map();let selectedRadioTrack=null;
 let radioChain=null,radioBuffer=null,radioLoading=null,radioSource=null,radioOffset=0,radioStarted=0;
 let ambientBuffer=null,ambientLoading=null,ambientSource=null,ambientGain=null,ambientOffset=0,ambientStarted=0;
-function workshopRadioWanted(){return !inArena&&(!!openingMovieSession||workshopAudioSession||node('builder').style.display!=='none');}
+function workshopRadioWanted(){return !inArena&&(!!openingMovieSession?.audioStarted||workshopAudioSession||node('builder').style.display!=='none');}
 function ensureRadioChain(){const c=Sound.context;if(!c||radioChain)return;const high=c.createBiquadFilter(),low=c.createBiquadFilter(),drive=c.createWaveShaper(),gain=c.createGain();high.type='highpass';high.frequency.value=360;low.type='lowpass';low.frequency.value=3200;low.Q.value=.7;const curve=new Float32Array(1024);for(let i=0;i<curve.length;i++){const x=i*2/(curve.length-1)-1;curve[i]=Math.tanh(x*1.7)/Math.tanh(1.7)}drive.curve=curve;gain.gain.value=0;high.connect(low);low.connect(drive);let reverb=null;
- if(c.createConvolver){const convolver=c.createConvolver(),dry=c.createGain(),wet=c.createGain(),impulse=c.createBuffer(2,Math.round(c.sampleRate*2.5),c.sampleRate);for(let ch=0;ch<2;ch++){const a=impulse.getChannelData(ch);for(let i=0;i<a.length;i++)a[i]=(Math.random()*2-1)*Math.pow(1-i/a.length,2.5)}convolver.buffer=impulse;dry.gain.value=.5;wet.gain.value=.5;drive.connect(dry);dry.connect(gain);drive.connect(convolver);convolver.connect(wet);wet.connect(gain);reverb={convolver,dry,wet}}else drive.connect(gain);
+ if(c.createConvolver){const convolver=c.createConvolver(),dry=c.createGain(),wet=c.createGain(),impulse=c.createBuffer(2,Math.round(c.sampleRate*4),c.sampleRate);for(let ch=0;ch<2;ch++){const a=impulse.getChannelData(ch);for(let i=0;i<a.length;i++)a[i]=(Math.random()*2-1)*Math.pow(1-i/a.length,2)}convolver.buffer=impulse;dry.gain.value=.6;wet.gain.value=.4;drive.connect(dry);dry.connect(gain);drive.connect(convolver);convolver.connect(wet);wet.connect(gain);reverb={convolver,dry,wet}}else drive.connect(gain);
  gain.connect(Sound.master);radioChain={high,low,drive,gain,reverb};
 }
 function crossfadeAmbient(c,input){const n=Math.min(Math.round(input.sampleRate*2),Math.floor(input.length/4)),length=input.length-n,out=c.createBuffer(input.numberOfChannels,length,input.sampleRate);for(let ch=0;ch<input.numberOfChannels;ch++){const a=input.getChannelData(ch),b=out.getChannelData(ch);b.set(a.subarray(n,input.length-n));for(let i=0;i<n;i++){const t=n>1?i/(n-1):1;b[length-n+i]=a[input.length-n+i]*Math.cos(t*Math.PI/2)+a[i]*Math.sin(t*Math.PI/2)}}return out}
 function loadWorkshopTrack(kind){const c=Sound.context;if(!c||!c.decodeAudioData)return;const radio=kind==='radio';if(radio?(radioBuffer||radioLoading):(ambientBuffer||ambientLoading))return;
- const loading=fetch('audio/workshop-'+(radio?'radio':'ambient')+'.mp3').then(r=>{if(!r.ok)throw Error('Workshop '+kind+' unavailable');return r.arrayBuffer()}).then(bytes=>c.decodeAudioData(bytes)).then(input=>{if(radio)radioBuffer=input;else ambientBuffer=crossfadeAmbient(c,input);Sound.startMusic()}).catch(e=>{if(radio)radioFailed=true;else ambientFailed=true;console.warn(e.message)});if(radio)radioLoading=loading;else ambientLoading=loading;
+ if(radio&&selectedRadioTrack===null)selectedRadioTrack=workshopRadioTracks[Math.floor(Math.random()*workshopRadioTracks.length)];
+ if(radio&&workshopRadioBuffers.has(selectedRadioTrack)){radioBuffer=workshopRadioBuffers.get(selectedRadioTrack);return}
+ const track=radio?selectedRadioTrack:'audio/workshop-ambient.mp3';
+ const loading=fetch(track).then(r=>{if(!r.ok)throw Error('Workshop '+kind+' unavailable');return r.arrayBuffer()}).then(bytes=>c.decodeAudioData(bytes)).then(input=>{if(radio){workshopRadioBuffers.set(track,input);if(selectedRadioTrack===track)radioBuffer=input;}else ambientBuffer=crossfadeAmbient(c,input);Sound.startMusic()}).catch(e=>{if(radio)radioFailed=true;else ambientFailed=true;console.warn(e.message)});if(radio)radioLoading=loading;else ambientLoading=loading;
 }
 function ensureAmbient(){loadWorkshopTrack('ambient')}
 function stopRadio(){if(radioSource){radioOffset=(radioOffset+Sound.context.currentTime-radioStarted)%radioBuffer.duration;try{radioSource.stop()}catch(e){}radioSource.disconnect();radioSource=null}radioMusic.paused=true}
 function stopAmbient(){if(!ambientSource)return;ambientOffset=(ambientOffset+Sound.context.currentTime-ambientStarted)%ambientBuffer.duration;try{ambientSource.stop()}catch(e){}ambientSource.disconnect();ambientGain.disconnect();ambientSource=null;ambientGain=null}
-function setRadioLevel(level){const c=Sound.context;loadWorkshopTrack('radio');radioMusic.volume=.07*level;if(!c||c.state!=='running'||!radioBuffer)return;ensureRadioChain();if(!radioSource){radioSource=c.createBufferSource();radioSource.buffer=radioBuffer;radioSource.loop=true;radioSource.connect(radioChain.high);radioStarted=c.currentTime;radioSource.start(0,radioOffset);radioMusic.paused=false}radioChain.gain.gain.setTargetAtTime(.07*level,c.currentTime,.15)}
+function setRadioLevel(level){const c=Sound.context;loadWorkshopTrack('radio');radioMusic.volume=.10*level;if(!c||c.state!=='running'||!radioBuffer)return;ensureRadioChain();if(!radioSource){radioSource=c.createBufferSource();radioSource.buffer=radioBuffer;radioSource.loop=true;radioSource.connect(radioChain.high);radioStarted=c.currentTime;radioSource.start(0,radioOffset);radioMusic.paused=false}radioChain.gain.gain.setTargetAtTime(.10*level,c.currentTime,.15)}
 function setAmbientLevel(level){const c=Sound.context;ensureAmbient();if(!c||c.state!=='running'||!ambientBuffer)return;if(!ambientSource){ambientSource=c.createBufferSource();ambientSource.buffer=ambientBuffer;ambientSource.loop=true;ambientGain=c.createGain();ambientGain.gain.value=0;ambientSource.connect(ambientGain);ambientGain.connect(Sound.master);ambientStarted=c.currentTime;ambientSource.start(0,ambientOffset)}ambientGain.gain.setTargetAtTime(.8*level,c.currentTime,.15)}
 function workshopTracksReady(){return !!(radioBuffer||radioFailed)&&!!(ambientBuffer||ambientFailed)&&(!Sound.context||Sound.context.state==='running')}
-function introAudioMix(){const s=openingMovieSession;return s?Math.min(1,s.totalElapsed/2):1}
+function introAudioMix(){const s=openingMovieSession;return s?.audioStarted?Math.min(1,s.totalElapsed/1):1}
 const normalPauseMusic=Sound.pauseMusic.bind(Sound);
-Sound.startMusic=function(){this.music?.pause();if(inArena)workshopAudioSession=false;const s=openingMovieSession;if(node('quoteOpening')||inArena||this.muted||document.hidden||s?.paused){this.pauseMusic();return}if(workshopRadioWanted()){const mix=introAudioMix();setRadioLevel(mix);setAmbientLevel(mix)}else{stopRadio();stopAmbient()}};
+Sound.startMusic=function(){this.music?.pause();if(inArena)workshopAudioSession=false;const s=openingMovieSession;if(node('quoteOpening')||inArena||this.muted||document.hidden||s?.paused){this.pauseMusic();return}if(workshopRadioWanted()){const mix=introAudioMix();setRadioLevel(mix);setAmbientLevel(mix)}else{stopRadio();stopAmbient();selectedRadioTrack=null;radioBuffer=null;radioLoading=null;radioOffset=0;radioFailed=false;}};
 Sound.pauseMusic=function(){stopRadio();stopAmbient();normalPauseMusic()};Sound.stepMusic=function(){this.startMusic()};
-const radioUnlock=Sound.unlock.bind(Sound);Sound.unlock=async function(){await radioUnlock();loadWorkshopTrack('radio');ensureAmbient();this.startMusic()};
+const radioUnlock=Sound.unlock.bind(Sound);Sound.unlock=async function(){await radioUnlock();if(workshopRadioWanted())loadWorkshopTrack('radio');ensureAmbient();this.startMusic()};
 // Resume Web Audio from the gesture itself, before any asynchronous loading.
 for(const type of ['pointerdown','touchstart','keydown'])document.addEventListener(type,()=>{if(Sound.context&&Sound.context.state!=='running')Sound.context.resume().then(()=>Sound.startMusic()).catch(()=>{})},{capture:true,passive:true});
 
