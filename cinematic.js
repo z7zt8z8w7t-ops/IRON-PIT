@@ -12,7 +12,7 @@ function playOpeningCinematic(done,pages=COMIC_PAGES,lastLabel='PREPARE FOR BATT
  if(openingMovieSession)return;
  const session=openingMovieSession={page:0,totalElapsed:0,waitElapsed:0,phase:'comic',audioStarted:pages!==COMIC_PAGES,paused:false,last:performance.now(),raf:0,closed:false,turning:false};
  workshopAudioSession=session.audioStarted;resetBattleInputs();hideGameMenus();storyScreen().hidden=true;
- const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='comic';if(pages===SKITTER_INTERLUDE_PAGES)el.classList.add('skitter-interlude');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
+ const el=document.createElement('section');el.id='openingMovie';el.dataset.phase='comic';if(pages===SKITTER_INTERLUDE_PAGES)el.classList.add('skitter-interlude');if(pages===BLAZE_INTERLUDE_PAGES)el.classList.add('blaze-interlude');el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Iron Pit comic introduction');
  el.innerHTML='<div class="comic-book"><div class="comic-art"><img class="comic-page" alt=""></div><div class="comic-footer"><small class="comic-count"></small><div class="comic-controls"><button class="comic-previous" disabled>PREVIOUS</button><button class="comic-skip">SKIP</button><button class="comic-next" disabled>TURN PAGE →</button></div></div></div>';
  document.body.append(el);
  const button=el.querySelector('.comic-next'),art=el.querySelector('.comic-art'),image=el.querySelector('.comic-page');button.disabled=false;
@@ -52,3 +52,19 @@ const SKITTER_INTERLUDE_PAGES=[
 ];
 function playSkitterInterlude(done){workshopAudioSession=true;playOpeningCinematic(done,SKITTER_INTERLUDE_PAGES,'NEXT →')}
 for(const page of SKITTER_INTERLUDE_PAGES){const image=new Image();image.src=page.src}
+
+// Approved post-qualifier interlude. Caller remains unseen and unnamed.
+const BLAZE_INTERLUDE_PAGES=[
+ {src:'assets/blaze-interlude-1.png',alt:'Blaze, in battered purple pilot armour, sits at a run-down bar seen from behind. An anonymous comms device sits on the counter.'},
+ {src:'assets/blaze-interlude-2.png',alt:'Blaze: You should consider sponsoring Rourke. Device: The newcomer who just beat you? Blaze: Yes that mech may look like crap, but Rourke knows how to use it. Device: Hmmm, I’ll keep an eye on him and if I like what I see, maybe…. A drunk approaches in the background, then sits beside Blaze.'},
+ {src:'assets/blaze-interlude-3.png',alt:'Drunk: Hey sexy. Blaze punches him in the nose. He lies unconscious on the bar as she drinks from a wine bottle. Device: …in the meantime get yourself cleaned up, I’ve got a different assignment for you.'},
+ {src:'assets/blaze-interlude-4.png',alt:'The drunk lies unconscious on the counter in the foreground. Blaze walks out facing the street, carrying comms in her left hand and throwing cash backwards with her right. Blaze: Just send me the details. Device: Good, we’ll speak soon.'}
+];
+let blazeInterludeEntering=false;
+function playBlazeInterlude(done){
+ if(blazeInterludeEntering||openingMovieSession)return;
+ blazeInterludeEntering=true;resetBattleInputs();
+ const fade=document.createElement('div');fade.id='comicEntryFade';fade.setAttribute('aria-hidden','true');document.body.append(fade);
+ setTimeout(()=>{workshopAudioSession=true;playOpeningCinematic(done,BLAZE_INTERLUDE_PAGES,'NEXT →');fade.remove();blazeInterludeEntering=false;},850);
+}
+for(const page of BLAZE_INTERLUDE_PAGES){const image=new Image();image.src=page.src}
