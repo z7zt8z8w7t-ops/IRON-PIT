@@ -28,7 +28,7 @@ function playOpeningCinematic(done,pages=COMIC_PAGES,lastLabel='PREPARE FOR BATT
  const onKey=e=>{if(e.key==='ArrowRight'){e.preventDefault();next()}};
  button.onclick=next;document.addEventListener('keydown',onKey);show();
  const tick=now=>{if(session.closed)return;const dt=Math.max(0,Math.min(.1,(now-session.last)/1000));session.last=now;
-  if(!document.hidden){if(session.audioStarted&&(Sound.muted||workshopTracksReady()))session.totalElapsed+=dt;
+  if(!document.hidden){if(session.audioStarted)session.totalElapsed+=dt;
    Sound.startMusic();}else Sound.pauseMusic();
   session.raf=requestAnimationFrame(tick);
  };
