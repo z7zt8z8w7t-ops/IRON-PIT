@@ -32,10 +32,14 @@
 .comms-screen .story-dialogue-copy[data-speaker='jim'],.comms-screen .story-dialogue-copy[data-speaker='rourke']{left:11%;bottom:20%}
 
 /* Cover the preview's printed footer; interactive navigation remains below. */
-#openingMovie.skitter-interlude .comic-art:after{content:'';position:absolute;left:0;right:0;bottom:0;height:3.8%;background:#fff5dd;z-index:5;pointer-events:none}
+
 
 /* Hide printed preview controls; the reader supplies accessible live buttons. */
-#openingMovie.blaze-interlude .comic-page{clip-path:inset(0 0 6% 0)}
+
 #comicEntryFade{position:fixed;inset:0;background:#000;z-index:400;pointer-events:all;animation:comicEntryBlack .65s ease forwards}
 @keyframes comicEntryBlack{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){#comicEntryFade{animation-duration:.15s}}
+
+#openingMovie.comic-interlude .comic-book{transition:opacity 2s ease}
+#openingMovie.comic-interlude[data-phase='leaving'] .comic-book{transition:opacity 2s ease}
+.comms-screen .story-dialogue-copy:not([data-speaker='dave']):not([data-speaker='jim']):not([data-speaker='rourke']){left:4%;right:auto}
