@@ -62,3 +62,11 @@
 .workshop-transmission .story-actions button:disabled{background:#0007!important;pointer-events:none}
 .workshop-transmission .story-actions button:focus-visible{outline:3px solid #fff3d5;outline-offset:2px}
 .workshop-transmission .story-actions button:active{background:#b7ffed33!important;transform:translateY(2px)}
+
+/* Override the old ID-based story styles so the illustrated hardware stays visible. */
+#storyScreen.comms-screen .transmission .story-actions button,.workshop-transmission .transmission .story-actions button{background:transparent!important;color:transparent!important;border:0!important;box-shadow:none!important;text-shadow:none!important;padding:0!important;transform:none;filter:none;overflow:hidden;transition:none;-webkit-tap-highlight-color:transparent}
+#storyScreen.comms-screen .transmission .story-actions button::before,.workshop-transmission .transmission .story-actions button::before{content:'';position:absolute;inset:0;background-image:url('assets/comms-frame-v68.png');background-size:370.3704% 1333.3333%;background-position:12.3288% 92.973%;clip-path:polygon(6% 0,94% 0,100% 15%,100% 85%,94% 100%,6% 100%,0 85%,0 15%);pointer-events:none;opacity:0;transition:transform 70ms ease,filter 70ms ease}
+#storyScreen.comms-screen .transmission .story-actions #storySkip::before,.workshop-transmission .transmission .story-actions .later::before{background-size:454.5455% 1333.3333%;background-position:50% 92.973%}
+#storyScreen.comms-screen .transmission .story-actions #storyNext::before,.workshop-transmission .transmission .story-actions .fit-weapon::before{background-position:87.6712% 92.973%}
+#storyScreen.comms-screen .transmission .story-actions button.hardware-pressed::before,#storyScreen.comms-screen .transmission .story-actions button:active::before,.workshop-transmission .transmission .story-actions button.hardware-pressed::before,.workshop-transmission .transmission .story-actions button:active::before{opacity:1;transform:translateY(3px) scale(.985);filter:brightness(1.25) drop-shadow(0 -3px 3px #000)}
+#storyScreen.comms-screen .transmission .story-actions button:disabled,.workshop-transmission .transmission .story-actions button:disabled{background:#0005!important;pointer-events:none}
