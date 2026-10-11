@@ -16,6 +16,7 @@ Object.assign(PALETTES,{
  desertcamo:{name:'Desert Camo',cockpit:'Cyan',base:[.65,.55,.42],accent:'#4e4032',pattern:'camo'},
  urbancamo:{name:'Urban Camo',cockpit:'Cyan',base:[.37,.42,.46],accent:'#151b22',pattern:'camo'},
  snowcamo:{name:'Snow Camo',cockpit:'Cyan',base:[.77,.81,.82],accent:'#7a8590',pattern:'camo'},
+ chequered:{name:'Chequered',cockpit:'Cyan',base:[.64,.08,.06],accent:'#eee9de',pattern:'chequered'},
  racer:{name:'Racer',cockpit:'Cyan',base:[.64,.08,.06],accent:'#eee9de',pattern:'racer'},
  reactor:{name:'Reactor',cockpit:'Cyan',base:[.31,.10,.49],accent:'#22e8f6',pattern:'circuit'},
  warworn:{name:'War Worn',cockpit:'Cyan',base:[.68,.26,.05],pattern:'wear'},
@@ -33,6 +34,7 @@ for(let k=0;k<3;k++)d[i+k]=Math.max(0,Math.min(255,Math.round(tone[k]*light*255)
 c.putImageData(raw,0,0);mc.putImageData(md,0,0);const overlay=document.createElement('canvas');overlay.width=w;overlay.height=h;const o=overlay.getContext('2d');o.scale(w,h);o.lineWidth=.028;o.fillStyle=cfg.accent||'#b8b9b5';o.strokeStyle=o.fillStyle;
 if(cfg.pattern==='flames')for(const side of [-1,1])for(let n=0;n<4;n++){const x=.5+side*(.19+n*.035);o.beginPath();o.moveTo(x-.055,.95);o.bezierCurveTo(x-.08,.65,x+.07,.6,x,.27+n*.06);o.bezierCurveTo(x+.1,.55,x+.13,.72,x+.045,.95);o.fill();}
 if(cfg.pattern==='stripes'){o.lineWidth=.085;for(let n=-1;n<2;n+=.24){o.beginPath();o.moveTo(n,0);o.lineTo(n+1,1);o.stroke();}}
+if(cfg.pattern==='chequered'){for(let row=0;row<10;row++)for(let col=0;col<3;col++){o.fillStyle=(row+col)%2?'#16191b':'#eee9de';o.fillRect(.18+col*.055,row*.1,.055,.1);o.fillRect(.655+col*.055,row*.1,.055,.1);}}
 if(cfg.pattern==='racer'){o.fillRect(.32,0,.055,1);o.fillRect(.625,0,.055,1);if(id.includes('tank')||id==='chassis'){o.font='bold .15px sans-serif';o.textAlign='center';o.fillText('07',.18,.6);o.fillText('07',.82,.6);}}
 if(cfg.pattern==='circuit'||cfg.pattern==='gold'){o.lineWidth=.018;for(const side of [-1,1]){o.beginPath();o.moveTo(.5+side*.38,.12);o.lineTo(.5+side*.24,.35);o.lineTo(.5+side*.34,.58);o.lineTo(.5+side*.2,.92);o.stroke();}}
 if(cfg.pattern==='anarchy'){o.lineWidth=.035;o.beginPath();o.arc(.26,.43,.15,0,Math.PI*2);o.stroke();o.beginPath();o.moveTo(.12,.62);o.lineTo(.25,.22);o.lineTo(.39,.62);o.moveTo(.12,.47);o.lineTo(.4,.45);o.stroke();for(let n=0;n<12;n++){o.fillStyle='#de222255';o.fillRect(.12+n*.023,.49+liveryNoise(n,3)*.05,.007,.08*liveryNoise(n,8));}}
