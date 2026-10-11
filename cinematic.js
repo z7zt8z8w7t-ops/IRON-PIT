@@ -58,7 +58,7 @@ for(const page of SKITTER_INTERLUDE_PAGES){const image=new Image();image.src=pag
 // Approved post-qualifier interlude. Caller remains unseen and unnamed.
 const BLAZE_INTERLUDE_PAGES=[
  {src:'assets/blaze-interlude-1.png',alt:'Some hours later. Blaze, in battered purple pilot armour, sits at a run-down bar seen from behind. An anonymous comms device sits on the counter.'},
- {src:'assets/blaze-interlude-2.png',alt:'Blaze: You should consider sponsoring Rourke. Device: The newcomer who just beat you? Blaze: Yes that mech may look like crap, but Rourke knows how to use it. Device: Hmmm, I’ll keep an eye on him and if I like what I see, maybe…. A drunk approaches in the background, then sits beside Blaze.'},
+ {src:'assets/blaze-interlude-2.png',alt:'Blaze: You should consider getting Rourke on the team. Device: The newcomer who just beat you? Blaze: His Mech may look like a pile of scrap, but he knows how to use it. Device: Hmmm, I’ll keep an eye on him and if I like what I see, maybe…. A drunk approaches in the background, then sits beside Blaze.'},
  {src:'assets/blaze-interlude-3.png',alt:'Drunk: Hey sexy. Blaze punches him in the nose. He lies unconscious on the bar as she drinks from a wine bottle. Device: …in the meantime get yourself cleaned up, I’ve got a different assignment for you.'},
  {src:'assets/blaze-interlude-4.png',alt:'The drunk lies unconscious on the counter in the foreground. Blaze walks out facing the street, carrying comms in her left hand and throwing cash backwards with her right. Blaze: Just send me the details. Device: Good, we’ll speak soon.'}
 ];
@@ -75,3 +75,15 @@ function playBlazeInterlude(done){playComicInterlude(done,BLAZE_INTERLUDE_PAGES)
 for(const page of BLAZE_INTERLUDE_PAGES){const image=new Image();image.src=page.src}
 
 preloadComicArtwork(SKITTER_INTERLUDE_PAGES);preloadComicArtwork(BLAZE_INTERLUDE_PAGES);
+
+// Approved post-Bastion interlude; final NEXT continues to the semi-final briefing.
+const BASTION_INTERLUDE_PAGES=[
+ {src:"assets/bastion-interlude-1.png",alt:"A few hours later. Exterior of Voss Experimentals, a dim futuristic weapons laboratory."},
+ {src:"assets/bastion-interlude-2.png",alt:"Bastion’s dismantled black-and-red heavy tank. Quinn: Well…..You’ve brought most of it back. Bastion: Just Fix it. Quinn: It’s not that simple, this will take time. Bastion: Which you won’t have much left of if you don’t sort this."},
+ {src:"assets/bastion-interlude-3.png",alt:"Voss arrives in shadow in his motorised chair. Voss: Bastion, you appear to have failed me. Battle footage fills the video wall. Voss: First Skitter, now you. This newcomer is becoming expensive."},
+ {src:"assets/bastion-interlude-4.png",alt:"Bastion: Put me back in the arena. I’ll finish him, permanently. Voss grips Bastion’s neck as Quinn watches nervously. Voss: I already gave you that opportunity, and you failed."},
+ {src:"assets/bastion-interlude-5.png",alt:"Skitter enters; Bastion holds his injured neck. Voss: Next time, you’ll be working together. Bastion: She’ll just get in my way. Voss: Well then, use her as a shield. Just make sure Rourke dies in the pit. Now get out, both of you. Bastion and Skitter leave. Quinn: And if they fail again?"},
+ {src:"assets/bastion-interlude-6.png",alt:"Half of Voss’s face is lit red; Quinn smiles manically behind him. Voss: Then I’ll find better pilots, and you’ll have some new subjects to test your weapons on."}
+];
+function playBastionInterlude(done){playComicInterlude(done,BASTION_INTERLUDE_PAGES)}
+preloadComicArtwork(BASTION_INTERLUDE_PAGES);

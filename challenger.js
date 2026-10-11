@@ -36,7 +36,7 @@ function showLeagueFixturesTransmission(done){resetBattleInputs();hideGameMenus(
 function afterIntroTraining(){workshopAudioSession=true;showStoryDialogue([['dave','Ok, practice is over, your first battle is coming up. I’ll send you the league fixtures, just hit next when you’re ready']],()=>showLeagueFixturesTransmission(enterGuidedWorkshop),{title:'Practice is over',round:'FIRST BATTLE',arena:'desert',brief:'Review the league fixtures before preparing your Mech.'})}
 // Require the supplied prototype in the final without affecting other matches.
 const challengerPrepare=prepareCampaignWorkshop;
-prepareCampaignWorkshop=function(){challengerPrepare();const m=campaignMatches()[campaignMission];if(m.requiredWeapon){build.right=m.requiredWeapon;node('right').value=build.right;update();node('status').textContent='KANE PROTOTYPE REQUIRED · WPN 2 · '+nameOf(m.requiredWeapon)};node('buildVersion').textContent=campaignLeagueName()+' · v77'};
+prepareCampaignWorkshop=function(){challengerPrepare();const m=campaignMatches()[campaignMission];if(m.requiredWeapon){build.right=m.requiredWeapon;node('right').value=build.right;update();node('status').textContent='KANE PROTOTYPE REQUIRED · WPN 2 · '+nameOf(m.requiredWeapon)};node('buildVersion').textContent=campaignLeagueName()+' · v78'};
 const challengerDeploy=node('deploy').onclick;
 node('deploy').onclick=()=>{if(campaignActive){const m=campaignMatches()[campaignMission];if(m.requiredWeapon&&build.right!==m.requiredWeapon){node('status').textContent='Fit Kane’s prototype railgun in WPN 2 before deploying.';showWorkshopTab('weapons');node('weaponMountChoices').querySelector('[data-mount-choice="right"]')?.focus();return}}challengerDeploy()};
 let challengeState=null;
