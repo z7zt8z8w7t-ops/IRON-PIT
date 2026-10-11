@@ -1,7 +1,11 @@
-IRON PIT v62 — SPLASH FIX — CHANGED FILES ONLY
+IRON PIT v63 — DRONES — CHANGED FILES ONLY
 
-Apply over v61, preserving folders and replacing matching files.
+Apply over v62, preserving folders and replacing matching files.
 
-Fixes the off-screen splash artwork and aligns the invisible Championship and Quick Battle hit areas with the approved artwork. Adds viewport sizing fallback and removes unintended button outlines/glow. Refreshes the offline cache.
+Adds Hunter drone pod in rear slot 3. Three compact drones launch with a short stagger, fly over ground forcefields and fire four-shot machine-gun bursts with the existing machine-gun sound. Bullets use normal cover, shield and forcefield collisions. Drones can be shot down. Up to three active drones per pilot; launcher reload 12 seconds, deployed drone lifetime 35 seconds.
 
-Drone designs remain approved previews; this patch fixes the splash only.
+Available after Challenger round 3, or after nine Quick Battle wins (or All Weapons Unlocked testing). Existing Hunter missiles are retained. Quinn's three neutral arena drones now share the miniature artwork and machine-gun burst behaviour.
+
+Workshop mount artwork, hit masks, weapon cards, loadout saving and offline cache include the new pod. v62 splash fix retained.
+
+Validation: full script startup, seven league rounds and targeted drone launch/ownership/cadence/collision/reset checks. Real iPad verification remains.

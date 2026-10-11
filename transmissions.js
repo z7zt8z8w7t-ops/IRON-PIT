@@ -34,6 +34,7 @@ const guidedLadder=showRookieLadder;showRookieLadder=function(){transmissionGene
 const guidedMenus=hideGameMenus;hideGameMenus=function(){resetBattleInputs();storyScreen().classList.remove('comms-screen');guidedMenus()};
 const guidedWorkshop=refreshWorkshop;refreshWorkshop=function(){guidedWorkshop();node('deploy').classList.add('ready-flash')};
 const WEAPON_BRIEFS={
+ drones:['Three compact drones launch from the rear pod and fire short machine-gun bursts.','Drones fly over forcefields; bullets are blocked by fields and cover. Enemies can shoot the drones down.','Press WPN 3 to launch. Up to three drones per pilot; replacement drones load after twelve seconds.'],
  rotary:['Heavy sustained fire and reliable close-to-mid-range pressure.','Heavier than the belt-fed gun; watch the heat meter.','Use controlled bursts while flanking.'],
  flak:['A spread of shells is forgiving against agile targets.','Damage drops when only part of the spread connects.','Get closer, fire, then reposition during the reload.'],
  swarm:['Separated homing missiles pressure targets around their evasive route.','Needs a lock; smoke, range and cover can spoil the volley.','Hold WPN 3 for a lock, release to launch.'],

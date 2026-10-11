@@ -1,6 +1,7 @@
 'use strict';
 // Normalised firing points measured against each cropped approved sprite.
 const GUNS={
+ drones:{ports:[[.5,.1]],rate:12,speed:0,kind:'drone',color:'#ffd08a'},
  smart:{ports:[[.50,.01]],rate:.065,speed:1800,kind:'bullet',color:'#ff3535'},
  harpoon:{ports:[[.49,.01]],rate:5,speed:1100,kind:'harpoon',color:'#d2dcdf'},
  'machine-gun':{ports:[[.55,.01]],rate:0.1,speed:1500,kind:'bullet',color:'#ffd08a'},
@@ -33,7 +34,7 @@ function emit(o){if(particles.length<(o.kind==='smoke'?MAX_PARTICLES-80:MAX_PART
 function worldPoint(x,y,a=(activeShooter||p).angle){const actor=activeShooter||p;return{x:actor.x+(x*Math.cos(a)-y*Math.sin(a))*MECH_SCALE,y:actor.y+(x*Math.sin(a)+y*Math.cos(a))*MECH_SCALE}}
 const PRIMARY_IDS=['machine-gun','rotary','pulse','beam','flame','arc','smart'];
 const SECONDARY_IDS=['siege','railgun','plasma','tri-salvo','flak','emp','harpoon'];
-function weaponMount(slot,id){if(slot==='support')return{x:0,y:72,w:112,h:100,flip:false};const right=slot==='secondary';return{x:right?99:-99,y:-34,w:67,h:154,flip:side.findIndex(v=>v[0]===id)<6?right:!right}}
+function weaponMount(slot,id){if(slot==='support'&&id==='drones')return{x:0,y:118,w:94,h:78,flip:false};if(slot==='support')return{x:0,y:72,w:112,h:100,flip:false};const right=slot==='secondary';return{x:right?99:-99,y:-34,w:67,h:154,flip:side.findIndex(v=>v[0]===id)<6?right:!right}}
 function mountPorts(id,offset){const g=GUNS[id],m=weaponMount(offset<0?'primary':offset>0?'secondary':'support',id);return g.ports.map(([u,v])=>worldPoint(m.x+((m.flip?1-u:u)-.5)*m.w,m.y+(v-.5)*m.h))}
 function puff(x,y,color,n,speed,size,life){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,v=Math.random()*speed;emit({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,color,size:size*(.4+Math.random()),life,max:life,kind:'spark'})}}
 function smokePuff(x,y,size=9,life=.8){emit({x,y,vx:(Math.random()-.5)*12,vy:(Math.random()-.5)*12,color:'#88918b',size,life,max:life,kind:'smoke'})}
