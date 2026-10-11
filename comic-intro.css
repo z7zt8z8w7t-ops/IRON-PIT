@@ -43,3 +43,8 @@
 #openingMovie.comic-interlude .comic-book{transition:opacity 2s ease}
 #openingMovie.comic-interlude[data-phase='leaving'] .comic-book{transition:opacity 2s ease}
 .comms-screen .story-dialogue-copy:not([data-speaker='dave']):not([data-speaker='jim']):not([data-speaker='rourke']){left:4%;right:auto}
+
+/* Completed rounds are crossed out over portraits and fitted mech artwork. */
+.comms-fixture,.rookie-ladder [data-mission]{isolation:isolate}
+.fixture-cross{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:100!important;pointer-events:none!important}
+.weapon-brief .weapon-classification{display:block;text-align:right;font:8px/1.35 ui-monospace,SFMono-Regular,monospace;letter-spacing:.6px;color:#45504b;margin:0 0 8px auto;max-width:100%}

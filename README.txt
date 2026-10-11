@@ -1,7 +1,3 @@
-IRON PIT v76 — changed files over v75
-
-Replaces all four Blaze and all four Skitter comic pages (including the Voss Industries tower) with the approved measured border versions: 1086 x 1380, identical outer borders and margins matching the intro. Artwork and dialogue are retained, navigation is not baked into the images.
-
-Reader displays these finished images directly, with no extra frame, caption or cropping. Existing live controls, page curl, transitions and v75 comic audio are retained.
-
-Upload over v75 preserving the assets folder.
+IRON PIT v77 — Changed files since v76.
+Updated Blaze and Dave qualifier dialogue. Added Quinn Experimental Weapons Division — Top Secret to every weapon briefing/unlock panel. Completed fixture red crosses now sit above mech artwork and portraits.
+Upload these files over the existing installation, preserving paths.
