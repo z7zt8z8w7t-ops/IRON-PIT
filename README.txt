@@ -1,9 +1,7 @@
-IRON PIT v75 — changed files over v74
+IRON PIT v76 — changed files over v75
 
-Blaze comic: Bar sounds ambience with a two-second equal-power loop crossfade, plus Blaze Bar on a normal loop. Both use the approved four-second large-room reverb, 35 ms predelay, and preview balance. Start on victory transmission NEXT; final NEXT and SKIP fade both out over two seconds.
+Replaces all four Blaze and all four Skitter comic pages (including the Voss Industries tower) with the approved measured border versions: 1086 x 1380, identical outer borders and margins matching the intro. Artwork and dialogue are retained, navigation is not baked into the images.
 
-Skitter comic: Voss Towers loops from NEXT into the tower establishing page through all comic pages, then fades out over two seconds on final NEXT or SKIP.
+Reader displays these finished images directly, with no extra frame, caption or cropping. Existing live controls, page curl, transitions and v75 comic audio are retained.
 
-Prior workshop music and sound effects stop at comic entry. Comic audio respects mute and app visibility, does not restart on page turns, and cannot continue into the next transmission. Audio files are cached for offline play.
-
-Upload these files over v74, preserving the audio folder.
+Upload over v75 preserving the assets folder.
