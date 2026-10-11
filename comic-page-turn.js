@@ -1,9 +1,9 @@
  'use strict';
 // A bent paper mesh starts at the bottom-right corner and rolls diagonally up.
-function turnComicPage(art,frontSrc,nextSrc,done){
+function turnComicPage(art,frontSrc,nextSrc,done,reverse=false){
  const cv=document.createElement('canvas');cv.className='comic-curl-canvas';cv.setAttribute('aria-hidden','true');cv.width=540;cv.height=Math.round(540*(art.clientHeight||720)/(art.clientWidth||540));art.append(cv);
  const c=cv.getContext('2d'),W=cv.width,H=cv.height,nx=.8,ny=.6,D=nx*W+ny*H;
- let cancelled=false,raf=0;const pages=[frontSrc,nextSrc].map(src=>{const im=new Image();im.src=src;return im});
+ let cancelled=false,raf=0;const pages=(reverse?[nextSrc,frontSrc]:[frontSrc,nextSrc]).map(src=>{const im=new Image();im.src=src;return im});
  function page(im){c.fillStyle='#fff5dd';c.fillRect(0,0,W,H);const k=Math.min(W/im.naturalWidth,H/im.naturalHeight),w=im.naturalWidth*k,h=im.naturalHeight*k;c.drawImage(im,(W-w)/2,(H-h)/2,w,h)}
 function transform(x,y,t){const fold=D*(1-t),u=nx*x+ny*y,v=-ny*x+nx*y,r=18+48*Math.sin(Math.PI*Math.min(1,t)),d=u-fold;if(d<=0)return{x,y,z:0,back:false};const theta=Math.min(Math.PI,d/r),q=d>Math.PI*r?fold-(d-Math.PI*r):fold+r*Math.sin(theta),z=d>Math.PI*r?2*r:r*(1-Math.cos(theta));return{x:nx*q-ny*v-z*.16,y:ny*q+nx*v-z*.27,z,back:theta>Math.PI/2,shade:.75+.25*Math.abs(Math.cos(theta))}}
 const front=document.createElement('canvas');front.width=W;front.height=H;const fc=front.getContext('2d');
@@ -33,7 +33,7 @@ function render(t){
  function finish(){if(cancelled)return;cancelled=true;cancelAnimationFrame(raf);cv.remove();done()}
  function start(){if(cancelled)return;if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches){finish();return}
   page(pages[0]);fc.drawImage(cv,0,0);const begin=performance.now();
-  function tick(now){if(cancelled)return;const u=Math.min(1,(now-begin)/1800);render(u*u*(3-2*u)*1.35);if(u<1)raf=requestAnimationFrame(tick);else finish()}raf=requestAnimationFrame(tick);
+  function tick(now){if(cancelled)return;const u=Math.min(1,(now-begin)/1800);render((reverse?1-u*u*(3-2*u):u*u*(3-2*u))*1.35);if(u<1)raf=requestAnimationFrame(tick);else finish()}raf=requestAnimationFrame(tick);
  }
  Promise.all(pages.map(im=>new Promise((resolve,reject)=>{if(im.complete&&im.naturalWidth)resolve();else{im.onload=resolve;im.onerror=reject}}))).then(start,finish);
  return()=>{cancelled=true;cancelAnimationFrame(raf);cv.remove()};
