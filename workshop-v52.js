@@ -36,7 +36,7 @@ const oldRefreshChoice=refreshLevelChoice;
 refreshLevelChoice=function(){oldRefreshChoice();const card=node('arenaCarousel').querySelector('[aria-pressed="true"]');if(card)node('arenaCarousel').scrollLeft=card.offsetLeft-node('arenaCarousel').offsetLeft-(node('arenaCarousel').clientWidth-card.clientWidth)/2;node('modeConfirm').textContent='CONTINUE TO WORKSHOP →';const extra=selectedMode==='duel'?'TWO PLAYERS':selectedMode==='test'?'WEAPON RANGE':selectedOpponents+' ENEMY MECH'+(selectedOpponents===1?'':'S');node('levelStatus').textContent=extra+' · '+ARENA_VARIANTS[selectedArena||'desert'].label;node('arenaHazards').textContent='HAZARDS: '+({desert:'SANDSTORMS',flooded:'FLOODED GROUND',night:'LOW VISIBILITY',rotating:'ROTATING PLATFORM',snow:'SNOW',conveyors:'CONVEYOR BELTS'}[selectedArena||'desert'])+' · SHIFTING FORCEFIELDS';count.hidden=['duel','test'].includes(selectedMode)};
 const oldShowLevel=showLevelSelect;
 showLevelSelect=function(){oldShowLevel();if(!selectedArena)selectedArena=arenaKind;if(!selectedMode||selectedMode==='story')selectedMode=String(selectedOpponents);selectEnemyCount(selectedOpponents);};
-node('splashStart').onclick=showLevelSelect;
+
 // The arena screen contains no Championship entry; campaign goes straight to story.
 node('levelBack').onclick=()=>{start.hidden=true;node('splash').hidden=false;Sound.startMusic()};
 const builder=node('builder');builder.classList.add('metal-menu');builder.querySelector('h1').textContent='Daves Fix n Spray';

@@ -42,9 +42,9 @@ function playOpeningCinematic(done,pages=COMIC_PAGES,lastLabel='PREPARE FOR BATT
  Sound.startMusic();session.raf=requestAnimationFrame(tick);
 }
 const splashArt=document.createElement('img');splashArt.id='splashCast';splashArt.src='assets/splash-v61.jpg';splashArt.alt='Iron Pit: Rourke and Dave, with Dr Lilith Kane above them';node('splash').prepend(splashArt);
-node('splashCampaign').classList.add('ready-flash');node('splashCampaign').setAttribute('aria-label','Championship');node('splashStart').setAttribute('aria-label','Quick Battle');
+node('splashCampaign').classList.add('ready-flash');node('splashCampaign').setAttribute('aria-label','Championship');
 const splashActions=document.createElement('div');splashActions.id='splashActions';
-for(const[id,asset,label]of [['splashCampaign','button-championship.png','Championship'],['splashStart','button-quick-battle.png','Quick Battle']]){const button=node(id);button.type='button';button.replaceChildren();const image=document.createElement('img');image.src='assets/'+asset;image.alt='';image.setAttribute('aria-hidden','true');button.append(image);button.setAttribute('aria-label',label);splashActions.append(button);}node('splash').append(splashActions);
+for(const[id,asset,label]of [['splashCampaign','button-championship.png','Championship']]){const button=node(id);button.type='button';button.replaceChildren();const image=document.createElement('img');image.src='assets/'+asset;image.alt='';image.setAttribute('aria-hidden','true');button.append(image);button.setAttribute('aria-label',label);splashActions.append(button);}node('splash').append(splashActions);
 
 // Approved Skitter interlude: the final Next fades out before Bastion's comms boot.
 const SKITTER_INTERLUDE_PAGES=[

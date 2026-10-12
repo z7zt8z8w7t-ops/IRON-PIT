@@ -25,6 +25,6 @@ const safeClear=clearCombatFx;clearCombatFx=function(){resetBattleInputs();safeC
 for(const prefix of ['', 'p2-']){const b=document.getElementById(prefix+'rematch');if(b)b.onclick=()=>rematchBattle()}
 attachBattleControls();
 
-node('splashStart').onclick=()=>showLevelSelect();
+
 
 const safeWorkshopBack=node('buildBack').onclick;node('buildBack').onclick=()=>{resetBattleInputs();safeWorkshopBack()};
