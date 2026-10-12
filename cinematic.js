@@ -69,7 +69,7 @@ function playComicInterlude(done,pages,lastLabel='NEXT →'){
  if(radioChain){radioChain.gain.gain.cancelScheduledValues?.(Sound.context.currentTime);radioChain.gain.gain.value=0;}
  if(Sound.dry){Sound.dry.gain.cancelScheduledValues?.(Sound.context.currentTime);Sound.dry.gain.value=0;}
  hideGameMenus();storyScreen().hidden=true;
- if(pages===BLAZE_INTERLUDE_PAGES)ComicAudio.begin('blaze');else if(pages===SKITTER_INTERLUDE_PAGES)ComicAudio.begin('skitter');else if(pages===SEMIFINAL_INTERLUDE_PAGES)ComicAudio.begin('semifinal');
+ if(pages===BLAZE_INTERLUDE_PAGES)ComicAudio.begin('blaze');else if(pages===SKITTER_INTERLUDE_PAGES)ComicAudio.begin('skitter');else if(pages===SEMIFINAL_INTERLUDE_PAGES)ComicAudio.begin('semifinal');else if(pages===BASTION_INTERLUDE_PAGES)ComicAudio.begin('bastion');
  playOpeningCinematic(done,pages,lastLabel);
 }
 function playBlazeInterlude(done){playComicInterlude(done,BLAZE_INTERLUDE_PAGES)}

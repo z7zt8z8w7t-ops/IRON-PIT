@@ -4,7 +4,8 @@ const ComicAudio={
  profiles:{
   blaze:[{path:'audio/bar-ambience.mp3',level:.65,crossfade:true,reverb:true},{path:'audio/blaze-bar.m4a',level:.25,reverb:true}],
   skitter:[{path:'audio/voss-towers.m4a',level:.65}],
-  semifinal:[{path:'audio/voss-towers.m4a',level:.65}]
+  semifinal:[{path:'audio/voss-towers.m4a',level:.65}],
+  bastion:[{path:'audio/lab-ambience.mp3',level:.65,crossfade:true}]
  },
  cache:new Map(),session:null,generation:0,
  load(track){

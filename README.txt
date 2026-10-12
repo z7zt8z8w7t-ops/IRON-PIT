@@ -1,4 +1,4 @@
-IRON PIT v81 — Changed files since v80.
-Semi-final comic now loops Voss Towers from its starting NEXT, fading out over two seconds on final NEXT or SKIP.
-Voss shoots.mp3 plays once on the forward turn from page 2 to page 3, with 1.6-second room reverb and a sharp dry attack. Previous, later turns and repeated visits do not replay the gunshot. Sound mute and backgrounding stop effects. Both clips cached for offline use.
-Upload over v80 preserving folders. Changed-files update, not standalone.
+IRON PIT v82 — Changed files since v81.
+Bastion’s first-loss six-page comic now plays the supplied lab ambience at the comic’s starting NEXT. Crossfaded loop, two-second fade-out on final NEXT or SKIP, pause/resume on backgrounding and sound mute. Audio cached for offline playback.
+The later semi-final comic retains Voss Towers and its gunshot.
+Upload over v81 preserving folders. Changed-files update, not standalone.
