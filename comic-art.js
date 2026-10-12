@@ -1,13 +1,9 @@
 'use strict';
 // Blaze and Skitter pages have finished intro-matched borders and load unchanged.
-// Legacy Issue 2 previews still need printed navigation removed.
+// Finished opening and character pages load unchanged.
 // These clean textures are also used by the page-turn mesh.
 const comicArtworkCache=new Map();
 const comicArtworkBounds={
- 'assets/issue-2-cover.jpg':[0,0,1086,1448],
- 'assets/issue-2-1.jpg':[11,10,1064,1428],
- 'assets/issue-2-2.jpg':[8,7,1070,1432],
- 'assets/issue-2-3.jpg':[17,7,1052,1431],
 };
 function prepareComicArtwork(page){
  const original=page.originalSrc||page.src;page.originalSrc=original;

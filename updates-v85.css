@@ -1,0 +1,18 @@
+/* Full-width guides and step-specific control emphasis. */
+#arena.training-active #trainingOverlay{left:8px;right:8px;top:calc(34px + env(safe-area-inset-top));width:auto;gap:14px;padding:12px 16px;align-items:center;box-sizing:border-box}
+#arena.training-active #trainingOverlay>div{min-width:0}
+#arena.training-active #trainingTitle{font-size:clamp(16px,2.1vw,25px);line-height:1.2;margin:3px 0 7px}
+#arena.training-active #trainingCopy{font-size:clamp(17px,2.25vw,27px);line-height:1.3}
+#arena.training-active #trainingOverlay small{font-size:11px}
+#arena.training-active #trainingOverlay img{width:58px;height:72px;flex:none}
+#arena.training-active #trainingSkip{max-width:none;font-size:11px;min-height:44px;flex:none}
+#arena.training-active .panel button:not(.tutorial-focus),#arena.training-active .panel .stick:not(.tutorial-focus){animation:none!important;outline:none!important;box-shadow:none!important}
+#arena.training-active .tutorial-focus{outline:3px solid #baffdc;outline-offset:2px}
+body.workshop-guide-active #builder{padding-top:var(--workshop-guide-height,165px);box-sizing:border-box}
+body.workshop-guide-active #builder .ready-flash:not(.workshop-tutorial-focus){animation:none!important;outline:none!important;box-shadow:none!important}
+#workshopLesson{left:12px!important;right:12px!important;top:calc(8px + env(safe-area-inset-top))!important;width:auto!important;max-width:none;font-size:clamp(18px,2.4vw,28px);padding:12px 18px}
+#workshopLesson p{margin:6px 0 10px;line-height:1.25}
+#workshopLesson div{justify-content:flex-end}
+#workshopLesson button{font-size:13px}
+.fixture-feed .fixture-arena70 canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:600px){#arena.training-active #trainingOverlay{gap:8px;padding:9px 10px;display:grid;grid-template-columns:minmax(0,1fr) auto}#arena.training-active #trainingOverlay img{display:none}#arena.training-active #trainingSkip{font-size:10px;max-width:72px}#arena.training-active #trainingTitle{font-size:16px}#arena.training-active #trainingCopy{font-size:18px}#workshopLesson{left:8px!important;right:8px!important;font-size:19px;padding:10px 12px}}

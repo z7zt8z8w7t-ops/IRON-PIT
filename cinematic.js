@@ -3,8 +3,8 @@ let openingMovieSession=null,comicInterludeActive=false;
 const COMIC_PAGES=[
  {src:'assets/intro-comic-cover.jpg',alt:'Iron Pit Issue 1: arena combat seen from the stands. Rourke’s mech remains unrevealed.'},
  {src:'assets/intro-comic-1.jpg',alt:'Page 1: Daves Fix n Spray exterior; Dave and Rourke repairing a customer mech. Dave: You’ve spent half your life fixing these things for other people. I think it’s about time you drove one. Rourke: Hmmm, I can drive em, but I can’t afford em.'},
- {src:'assets/intro-comic-2.jpg',alt:'Page 2: Dave reveals the bare-steel mech. Dave: Well maybe you don’t need to. Rourke: Is that for me? Beside the cockpit, Rourke: You really think we can compete with the sponsored teams? Dave: Their machines cost more. Doesn’t mean their pilots are better.'},
- {src:'assets/intro-comic-3.jpg',alt:'Page 3: Rourke’s mech enters the Iron Pit. Rourke: And if we lose? Dave: Then I guess we’re walking home.'}
+ {src:'assets/intro-comic-2-v85.png',alt:'Page 2: Dave reveals the bare-steel mech. Dave: Well maybe you don’t need to. Rourke: Is that for me? Beside the cockpit, Rourke: You really think we can compete with the sponsored teams? Dave: Their machines cost more. Doesn’t mean their pilots are better.'},
+ {src:'assets/intro-comic-3-v85.png',alt:'Page 3: Rourke’s mech enters the Iron Pit. Rourke: And if we lose? Dave: Then I guess we’re walking home.'}
 ];
 // Start loading comic art during the quote, before the audio fade-in.
 for(const page of COMIC_PAGES){const image=new Image();image.src=page.src;}
@@ -25,7 +25,6 @@ function playOpeningCinematic(done,pages=COMIC_PAGES,lastLabel='PREPARE FOR BATT
  const next=()=>{if(session.closed||session.turning||session.phase!=='comic')return;session.turning=true;enableControls();
   if(session.page===pages.length-1){if(comicInterludeActive)ComicAudio.end(2);session.phase='leaving';el.dataset.phase='leaving';transitionTimer=setTimeout(finish,fadeTime);return}
   startAudio();
-  if(pages===ISSUE_TWO_PAGES&&session.page===0)ComicAudio.revealKane();
   if(pages===SEMIFINAL_INTERLUDE_PAGES&&session.page===1)ComicAudio.gunshot();
   const front=pages[session.page].src;session.page++;show();
   cancelTurn=turnComicPage(art,front,pages[session.page].src,()=>{session.turning=false;enableControls();button.focus();});
@@ -70,7 +69,7 @@ function playComicInterlude(done,pages,lastLabel='NEXT →'){
  if(radioChain){radioChain.gain.gain.cancelScheduledValues?.(Sound.context.currentTime);radioChain.gain.gain.value=0;}
  if(Sound.dry){Sound.dry.gain.cancelScheduledValues?.(Sound.context.currentTime);Sound.dry.gain.value=0;}
  hideGameMenus();storyScreen().hidden=true;
- if(pages===ISSUE_TWO_PAGES)ComicAudio.begin('issue2');else if(pages===BLAZE_INTERLUDE_PAGES)ComicAudio.begin('blaze');else if(pages===SKITTER_INTERLUDE_PAGES)ComicAudio.begin('skitter');else if(pages===SEMIFINAL_INTERLUDE_PAGES)ComicAudio.begin('semifinal');else if(pages===BASTION_INTERLUDE_PAGES)ComicAudio.begin('bastion');
+ if(pages===BLAZE_INTERLUDE_PAGES)ComicAudio.begin('blaze');else if(pages===SKITTER_INTERLUDE_PAGES)ComicAudio.begin('skitter');else if(pages===SEMIFINAL_INTERLUDE_PAGES)ComicAudio.begin('semifinal');else if(pages===BASTION_INTERLUDE_PAGES)ComicAudio.begin('bastion');
  playOpeningCinematic(done,pages,lastLabel);
 }
 function playBlazeInterlude(done){playComicInterlude(done,BLAZE_INTERLUDE_PAGES)}

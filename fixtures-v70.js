@@ -5,20 +5,30 @@ function fixtureCard70(m,i,choose){
  row.className=(choose?'league-match ':'')+'fixture-card70'+(won?' won':'')+(current?' current':'');row.dataset.mission=i;
  if(choose){row.disabled=i>campaignCompleted();row.onclick=choose;}
  row.setAttribute('aria-label',m.round+', Rourke versus '+m.opponent+', '+(won?'won':current?'next match':'locked'));
- row.innerHTML='<div class="fixture-copy70"><small></small><strong></strong><div class="fixture-arena70"><img alt=""><span></span></div><div class="fixture-reward70"><img alt=""><span></span></div></div><div class="fixture-rivals70"></div><span class="fixture-state70"></span>';
+ row.innerHTML='<div class="fixture-copy70"><small></small><strong></strong><div class="fixture-arena70"><canvas width="420" height="210"></canvas><span></span></div><div class="fixture-reward70"><img alt=""><span></span></div></div><div class="fixture-rivals70"></div><span class="fixture-state70"></span>';
  row.querySelector('small').textContent=m.round.replace('ROOKIE ','').replace('CHALLENGER ','');
  row.querySelector('strong').textContent='ROURKE vs '+m.opponent.toUpperCase().replace(' + ',' vs ');
- const arena=row.querySelector('.fixture-arena70');arena.querySelector('img').src='assets/'+ARENA_VARIANTS[m.arena].ground+'.png';arena.querySelector('span').textContent=ARENA_VARIANTS[m.arena].label.toUpperCase();
+ const arena=row.querySelector('.fixture-arena70'),preview=arena.querySelector('canvas');preview.dataset.fixtureArena=m.arena;preview.setAttribute('role','img');preview.setAttribute('aria-label',ARENA_VARIANTS[m.arena].label+' arena preview');arena.querySelector('span').textContent=ARENA_VARIANTS[m.arena].label.toUpperCase();drawFixtureArena85(preview);
  const reward=row.querySelector('.fixture-reward70');reward.querySelector('img').src='assets/'+m.reward+'.png';reward.querySelector('span').textContent='REWARD: '+m.rewardText.toUpperCase();
  row.querySelector('.fixture-state70').textContent=won?'WON':current?'NEXT MATCH':'LOCKED';
  const rivals=row.querySelector('.fixture-rivals70');for(const bot of m.bots){const id=bot.name==='BLAZE'?'rivet':bot.name.toLowerCase(),box=document.createElement('div');box.className='fixture-rival70';const portrait=document.createElement('img');portrait.src=pilotPortrait(id);portrait.alt=STORY_CAST[id]?.name||bot.name;const cv=document.createElement('canvas');cv.width=200;cv.height=200;cv.setAttribute('aria-label',bot.name+' fitted '+chassisProfile(bot.loadout).name);cv.dataset.fixtureMech=JSON.stringify(bot.loadout);const label=document.createElement('small');label.className='fixture-rival-name';label.textContent=bot.name;box.append(portrait,cv,label);rivals.append(box)}
  if(won){const cross=document.createElementNS('http://www.w3.org/2000/svg','svg');cross.setAttribute('viewBox','0 0 800 140');cross.setAttribute('preserveAspectRatio','none');cross.setAttribute('aria-hidden','true');cross.classList.add('fixture-cross');cross.innerHTML='<path d="M30 17 Q280 70 770 126 M765 15 Q425 63 34 125 M40 22 Q310 72 758 120 M752 24 Q390 85 42 117" />';row.append(cross)}return row;
 }
-function drawFixtureMechs70(){if(!ready)return;for(const cv of document.querySelectorAll('[data-fixture-mech]')){const c=cv.getContext('2d');c.clearRect(0,0,200,200);mech(c,100,105,.47,0,0,JSON.parse(cv.dataset.fixtureMech));}}
+const fixtureArenaArt85=new Image();fixtureArenaArt85.onload=()=>{for(const cv of document.querySelectorAll('[data-fixture-arena]'))drawFixtureArena85(cv)};fixtureArenaArt85.src='assets/fixture-arenas-v85.png';
+const FIXTURE_ART_BOUNDS85={desert:[0,0,652,527],flooded:[665,0,647,527],night:[0,587,652,540],rotating:[665,587,647,540]};
+function drawFixtureArena85(cv){
+ const c=cv.getContext('2d'),kind=cv.dataset.fixtureArena,v=ARENA_VARIANTS[kind],bounds=FIXTURE_ART_BOUNDS85[kind];c.fillStyle='#09131a';c.fillRect(0,0,cv.width,cv.height);
+ if(bounds&&fixtureArenaArt85.complete&&fixtureArenaArt85.naturalWidth){const[x,y,w,h]=bounds,cropH=Math.min(h,w*cv.height/cv.width);c.drawImage(fixtureArenaArt85,x,y+(h-cropH)/2,w,cropH,0,0,cv.width,cv.height);return}
+ const ground=images[v.ground];if(!ground)return;
+ c.drawImage(ground,0,0,cv.width,cv.height);c.fillStyle='rgba(0,8,22,'+v.dark+')';c.fillRect(0,0,cv.width,cv.height);
+ if(kind==='conveyors'){c.save();c.fillStyle='#313b38';c.strokeStyle='#6b746a';c.lineWidth=2;for(let k=0;k<3;k++){const x=65+k*135;c.fillRect(x,10,50,190);for(let y=14;y<200;y+=10){c.beginPath();c.moveTo(x,y);c.lineTo(x+50,y);c.stroke()}}c.restore()}
+ if(images['stadium-frame'])c.drawImage(images['stadium-frame'],0,0,cv.width,cv.height);
+}
+function drawFixtureMechs70(){if(!ready)return;for(const cv of document.querySelectorAll('[data-fixture-arena]'))drawFixtureArena85(cv);for(const cv of document.querySelectorAll('[data-fixture-mech]')){const c=cv.getContext('2d');c.clearRect(0,0,200,200);mech(c,100,105,.47,0,0,JSON.parse(cv.dataset.fixtureMech));}}
 function populateFixtures70(list,choose=false){list.replaceChildren();for(let i=campaignMatches().length-1;i>=0;i--){const m=campaignMatches()[i];list.append(fixtureCard70(m,i,choose?()=>{campaignMission=i;showStoryDialogue(m.lines,prepareCampaignWorkshop,m)}:null));}drawFixtureMechs70();}
 const oldRoster70=showLeagueFixturesTransmission;
 showLeagueFixturesTransmission=function(done){oldRoster70(done);const list=node('storyBody').querySelector('.comms-fixtures');populateFixtures70(list);const count=document.createElement('div');count.className='fixture-total70';count.textContent=campaignCompleted()+' / '+campaignMatches().length+' VICTORIES';list.after(count);};
-// Keep league switching and issue-2 links from the existing league window.
+// Keep league switching from the existing league window.
 const oldLadder70=showRookieLadder;
 showRookieLadder=function(){
  oldLadder70();const body=node('storyBody'),list=body.querySelector('.rookie-ladder');if(!list)return;

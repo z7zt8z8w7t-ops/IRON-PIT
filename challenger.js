@@ -15,16 +15,9 @@ const CHALLENGER_MATCHES=[
 CHALLENGER_MATCHES[6].requiredWeapon='railgun';
 CHALLENGER_MATCHES[6].win=[['rivet','All right. You won this league too.'],['dave','Challenger Champion. That was one expensive weapons test.'],['voss','This isn’t over, Rourke.'],['hudson','Another league victory. A promising return on my investment.']];
 CHALLENGER_MATCHES[6].loss=[['rivet','That’s what an upgrade looks like.'],['voss','HA HA HA HA…'],['jim','I’ll be back.'],['dave','Pilot intact. Let’s rethink the loadout and go again.']];
-const ISSUE_TWO_PAGES=[
- {src:'assets/issue-2-cover.jpg',alt:'Issue 2: The Price of Power. Winning gets you noticed.'},
- {src:'assets/issue-2-1.jpg',alt:'Dave: Rookie Champion. Still hasn’t made you any better at bringing the Mech back in one piece. Rourke: You said win. You didn’t say keep it tidy. Dave: Someone’s here to see you. Looks like she can afford the repair bill. Kane arrives in the workshop doorway.'},
- {src:'assets/issue-2-2.jpg',alt:'Kane: Hello, it’s good to finally meet. I’ve been watching your performance, and let’s just say I’m very interested. Kane: When the time comes, I’ll expect you to return that interest.'},
- {src:'assets/issue-2-3.jpg',alt:'Voss: Make me a new weapon, something….devastating. Quinn: It would be my pleasure.'}
-];
-function playIssueTwo(){playComicInterlude(()=>{rookieProgress.sponsorSeen=true;rookieProgress.issue2Seen=true;saveRookie();campaignLeague='challenger';campaignMission=Math.min(campaignCompleted(),CHALLENGER_MATCHES.length-1);showRookieLadder()},ISSUE_TWO_PAGES,'ENTER CHALLENGER LEAGUE →')}
 const challengerLadder=showRookieLadder;
 showRookieLadder=function(){challengerLadder();if(!node('storyBody').querySelector('.rookie-ladder'))return;const links=document.createElement('div');links.className='league-links';
- if(rookieProgress.completed===5){const switchLeague=document.createElement('button');switchLeague.textContent=campaignLeague==='rookie'?'CHALLENGER LEAGUE →':'← ROOKIE FIXTURES';switchLeague.onclick=()=>{campaignLeague=campaignLeague==='rookie'?'challenger':'rookie';campaignMission=Math.min(campaignCompleted(),campaignMatches().length-1);if(campaignLeague==='challenger'&&!rookieProgress.issue2Seen)playIssueTwo();else showRookieLadder()};links.append(switchLeague);const replay=document.createElement('button');replay.textContent='READ ISSUE #2';replay.onclick=playIssueTwo;links.append(replay)}node('storyBody').append(links);
+ if(rookieProgress.completed===5){const switchLeague=document.createElement('button');switchLeague.textContent=campaignLeague==='rookie'?'CHALLENGER LEAGUE →':'← ROOKIE FIXTURES';switchLeague.onclick=()=>{campaignLeague=campaignLeague==='rookie'?'challenger':'rookie';campaignMission=Math.min(campaignCompleted(),campaignMatches().length-1);showRookieLadder()};links.append(switchLeague);}node('storyBody').append(links);
 };
 // Render the same reversed roster inside the video terminal, without leaving comms.
 function showLeagueFixturesTransmission(done){resetBattleInputs();hideGameMenus();const screen=storyScreen();screen.hidden=false;screen.classList.remove('fixtures-screen');screen.classList.add('comms-screen');const ticket=++transmissionGeneration;transmissionClosing=false;
@@ -67,4 +60,4 @@ const challengeTerrain=drawTerrain;drawTerrain=function(c){challengeTerrain(c);i
  if(s.mode==='sudden-death'){c.fillStyle='#c8222238';c.beginPath();c.rect(0,0,ARENA.width,ARENA.height);c.arc(ARENA.width/2,ARENA.height/2,s.safeRadius,0,Math.PI*2,true);c.fill('evenodd');c.strokeStyle=s.age<30?'#b9ff75':'#ff6262';c.lineWidth=8;c.beginPath();c.arc(ARENA.width/2,ARENA.height/2,s.safeRadius,0,Math.PI*2);c.stroke()}c.restore()};
 const challengeHUD=drawStadiumAtmosphere;drawStadiumAtmosphere=function(c,w,h){challengeHUD(c,w,h);if(!challengeRunning())return;const s=challengeState;let text='';if(s.mode==='zone')text='POWER ZONE · ROURKE '+Math.floor(s.scores[0])+' / WARDEN '+Math.floor(s.scores[1])+' · 100 TO WIN';if(s.mode==='drones')text='HUNTER DRONES · '+s.drones.filter(d=>d.hp>0).length+' ACTIVE · ATTACK BOTH PILOTS';if(s.mode==='smoke')text='SMOKE SCREENS BREAK LOCKS';if(s.mode==='endurance')text=s.waveWait?'NEXT OPPONENT · '+Math.ceil(s.waveWait)+'s · DAMAGE CARRIES OVER':'ENDURANCE · WAVE '+(s.wave+1)+' / 2';if(s.mode==='sudden-death')text=s.age<30?'SAFE ZONE SHRINKS IN '+Math.ceil(30-s.age)+'s':'SUDDEN DEATH · STAY INSIDE THE BOUNDARY';if(s.mode==='weapons-test')text='KANE PROTOTYPE · 2 SHOTS TO OVERHEAT';if(text){c.save();c.fillStyle='#081820dc';c.fillRect(w*.08,32,w*.84,28);c.font='bold '+Math.max(10,Math.min(14,w/65))+'px monospace';c.textAlign='center';c.fillStyle='#eaffbc';c.fillText(text,w/2,51);c.restore()}};
 
-preloadComicArtwork(ISSUE_TWO_PAGES);
+

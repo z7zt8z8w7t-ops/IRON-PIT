@@ -2,11 +2,10 @@
 // Dedicated comic sound bed: bypasses the workshop radio and the muted SFX bus.
 const ComicAudio={
  profiles:{
-  issue2:[{path:'audio/workshop-ambient.mp3',level:.65,crossfade:true},{path:'audio/dr-kane.m4a',level:.4,crossfade:true,deferred:true,fadeIn:2}],
   blaze:[{path:'audio/bar-ambience.mp3',level:.65,crossfade:true,reverb:true},{path:'audio/blaze-bar.m4a',level:.25,reverb:true}],
   skitter:[{path:'audio/voss-towers.m4a',level:.65}],
   semifinal:[{path:'audio/voss-towers.m4a',level:.65}],
-  bastion:[{path:'audio/lab-ambience.mp3',level:.65,crossfade:true}]
+  bastion:[{path:'audio/lab-ambience.mp3',level:.325,crossfade:true,reverb:true}]
  },
  cache:new Map(),session:null,generation:0,
  load(track){
@@ -33,10 +32,10 @@ const ComicAudio={
   const c=Sound.context,output=c.createGain();output.gain.value=.8;output.connect(Sound.master);
   const input=c.createGain(),dry=c.createGain();input.connect(dry);dry.connect(output);
   const nodes=[input,dry,output];
-  if(session.kind==='blaze'&&c.createConvolver){
-   const wet=c.createGain(),delay=c.createDelay(.2),reverb=c.createConvolver(),ir=c.createBuffer(2,Math.round(c.sampleRate*4),c.sampleRate);
+  if((session.kind==='blaze'||session.kind==='bastion')&&c.createConvolver){
+   const wet=c.createGain(),delay=c.createDelay(.2),reverb=c.createConvolver(),ir=c.createBuffer(2,Math.round(c.sampleRate*(session.kind==='bastion'?2.4:4)),c.sampleRate);
    for(let ch=0;ch<2;ch++){const data=ir.getChannelData(ch);for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*Math.pow(1-i/data.length,2.5);}
-   reverb.buffer=ir;delay.delayTime.value=.035;dry.gain.value=.7;wet.gain.value=.4;
+   reverb.buffer=ir;delay.delayTime.value=.035;dry.gain.value=session.kind==='bastion'?.8:.7;wet.gain.value=session.kind==='bastion'?.2:.4;
    input.connect(delay);delay.connect(reverb);reverb.connect(wet);wet.connect(output);nodes.push(wet,delay,reverb);
   }else dry.gain.value=1;
   session.chain={input,output,nodes};
@@ -50,10 +49,6 @@ const ComicAudio={
    if(t.profile.fadeIn&&!t.hasStarted){gain.gain.setValueAtTime(0,c.currentTime);gain.gain.linearRampToValueAtTime(t.profile.level,c.currentTime+t.profile.fadeIn);}t.hasStarted=true;
    source.connect(gain);gain.connect(s.chain.input);t.source=source;t.gain=gain;t.started=c.currentTime;source.start(0,t.offset%t.buffer.duration);
   }
- },
- revealKane(){
-  const s=this.session;if(!s||s.kind!=='issue2'||s.closing||s.kaneRequested)return;
-  s.kaneRequested=true;this.update();
  },
  async gunshot(){
   const s=this.session;if(!s||s.kind!=='semifinal'||s.closing||s.shotPlayed)return;
