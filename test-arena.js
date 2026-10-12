@@ -40,7 +40,7 @@ function refreshTestingLabels(){
  node('testArenaExit').hidden=!testArenaActive;
  if(!testArenaActive)return;
  node('workshopMode').textContent='TEST ARENA · '+ARENA_VARIANTS[arenaKind].label.toUpperCase();
- node('buildVersion').textContent='TEST ARENA · v87';node('buildBack').hidden=false;
+ node('buildVersion').textContent='TEST ARENA · v88';node('buildBack').hidden=false;
  node('buildBack').textContent='BACK TO ARENA SELECT';node('deploy').textContent='START ARENA TEST →';
  node('loadoutReadout').textContent='ALL EQUIPMENT UNLOCKED · TEST SESSION';
 }
