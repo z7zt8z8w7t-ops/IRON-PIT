@@ -3,7 +3,8 @@
 const ComicAudio={
  profiles:{
   blaze:[{path:'audio/bar-ambience.mp3',level:.65,crossfade:true,reverb:true},{path:'audio/blaze-bar.m4a',level:.25,reverb:true}],
-  skitter:[{path:'audio/voss-towers.m4a',level:.65}]
+  skitter:[{path:'audio/voss-towers.m4a',level:.65}],
+  semifinal:[{path:'audio/voss-towers.m4a',level:.65}]
  },
  cache:new Map(),session:null,generation:0,
  load(track){
@@ -17,9 +18,10 @@ const ComicAudio={
  preload(){if(!Sound.context)return;for(const tracks of Object.values(this.profiles))for(const track of tracks)this.load(track);},
  async begin(kind){
   this.end(0);const generation=++this.generation;
-  const session=this.session={generation,kind,tracks:[],chain:null,closing:false,timer:0};
+  const session=this.session={generation,kind,tracks:[],effects:[],shotPlayed:false,chain:null,closing:false,timer:0};
   // unlock() creates/resumes the context immediately inside the NEXT gesture.
   await Sound.unlock();if(this.session!==session)return;
+  if(kind==='semifinal')this.load({path:'audio/voss-shoots.mp3'});
   await Promise.all((this.profiles[kind]||[]).map(async profile=>{
    const buffer=await this.load(profile);if(this.session!==session||!buffer)return;
    session.tracks.push({profile,buffer,offset:0,source:null,started:0,gain:null});this.update();
@@ -46,8 +48,22 @@ const ComicAudio={
    source.connect(gain);gain.connect(s.chain.input);t.source=source;t.gain=gain;t.started=c.currentTime;source.start(0,t.offset%t.buffer.duration);
   }
  },
+ async gunshot(){
+  const s=this.session;if(!s||s.kind!=='semifinal'||s.closing||s.shotPlayed)return;
+  s.shotPlayed=true;await Sound.unlock();const buffer=await this.load({path:'audio/voss-shoots.mp3'});
+  const c=Sound.context;if(this.session!==s||s.closing||!buffer||Sound.muted||document.hidden||c.state!=='running')return;
+  if(!s.chain)this.makeChain(s);
+  const source=c.createBufferSource(),dry=c.createGain(),wet=c.createGain(),delay=c.createDelay(.2),reverb=c.createConvolver();
+  source.buffer=buffer;source.loop=false;dry.gain.value=.9;wet.gain.value=.28;delay.delayTime.value=.025;
+  const ir=c.createBuffer(2,Math.round(c.sampleRate*1.6),c.sampleRate);
+  for(let ch=0;ch<2;ch++){const data=ir.getChannelData(ch);for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*Math.pow(1-i/data.length,3);}
+  reverb.buffer=ir;source.connect(dry);dry.connect(s.chain.output);source.connect(delay);delay.connect(reverb);reverb.connect(wet);wet.connect(s.chain.output);
+  const effect={source,nodes:[source,dry,wet,delay,reverb],timer:0};s.effects.push(effect);
+  effect.timer=setTimeout(()=>{effect.nodes.forEach(n=>n.disconnect());s.effects=s.effects.filter(e=>e!==effect);},(buffer.duration+1.8)*1000);source.start(0);
+ },
  pause(){
   const s=this.session,c=Sound.context;if(!s||!c)return;
+  for(const e of s.effects||[]){clearTimeout(e.timer);try{e.source.stop()}catch(error){}e.nodes.forEach(n=>n.disconnect());}s.effects=[];
   for(const t of s.tracks){if(!t.source)continue;t.offset=(t.offset+c.currentTime-t.started)%t.buffer.duration;
    try{t.source.stop()}catch(e){}t.source.disconnect();t.gain.disconnect();t.source=null;t.gain=null;
   }
