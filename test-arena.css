@@ -1,0 +1,16 @@
+#splashTestArena{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:6;min-width:0;min-height:46px;padding:10px 18px;border:2px solid #6fe5e4;border-radius:7px;background:linear-gradient(#344449,#102127);color:#dcffff;font:bold 16px system-ui;letter-spacing:1px;box-shadow:inset 0 0 0 2px #071014,0 3px 12px #000b;touch-action:manipulation}
+#testArenaSelect{position:fixed;inset:0;z-index:70;overflow-y:auto;overscroll-behavior:contain;background:radial-gradient(ellipse at top,#243d40,#070f13 70%);color:#e4eeee;padding:calc(18px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-left)) calc(22px + env(safe-area-inset-bottom));box-sizing:border-box}
+#testArenaSelect header{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:950px;margin:auto;border-bottom:3px solid #ddba45;padding-bottom:14px}
+#testArenaSelect header small{color:#90c7cb;font-size:11px;letter-spacing:2px}
+#testArenaSelect h1{margin:4px 0;color:#c5ffff;font-size:clamp(24px,4vw,40px);letter-spacing:2px}
+#testArenaSelect>p{max-width:950px;margin:16px auto 22px;color:#c1d3d2;line-height:1.5}
+#testArenaBack,#testArenaExit{min-height:44px;padding:8px 16px;border:1px solid #93b5b5;border-radius:5px;background:#1d3035;color:#e6ffff;font-weight:bold;touch-action:manipulation}
+#testArenaCards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:950px;margin:auto}
+.test-arena-card{display:flex;flex-direction:column;align-items:stretch;gap:8px;min-width:0;padding:10px;border:2px solid #61797a;border-radius:8px;background:linear-gradient(135deg,#293537,#08161a);color:#e7eeee;text-align:left;box-shadow:inset 0 0 0 2px #071014;touch-action:manipulation;cursor:pointer}
+.test-arena-card canvas{width:100%;height:auto;aspect-ratio:180/170;border-radius:4px}
+.test-arena-card strong{color:#e0ffff;font-size:clamp(15px,2vw,20px)}
+.test-arena-card small{font-size:12px;font-weight:normal;color:#adc2c1;line-height:1.4}
+.test-arena-card:active{border-color:#a8ff63;filter:brightness(1.15)}
+#testArenaSelect button:focus-visible,#splashTestArena:focus-visible,#testArenaExit:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#testArenaExit{font-size:11px;margin-left:auto}
+@media(max-width:600px){#testArenaCards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.test-arena-card{padding:7px}#splashTestArena{font-size:13px;padding:8px 12px}}
