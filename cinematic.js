@@ -87,3 +87,14 @@ const BASTION_INTERLUDE_PAGES=[
 ];
 function playBastionInterlude(done){playComicInterlude(done,BASTION_INTERLUDE_PAGES)}
 preloadComicArtwork(BASTION_INTERLUDE_PAGES);
+
+// Approved semi-final aftermath; reuse Voss Industries establishing page.
+const SEMIFINAL_INTERLUDE_PAGES=[
+ {src:"assets/skitter-tower.png",alt:"Some hours later. Voss Industries tower in the financial district."},
+ {src:"assets/semifinal-interlude-2.png",alt:"Voss in shadow: I need an explanation. Bastion: I told you she would just get in my way. Bastion lifts Skitter by her head: Let me finish her first, then I’ll get Rourke. Voss quietly draws a pistol from his chair."},
+ {src:"assets/semifinal-interlude-3.png",alt:"Voss shoots Bastion. Bastion falls and releases Skitter; Quinn behind him is blood-spattered."},
+ {src:"assets/semifinal-interlude-4.png",alt:"Voss threatens the cowering Skitter: You’re only still alive because of the money you owe me. Seven days, Skitter. Quinn tastes a smear of blood from his finger. Skitter flees. Voss: Quinn, get yourself cleaned up."},
+ {src:"assets/semifinal-interlude-5.png",alt:"Bastion’s body lies discarded on a rain-soaked rubbish dump, partly concealed beneath dirty plastic."}
+];
+function playSemifinalInterlude(done){playComicInterlude(done,SEMIFINAL_INTERLUDE_PAGES)}
+preloadComicArtwork(SEMIFINAL_INTERLUDE_PAGES);
