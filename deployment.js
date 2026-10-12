@@ -25,7 +25,7 @@ function drawDeployment(c,w,h){const d=deployment;if(!d)return;const t=d.age,app
  if(t<4.5){c.save();c.strokeStyle='#afb4ab';c.lineWidth=2;for(const side of [-1,1]){c.beginPath();c.moveTo(px+side*42,py+24);c.lineTo(mx+side*80,my+61);c.stroke()}c.restore()}
 
 }
- function drawDeploymentAircraft(c,x,y,scale,heading=0){const t=deployment.age;c.save();c.translate(x,y);c.rotate(heading);c.scale(scale,scale);c.drawImage(images['helicopter-snow'],150,0,360,1024,-72.5,-207,145,414);
+ function drawDeploymentAircraft(c,x,y,scale,heading=0,rotorTime=deployment?.age||0){const t=rotorTime;c.save();c.translate(x,y);c.rotate(heading);c.scale(scale,scale);c.drawImage(images['helicopter-snow'],150,0,360,1024,-72.5,-207,145,414);
  for(const[yy,sign]of [[-114,1],[114,-1]]){c.save();c.translate(0,yy);for(let j=0;j<4;j++){c.save();c.globalAlpha=j===0?.85:.12;c.rotate(sign*t*34-j*.15);c.drawImage(images['helicopter-snow'],690,130,780,760,-139,-135.5,278,271);c.restore()}c.restore()}
  const on=Math.sin(t*Math.PI*3)>0;for(const[x,y,col]of [[-49,-115,'#ff3525'],[49,-115,'#35ff55'],[-53,118,'#ff3525'],[53,118,'#35ff55'],[0,-197,'#ffffff'],[0,191,'#ffdc25']]){c.fillStyle=on?col:'#20262c';c.shadowColor=col;c.shadowBlur=on?15:0;c.beginPath();c.arc(x,y,3.5,0,Math.PI*2);c.fill()}c.restore()}
 

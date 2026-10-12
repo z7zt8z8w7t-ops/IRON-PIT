@@ -1,2 +1,4 @@
-Iron Pit v83 — changed files. Upload these files over your existing v82 game, retaining all other files.
-Issue #2: workshop ambience loops from the cover; Dr Kane audio fades in over 2 seconds on turning the cover and loops with a crossfaded seam. Both fade out together over 2 seconds on leaving the final page or skipping.
+IRON PIT v84 — Changed files since v83.
+Adds winning-mech extraction using the existing helicopter, rotor, winch and attachment audio. After the victory announcement, transport approaches the winner’s final position, lowers cables, lifts the fitted mech and departs before fading to black. Championship then continues automatically to updated fixtures and transmissions. Quick Battle and two-player matches reveal their existing after-action controls after pickup. Draws, training and weapon-range tests do not trigger extraction.
+Near arena edges only the aircraft position is adjusted; the mech is lifted from its real stopping position. Extraction uses visual coordinates without changing collision or actor state. Hidden tabs pause the timeline; new battles cancel extraction.
+Preserves v83 Issue 2 audio. Upload over v83 preserving paths. Changed-files update, not standalone.
