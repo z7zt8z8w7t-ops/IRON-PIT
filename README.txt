@@ -1,4 +1,2 @@
-IRON PIT v82 — Changed files since v81.
-Bastion’s first-loss six-page comic now plays the supplied lab ambience at the comic’s starting NEXT. Crossfaded loop, two-second fade-out on final NEXT or SKIP, pause/resume on backgrounding and sound mute. Audio cached for offline playback.
-The later semi-final comic retains Voss Towers and its gunshot.
-Upload over v81 preserving folders. Changed-files update, not standalone.
+Iron Pit v83 — changed files. Upload these files over your existing v82 game, retaining all other files.
+Issue #2: workshop ambience loops from the cover; Dr Kane audio fades in over 2 seconds on turning the cover and loops with a crossfaded seam. Both fade out together over 2 seconds on leaving the final page or skipping.

@@ -2,6 +2,7 @@
 // Dedicated comic sound bed: bypasses the workshop radio and the muted SFX bus.
 const ComicAudio={
  profiles:{
+  issue2:[{path:'audio/workshop-ambient.mp3',level:.65,crossfade:true},{path:'audio/dr-kane.m4a',level:.4,crossfade:true,deferred:true,fadeIn:2}],
   blaze:[{path:'audio/bar-ambience.mp3',level:.65,crossfade:true,reverb:true},{path:'audio/blaze-bar.m4a',level:.25,reverb:true}],
   skitter:[{path:'audio/voss-towers.m4a',level:.65}],
   semifinal:[{path:'audio/voss-towers.m4a',level:.65}],
@@ -19,7 +20,7 @@ const ComicAudio={
  preload(){if(!Sound.context)return;for(const tracks of Object.values(this.profiles))for(const track of tracks)this.load(track);},
  async begin(kind){
   this.end(0);const generation=++this.generation;
-  const session=this.session={generation,kind,tracks:[],effects:[],shotPlayed:false,chain:null,closing:false,timer:0};
+  const session=this.session={generation,kind,tracks:[],effects:[],shotPlayed:false,kaneRequested:false,chain:null,closing:false,timer:0};
   // unlock() creates/resumes the context immediately inside the NEXT gesture.
   await Sound.unlock();if(this.session!==session)return;
   if(kind==='semifinal')this.load({path:'audio/voss-shoots.mp3'});
@@ -44,10 +45,15 @@ const ComicAudio={
   const s=this.session,c=Sound.context;if(!s||s.closing||!c)return;
   if(Sound.muted||document.hidden||c.state!=='running'){this.pause();return;}
   if(!s.chain)this.makeChain(s);
-  for(const t of s.tracks){if(t.source)continue;
+  for(const t of s.tracks){if(t.source||(t.profile.deferred&&!s.kaneRequested))continue;
    const source=c.createBufferSource(),gain=c.createGain();source.buffer=t.buffer;source.loop=true;gain.gain.value=t.profile.level;
+   if(t.profile.fadeIn&&!t.hasStarted){gain.gain.setValueAtTime(0,c.currentTime);gain.gain.linearRampToValueAtTime(t.profile.level,c.currentTime+t.profile.fadeIn);}t.hasStarted=true;
    source.connect(gain);gain.connect(s.chain.input);t.source=source;t.gain=gain;t.started=c.currentTime;source.start(0,t.offset%t.buffer.duration);
   }
+ },
+ revealKane(){
+  const s=this.session;if(!s||s.kind!=='issue2'||s.closing||s.kaneRequested)return;
+  s.kaneRequested=true;this.update();
  },
  async gunshot(){
   const s=this.session;if(!s||s.kind!=='semifinal'||s.closing||s.shotPlayed)return;
