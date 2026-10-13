@@ -1,0 +1,33 @@
+IRON PIT v95 — install over v94
+
+Copy the included files and assets folder into your existing game directory,
+replacing files when asked. Keep all other existing files. Open the game online
+once to load the new cache. The splash, workshop and arena show v95.
+
+Included changes
+- New four-page opening: approved arena-exterior cover and workshop pages 1–3.
+  The scorched bare-steel light tank towers over the characters.
+- Rourke's latest standard, win and loss portraits, plus the updated splash.
+- Kane's exact final selections: slight smile E1342F3B and stern 183AF071.
+  Dialogue is positioned below her face and the portrait is anchored at the top.
+- Iron Pit is the final championship fixture (Challenger final against Blaze).
+  Existing prototype railgun requirement and other fixture assignments remain.
+- Approved iron-sheet floor and worn central logo, aligned to the existing
+  1800 x 2400 arena and 3 x 4 grid. Existing stands, towers and entrances remain.
+- A random unopened square warns amber, then rapidly red; its two covers slide
+  left and right beneath the neighbouring floor. Open grinders stay hazardous.
+- Player and rivals are shredded/explode if caught. Shields do not protect them;
+  grinder destruction has no escape-pod animation. Simultaneous falls can draw.
+- Grinders pause during deployment and after the result, and reset on rematch.
+- Updated offline cache, with duplicate precache entries removed.
+
+Verification
+- JavaScript syntax, referenced files and complete offline asset inventory.
+- Deterministic grinder warning/opening/overlap/exhaustion/reset checks.
+- Chromium startup, all intro pages and page turns, final fixture deployment,
+  railgun requirement, shielded/player/rival/simultaneous grinder deaths,
+  no-pod behaviour, deployment exclusion, reset and both comms portraits.
+- Offline cache installation (366 entries) and successful offline reload.
+- Tablet portrait/landscape and 375 x 812 phone layout inspection.
+
+Actual iPad/Safari device testing was not available.

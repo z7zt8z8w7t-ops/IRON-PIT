@@ -1,0 +1,6 @@
+/* Keep the new office portraits' faces unobscured by dialogue and labels. */
+.comms-screen .transmission[data-remote='hudson'] .story-dialogue-copy[data-speaker='hudson']{top:35%;left:4%;right:auto;width:47%;max-height:32%}
+.comms-screen .transmission[data-remote='hudson'] .transmission-label{top:5.5%}
+@media(max-width:540px){.comms-screen .transmission[data-remote='hudson'] .story-dialogue-copy[data-speaker='hudson']{width:55%;max-height:34%}}
+
+.comms-screen .transmission[data-remote='hudson'] #storyPortrait{object-position:center top}
