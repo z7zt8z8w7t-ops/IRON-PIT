@@ -39,3 +39,9 @@
 .fixture-terminal91:not(.rookie-terminal91) .fixture-reward70{grid-column:2/4;grid-row:3}
 
 .rookie-template91 .fixture-card70:disabled{opacity:1}
+
+/* Hit areas are relative to the complete raster frame, not a nested footer. */
+#storyScreen.comms-screen .rookie-terminal91 .story-actions{inset:0;left:0;right:0;bottom:0;top:0;width:100%;height:100%;display:block;pointer-events:none;z-index:8}
+#storyScreen.comms-screen .rookie-terminal91 .story-actions button{position:absolute;top:86.5%;bottom:auto;left:7.5%;width:26.3%;height:7%;min-height:0;pointer-events:auto}
+#storyScreen.comms-screen .rookie-terminal91 .story-actions #storySkip{left:36.8%;width:26.3%}
+#storyScreen.comms-screen .rookie-terminal91 .story-actions #storyNext{left:66.1%;width:26.3%}

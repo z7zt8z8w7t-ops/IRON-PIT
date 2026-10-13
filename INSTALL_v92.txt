@@ -1,0 +1,11 @@
+IRON PIT v92 HOTFIX — install over v91
+
+Extract into the existing game folder, replacing the included files. Keep the existing assets and audio folders.
+
+Fixes:
+- Wait for rebuilt arena artwork before starting the main game loop. Avoids the thumbnail draw failure that left training at PREPARING TRANSPORT.
+- Align Rookie fixture BACK, SKIP and NEXT touch areas with the illustrated buttons.
+- Ensure pilot training uses the single-player deployment path when launched from the splash screen.
+- Refresh the offline cache and script versions to v92.
+
+Validation: full Chromium runtime with delayed arena artwork; physical clicks on all three fixture buttons; Round 1 briefing; tutorial transport and arena rendering; existing training/progression and render/cache checks. An actual iPad/Safari device was not available for testing.
