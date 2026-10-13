@@ -9,7 +9,7 @@ resetBattleResult=function(){cancelVictoryPickup();return pickupReset();};
 const pickupFinish=finishBattle;
 finishBattle=function(winner){
  const existed=!!battleResult;pickupFinish(winner);
- if(existed||!winner||weaponRange||typeof trainingActive!=='undefined'&&trainingActive)return;
+ if(existed||!winner||weaponRange||(typeof trainingActive!=='undefined'&&trainingActive&&trainingState?.stage!==11))return;
  const state=typeof duelPlayers!=='undefined'&&duelActive?duelPlayers.find(s=>s.actor===winner):null;
  victoryPickup={result:battleResult,winner,loadout:winner.loadout||state?.build||build,rig:state?.bipedRig|| (winner===p?bipedRig:null),x:winner.x,y:winner.y,heading:winner.heading||0,angle:winner.angle||0,age:0,done:false,events:new Set()};
 };
@@ -61,9 +61,8 @@ function drawPickupLamps(c,view){
  for(const side of [-1,1]){glow(c,side*88,18,22,'#fff0c9',.27);c.fillStyle='#fff0c9';c.beginPath();c.arc(side*88,18,3,0,Math.PI*2);c.fill();}
  c.restore();
 }
-const pickupAtmosphere=drawStadiumAtmosphere;
-drawStadiumAtmosphere=function(c,w,h){
- pickupAtmosphere(c,w,h);const s=victoryPickup;if(!s||s.done||s.age<2)return;
+function drawVictoryPickup(c,w,h){
+ const s=victoryPickup;if(!s||s.done||s.age<2)return;
  const view=pickupPresentation(s,stadiumView(w,h),w,h),{z,t,tx,ty,ax,ay,mx,my,heading}=view;
  c.save();
  if(t>=5&&t<PICKUP_EXIT){const attach=deploymentEase((t-5)/1.5);c.strokeStyle='#c5cac3';c.lineWidth=2;

@@ -1,0 +1,41 @@
+/* The approved Rookie raster frame surrounds live, spoiler-safe content. */
+.comms-screen .rookie-terminal91>.comms-frame{z-index:0!important}
+.comms-screen .rookie-terminal91 .fixture-feed{inset:0;width:100%;height:100%;padding:0;background:transparent;clip-path:none;z-index:1}
+.rookie-terminal91 .fixture-feed>h2{display:none}
+.rookie-terminal91 .comms-fixtures{position:absolute;inset:0;border:0;padding:0;overflow:hidden;display:block!important}
+.comms-screen .story-dialogue.transmission .rookie-template91 .fixture-card70{position:absolute!important;left:10.1%;width:80.2%;top:var(--fixture-y);height:13.1%;min-height:0!important;margin:0;padding:0;display:block;flex:none;border:0;border-radius:0;box-shadow:none;background:transparent;overflow:hidden;isolation:isolate}
+.rookie-template91 .fixture-card70:nth-child(1){--fixture-y:11.85%}.rookie-template91 .fixture-card70:nth-child(2){--fixture-y:26.1%}.rookie-template91 .fixture-card70:nth-child(3){--fixture-y:40.3%}.rookie-template91 .fixture-card70:nth-child(4){--fixture-y:54.5%}.rookie-template91 .fixture-card70:nth-child(5){--fixture-y:68.75%}
+.rookie-template91 .fixture-card70::before,.rookie-template91 .fixture-card70::after{display:none}
+.rookie-template91 .fixture-card70.current{filter:drop-shadow(0 0 3px #26e6f9)}
+.fixture-head91{display:flex;align-items:center;gap:8px;min-width:0;color:#fff3d5;font:bold clamp(10px,1.5vw,20px) Impact,'Arial Narrow',sans-serif}
+.rookie-template91 .fixture-head91{position:absolute;left:30%;top:3%;width:67%;height:18%;background:#101414;white-space:nowrap}
+.rookie-template91 .fixture-head91>small{display:none}.fixture-head91 strong{font:inherit;overflow:hidden;text-overflow:ellipsis}
+.rookie-template91 .fixture-arena70{position:absolute;left:2.1%;top:26%;width:48.2%;height:57%;display:block;background:#0c1114;overflow:hidden}
+.fixture-arena70>img{width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;object-position:center!important}
+.fixture-arena70>span{position:absolute;bottom:0;left:0;right:0;padding:2px;background:#081115e8;color:#eee7d1;text-align:center;font:bold clamp(6px,.95vw,13px) Impact,'Arial Narrow',sans-serif}
+.rookie-template91 .fixture-pilots91{position:absolute;left:53%;top:26%;width:21.2%;height:44%;overflow:hidden}
+.rookie-template91 .fixture-mechs91{position:absolute;left:77%;top:26%;width:20.8%;height:44%;overflow:hidden}
+.fixture-pilots91,.fixture-mechs91{display:flex;min-width:0;min-height:0;gap:1px;background:#0b1113}
+.fixture-pilot91,.fixture-mech91{position:relative;flex:1;min-width:0;min-height:0;overflow:hidden}
+.fixture-pilot91>img{width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;object-position:50% 27%!important}
+.fixture-pilot91>small{position:absolute;bottom:0;left:0;right:0;text-align:center;background:#081115c9;color:#d9f3ee;font:bold clamp(5px,.85vw,11px) monospace;padding:1px 0}
+.fixture-mech91>canvas{width:100%;height:100%;object-fit:contain;display:block}
+.rookie-template91 .fixture-reward70{position:absolute;left:53%;top:76%;width:44%;height:15%;background:#0d1415;overflow:hidden;display:flex;align-items:center;padding:0 3px}
+.fixture-reward70>span{font:bold clamp(5px,.85vw,12px) Impact,'Arial Narrow',sans-serif;color:#f5ead0;line-height:1.1}
+.rookie-template91 .fixture-state70{top:6%;right:2%;font-size:clamp(4px,.65vw,8px);padding:1px;background:#071218b0}
+.fixture-card70.awaiting .fixture-state70{display:none}
+.fixture-card70 .concealed91{color:#777c79;background:repeating-linear-gradient(135deg,#101615,#101615 15px,#121815 16px,#121815 32px);display:grid!important;place-items:center;font:clamp(14px,2.8vw,33px) sans-serif}
+.rookie-terminal91 .fixture-total70{position:absolute;left:34%;width:33%;top:82.7%;height:3.1%;padding:0;display:grid;place-items:center;background:#111412;color:#fff3d5;font:bold clamp(10px,1.7vw,23px) Impact,'Arial Narrow',sans-serif}
+.comms-screen .rookie-terminal91 .story-actions{left:7.5%;right:7.5%;bottom:6.5%;height:7%;gap:3%;z-index:3}
+.rookie-terminal91 .story-actions button{border:0!important;background:transparent!important;color:transparent!important;box-shadow:none!important;font-size:0!important;min-height:0;flex:1;padding:0;border-radius:0}
+.rookie-terminal91 .story-actions button:focus-visible{outline:3px solid #a3faff;outline-offset:2px}
+.rookie-terminal91 .fixture-links91{position:absolute;top:85.8%;left:11%;right:11%;z-index:4;display:flex;gap:4px;justify-content:center}
+.rookie-terminal91 .fixture-links91 button{font-size:clamp(6px,1vw,12px);padding:2px 5px;min-height:0;background:#081418d9}
+/* Longer leagues retain a scrollable list, using the same three image windows. */
+.comms-screen .fixture-terminal91:not(.rookie-terminal91) .fixture-card70{display:grid;grid-template-columns:50% 24% 24%;grid-template-rows:22% 53% 21%;gap:2%;height:140px;flex:1 0 140px;min-height:140px}
+.fixture-terminal91:not(.rookie-terminal91) .fixture-head91{grid-column:1/4;grid-row:1}.fixture-terminal91:not(.rookie-terminal91) .fixture-head91 small{background:#e1bb3a;color:#101515;padding:2px 4px;font-size:.8em}
+.fixture-terminal91:not(.rookie-terminal91) .fixture-arena70{grid-column:1;grid-row:2/4;position:relative}
+.fixture-terminal91:not(.rookie-terminal91) .fixture-pilots91{grid-column:2;grid-row:2}.fixture-terminal91:not(.rookie-terminal91) .fixture-mechs91{grid-column:3;grid-row:2}
+.fixture-terminal91:not(.rookie-terminal91) .fixture-reward70{grid-column:2/4;grid-row:3}
+
+.rookie-template91 .fixture-card70:disabled{opacity:1}

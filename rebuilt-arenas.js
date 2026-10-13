@@ -1,5 +1,6 @@
 'use strict';
 const REBUILT_ARENAS={
+ 'proving-ground':{label:"Dave’s Proving Ground",description:'Workshop training yard · staged practice drills',ground:'rebuilt-proving-ground',dark:0},
  ashfall:{label:'Ashfall',description:'Drifting ash · occasional ash whirlwinds',ground:'rebuilt-ashfall',dark:0},
  'dust-crucible':{label:'Dust Crucible',description:'Rolling sandstorms obscure the floor and stands',ground:'rebuilt-dust',dark:0},
  'drowned-sector':{label:'Drowned Sector',description:'Filthy dark water · random electrical hazards',ground:'rebuilt-drowned',dark:0},
@@ -17,8 +18,8 @@ function rebuiltArena(){return !!REBUILT_ARENAS[arenaKind];}
 let rebuiltAssetsReady=false,rebuiltAssetError=null,rebuiltRotor=null,rebuiltHazard=null,rebuiltSmoke=[],rebuiltSmokeWait=0;
 let rebuiltStormAge=-1,rebuiltStormDuration=14,rebuiltStormWait=15;
 const rebuiltParticles=Array.from({length:260},(_,i)=>({x:(i*937.17)%1800,y:(i*731.31)%2400,seed:i*2.39996}));
-const rebuiltAssetIds=[...new Set(Object.values(REBUILT_ARENAS).map(v=>v.ground)),'rebuilt-stadium','rebuilt-cogs','rebuilt-mist-cloud','rebuilt-fire'];
-Promise.all(rebuiltAssetIds.map(id=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images[id]=im;resolve();};im.onerror=()=>reject(id);im.src='assets/'+id+'.png?v90';}))).then(()=>{rebuiltAssetsReady=true;layoutCanvas=null;update();if(typeof drawFixtureMechs70==='function')drawFixtureMechs70();}).catch(id=>{rebuiltAssetError=id;console.error('Arena artwork could not load:',id);});
+const rebuiltAssetIds=[...new Set(Object.values(REBUILT_ARENAS).map(v=>v.ground)),'rebuilt-stadium','rebuilt-cogs','rebuilt-mist-cloud','rebuilt-fire','rebuilt-stadium-v91','rebuilt-proving-frame'];
+Promise.all(rebuiltAssetIds.map(id=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images[id]=im;resolve();};im.onerror=()=>reject(id);im.src='assets/'+id+'.png?v91';}))).then(()=>{rebuiltAssetsReady=true;layoutCanvas=null;update();if(typeof drawFixtureMechs70==='function')drawFixtureMechs70();}).catch(id=>{rebuiltAssetError=id;console.error('Arena artwork could not load:',id);});
 const rebuiltArenaMode=setArenaMode;
 setArenaMode=function(mode){arenaKind=REBUILT_ALIASES[arenaKind]||arenaKind;rebuiltArenaMode(mode);if(!rebuiltArena())return;Object.assign(ARENA,{size:2400,width:1800,height:2400,spawn:{x:900,y:2140},spawns:[{x:900,y:2140},{x:900,y:260},{x:260,y:1200},{x:1540,y:1200}]});resetUrban();};
 const rebuiltFields=fieldEnabled;fieldEnabled=function(){return rebuiltArena()?!weaponRange:rebuiltFields();};
@@ -40,8 +41,8 @@ stepTerrain=function(dt){if(!rebuiltArena())return rebuiltTerrainStep(dt);terrai
  if(!rebuiltHazard||weaponRange||battleFinished()){Sound.stopLoop('foundry-heat');Sound.stopLoop('water-arcs');return;}
  const events=rebuiltHazard.step(dt);for(const ev of events)if(ev.phase==='active'&&arenaKind==='foundry'){const b=ArenaLogic.bounds(ev.cell);Sound.play('flame-start',b.x+300,b.y+300,.7,1,true);}
  if(rebuiltHazard.phase==='active'){
-  const b=ArenaLogic.bounds(rebuiltHazard.cell),foundry=arenaKind==='foundry';Sound.loop(foundry?'fire-flame':'fire-arc',foundry?'foundry-heat':'water-arcs',b.x+300,b.y+300,.8,1);
-  for(const a of [p,...enemies])if(aliveActor(a)&&ArenaLogic.cellAt(a.x,a.y)===rebuiltHazard.cell){const damage=(foundry?85:75)*dt;if(shielded(a))absorbShield(a,damage);else enemyHit(foundry?'flame':'arc',{damage,penetration:1},1,true,'hull',a);}
+  const b=ArenaLogic.bounds(rebuiltHazard.cell),foundry=rebuiltHazard.kind==='foundry';Sound.loop(foundry?'fire-flame':'fire-arc',foundry?'foundry-heat':'water-arcs',b.x+300,b.y+300,.8,1);
+  for(const a of [p,...enemies])if(aliveActor(a)&&ArenaLogic.cellAt(a.x,a.y)===rebuiltHazard.cell){const damage=(trainingActive?10:foundry?85:75)*dt;if(shielded(a))absorbShield(a,damage);else enemyHit(foundry?'flame':'arc',{damage,penetration:1},1,true,'hull',a);}
   if(foundry){rebuiltSmokeWait-=dt;if(rebuiltSmokeWait<=0){for(let i=0;i<3;i++)rebuiltSmoke.push({x:b.x+300+Math.cos(terrainClock*17+i*2.399)*Math.sqrt(Math.random())*225,y:b.y+300+Math.sin(terrainClock*17+i*2.399)*Math.sqrt(Math.random())*180,age:0,seed:Math.random()*6.28});if(rebuiltSmoke.length>240)rebuiltSmoke.splice(0,rebuiltSmoke.length-240);rebuiltSmokeWait=.09;}}
  }else{Sound.stopLoop('foundry-heat');Sound.stopLoop('water-arcs');}
 };
