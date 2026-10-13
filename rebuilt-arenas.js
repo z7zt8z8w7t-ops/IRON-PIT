@@ -1,5 +1,6 @@
 'use strict';
 const REBUILT_ARENAS={
+ wasteland:{label:'Wasteland',description:'Scorched earth · scattered industrial wreckage',ground:'rebuilt-wasteland',dark:0},
  'proving-ground':{label:"Dave’s Proving Ground",description:'Workshop training yard · staged practice drills',ground:'rebuilt-proving-ground',dark:0},
  ashfall:{label:'Ashfall',description:'Drifting ash · occasional ash whirlwinds',ground:'rebuilt-ashfall',dark:0},
  'dust-crucible':{label:'Dust Crucible',description:'Rolling sandstorms obscure the floor and stands',ground:'rebuilt-dust',dark:0},

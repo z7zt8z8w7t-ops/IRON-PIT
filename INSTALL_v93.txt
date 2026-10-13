@@ -1,0 +1,7 @@
+IRON PIT v93 — install over v92.
+
+Extract into the existing game directory and replace the included files.
+
+Rookie Round 1 now uses Wasteland instead of Salt Flats, with the approved wide fixture illustration and separate overhead ground artwork. Skitter, her red-and-chequers light biped, and the Flak Cannon award are unchanged. The shared stadium frame, towers and game geometry remain in use.
+
+This patch covers the Wasteland Round 1 replacement. Other discussed changes remain queued.
