@@ -1,0 +1,11 @@
+/* Closing content must never replace the centred frame's transform. */
+.comms-screen .story-dialogue.transmission-out,.workshop-transmission>.transmission-out{animation:none!important;transform:translate(-50%,-50%)}
+.comms-screen .transmission-out .comms-window,.workshop-transmission .transmission-out .comms-window{animation:commsScreenClose94 .43s ease-in forwards!important;transform-origin:center}
+.transmission-out .story-dialogue-copy,.transmission-out .comms-self-view,.transmission-out .weapon-brief{animation:commsContentClose94 .43s ease-in forwards}
+@keyframes commsScreenClose94{0%{opacity:1;filter:brightness(1);transform:scaleY(1)}30%{opacity:.75;filter:brightness(1.8);transform:scaleY(1)}70%{opacity:1;transform:scaleY(1)}100%{opacity:0;filter:brightness(1);transform:scaleY(.005)}}
+@keyframes commsContentClose94{0%,30%{opacity:1}100%{opacity:0}}
+/* Crop the actual Rookie button faces from its approved raster template. */
+#storyScreen.comms-screen .rookie-terminal91 .story-actions button::before{background-image:url('assets/rookie-fixtures-template.png');background-size:380.2281% 1428.5714%;background-position:10.1764% 93.0108%}
+#storyScreen.comms-screen .rookie-terminal91 .story-actions #storySkip::before{background-size:380.2281% 1428.5714%;background-position:49.9322% 93.0108%}
+#storyScreen.comms-screen .rookie-terminal91 .story-actions #storyNext::before{background-size:380.2281% 1428.5714%;background-position:89.6879% 93.0108%}
+@media(prefers-reduced-motion:reduce){.comms-screen .transmission-out .comms-window,.workshop-transmission .transmission-out .comms-window,.transmission-out .story-dialogue-copy,.transmission-out .comms-self-view,.transmission-out .weapon-brief{animation:none!important;opacity:0}}

@@ -1,0 +1,14 @@
+IRON PIT v94 — install over v93
+
+Extract into the existing game directory and replace the included files. Keep all other files and folders.
+
+Changes:
+- Comms frames stay centred throughout closing. Only screen contents collapse/fade.
+- Rookie fixture buttons use their own approved artwork for the same press, glow and depression effect as other comms screens.
+- Foundry under-grate orange is selectively dimmed to faint embers; metal and hazard markings stay readable, and active hazards retain their separate effects.
+- Blackout towers cast dim soft circular pools of blue light onto nearby ground.
+- Scrapyard has three animated steel conveyors. All are 300 units wide. Upper belt is centred on y=300 and moves right; lower is centred on y=2100 and moves left; central belt is centred on x=900, spans the middle two rows, and moves upward. Conveyors carry player and rival mechs, add to normal movement and respect existing collision checks.
+
+Wasteland Round 1 remains in place from v93.
+
+Validation: Chromium browser startup, full comms closing frame geometry, physical fixture button presses, league navigation, Wasteland and training deployment, conveyor player/AI carry, visual scrolling, collision blocking, destroyed/deploying exclusions, Foundry glow/steel checks and Blackout radial alpha checks. Existing fixture/training and offline-cache checks also passed. Actual iPad/Safari device testing was unavailable.

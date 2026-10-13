@@ -19,8 +19,8 @@ function rebuiltArena(){return !!REBUILT_ARENAS[arenaKind];}
 let rebuiltAssetsReady=false,rebuiltAssetError=null,rebuiltRotor=null,rebuiltHazard=null,rebuiltSmoke=[],rebuiltSmokeWait=0;
 let rebuiltStormAge=-1,rebuiltStormDuration=14,rebuiltStormWait=15;
 const rebuiltParticles=Array.from({length:260},(_,i)=>({x:(i*937.17)%1800,y:(i*731.31)%2400,seed:i*2.39996}));
-const rebuiltAssetIds=[...new Set(Object.values(REBUILT_ARENAS).map(v=>v.ground)),'rebuilt-stadium','rebuilt-cogs','rebuilt-mist-cloud','rebuilt-fire','rebuilt-stadium-v91','rebuilt-proving-frame'];
-const rebuiltAssetLoad=Promise.all(rebuiltAssetIds.map(id=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images[id]=im;resolve();};im.onerror=()=>reject(id);im.src='assets/'+id+'.png?v92';}))).then(()=>{rebuiltAssetsReady=true;layoutCanvas=null;update();if(typeof drawFixtureMechs70==='function')drawFixtureMechs70();}).catch(id=>{rebuiltAssetError=id;console.error('Arena artwork could not load:',id);});
+const rebuiltAssetIds=['scrapyard-conveyor',...new Set(Object.values(REBUILT_ARENAS).map(v=>v.ground)),'rebuilt-stadium','rebuilt-cogs','rebuilt-mist-cloud','rebuilt-fire','rebuilt-stadium-v91','rebuilt-proving-frame'];
+const rebuiltAssetLoad=Promise.all(rebuiltAssetIds.map(id=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images[id]=im;resolve();};im.onerror=()=>reject(id);im.src='assets/'+id+'.png?v94';}))).then(()=>{rebuiltAssetsReady=true;layoutCanvas=null;update();if(typeof drawFixtureMechs70==='function')drawFixtureMechs70();}).catch(id=>{rebuiltAssetError=id;console.error('Arena artwork could not load:',id);});
 const rebuiltArenaMode=setArenaMode;
 setArenaMode=function(mode){arenaKind=REBUILT_ALIASES[arenaKind]||arenaKind;rebuiltArenaMode(mode);if(!rebuiltArena())return;Object.assign(ARENA,{size:2400,width:1800,height:2400,spawn:{x:900,y:2140},spawns:[{x:900,y:2140},{x:900,y:260},{x:260,y:1200},{x:1540,y:1200}]});resetUrban();};
 const rebuiltFields=fieldEnabled;fieldEnabled=function(){return rebuiltArena()?!weaponRange:rebuiltFields();};
