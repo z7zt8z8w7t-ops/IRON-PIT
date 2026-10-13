@@ -1,0 +1,18 @@
+IRON PIT v96 — install over v95
+
+Replace the included files in the existing game folder. Keep all other files.
+Open online once to refresh the offline cache; the version label is v96.
+
+- Slots 1/2: green circular crosshairs, red while overheated, flashing yellow
+  during repair. Empty/offline weapons are dim red. Touch/hold firing is unchanged.
+- Slot 3: SpecWep. Flashes green when fitted and ready; dim red while reloading,
+  unavailable, deploying or offline; solid yellow during repair.
+- Shield: blue; flashes blue while the shield is active. Energy readout retained.
+- Repair: yellow; flashes yellow during repair. Progress and uses retained.
+- Real game state drives the signals. Repair takes priority over overheat colour.
+- Reduced-motion preference uses steady indicators. Phone targets remain >=44px.
+
+Validation: Chromium startup; ready/overheat/cooldown states; actual shield and
+repair clicks; repair completion; tablet/phone circular dimensions and layout;
+reduced-motion rendering; successful offline reload; no missing files or script
+errors. Actual iPad/Safari device testing was not available.
