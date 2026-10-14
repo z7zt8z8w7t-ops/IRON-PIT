@@ -1,0 +1,20 @@
+.panel .station .weapon-bank{width:max(44px,var(--control-w));flex-shrink:0}
+.panel .station .weapon-bank button.fire-control97{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;width:100%;min-width:44px;height:100%;min-height:var(--control-h);border-radius:3px;padding:6px;font-size:12px;line-height:1.2;overflow:hidden}
+.fire-crosshair97{--signal:#48ff85;position:relative;display:block;flex:none;width:clamp(26px,4vw,40px);height:clamp(26px,4vw,40px);border:2px solid var(--signal);border-radius:50%;background:#02080bcc;color:var(--signal);filter:drop-shadow(0 0 5px var(--signal));pointer-events:none}
+.fire-crosshair97::before{content:'';position:absolute;inset:23%;border:1px solid currentColor;border-radius:50%}
+.fire-crosshair97::after{content:'';position:absolute;inset:-18%;background:linear-gradient(currentColor,currentColor) center/2px 100% no-repeat,linear-gradient(currentColor,currentColor) center/100% 2px no-repeat}
+.fire-label97{display:block;color:#d8f3ed;font-weight:700;letter-spacing:.5px;pointer-events:none}
+.fire-control97[data-signal='hot'] .fire-crosshair97{--signal:#ff4148;animation:signalFlash97 .6s ease-in-out infinite}
+.fire-control97[data-signal='repair'] .fire-crosshair97{--signal:#ffe048;animation:signalFlash97 .65s ease-in-out infinite}
+.fire-control97[data-signal='unavailable'] .fire-crosshair97{--signal:#54746a;filter:none}
+.panel .station .weapon-bank button.fire-control97:disabled{opacity:1}
+.panel .central-controls button.special-weapon97{color:#ff6570;border-color:#e14350;background:#2d080e;box-shadow:inset 0 0 8px #a5233240;opacity:1;animation:none;font-size:clamp(8px,1.7vw,11px);padding-inline:1px}
+.panel .central-controls button.special-weapon97[data-signal='ready']{color:#8affaa;border-color:#48ff85;background:#062617;box-shadow:0 0 9px #48ff8566,inset 0 0 8px #48ff8533;animation:signalFlash97 1s ease-in-out infinite}
+.panel .central-controls button.special-weapon97[data-signal='repair']{color:#ffe05c;border-color:#e5c93a;background:#302706;box-shadow:0 0 8px #ffe04855;animation:none}
+.panel .central-controls button.shield-control97{color:#6eacc9;border-color:#285579;background:#071d37;box-shadow:none;animation:none}
+.panel .central-controls button.shield-control97[data-signal='ready']{color:#92dfff;border-color:#38a9ff;background:#071d37;box-shadow:0 0 8px #219dff88;animation:signalFlash97 1s ease-in-out infinite}
+.panel .central-controls button.shield-control97[data-signal='active']{color:#d6f7ff;border-color:#63cdff;background:#07375c;box-shadow:0 0 12px #38baff;animation:none;opacity:1}
+.panel .central-controls button.repair-control97{color:#ffe366;border-color:#dabb32;background:#2b2409;box-shadow:0 0 7px #e4c83a44}
+.panel .central-controls button.repair-control97.repair-active97{color:#fff2a3;border-color:#ffe048;background:#3b3108;box-shadow:0 0 12px #ffe048;animation:signalFlash97 .65s ease-in-out infinite;opacity:1}
+@keyframes signalFlash97{0%,100%{opacity:.45}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.panel .fire-crosshair97,.panel button.special-weapon97,.panel button.shield-control97,.panel button.repair-control97{animation:none!important;opacity:1}}

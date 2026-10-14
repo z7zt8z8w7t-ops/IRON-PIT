@@ -1,0 +1,15 @@
+IRON PIT v97 - CHANGED FILES
+
+Install over the complete v96 game. Copy every file into the same project root, preserving the assets folder and replacing files with matching names. Upload to the GitHub Pages repository, then reopen the game online once. Confirm v97 on the splash screen or HUD before testing offline.
+
+CHANGES
+- Restored rectangular WEP1/WEP2 buttons with the original heat fill and labels below central crosshairs.
+- Crosshairs glow green normally, flash red when overheated, and flash yellow during repair.
+- SPECWEP flashes green when ready, stays red when unavailable, and turns yellow during repair.
+- Shield button flashes blue when ready, stays blue while active, and dims while unavailable. Repair stays yellow and flashes during repair.
+- Rookie League offers only the Light Tank in Rourke's starter livery. The workshop preview uses the real livery with no green filter and redraws on entry, changes, resize and app restore. Challenger chassis choices remain available.
+- Integrated Blaze's standard/win/loss portraits and four revised bar comic pages.
+- Added the supplied Kane alternate outfit artwork unchanged. During Kane comms use the Corporate outfit / Alternate outfit selector; corporate remains default on a fresh launch. Front and rear artwork are included; comms displays the front. Face and weapons are as supplied.
+
+VALIDATION
+Chromium: five Rookie rounds and livery enforcement, Challenger access, preview resizing/redraw without combat frames, heat-fill and all button states, phone layout, reduced motion, Blaze artwork paths, Kane outfit selection and speaker changes, offline reload. No browser errors observed. Artwork files verified as readable. Actual iPad/Safari device testing remains outstanding; the reported Safari blank preview was not reproducible in Chromium.

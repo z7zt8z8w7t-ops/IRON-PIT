@@ -41,12 +41,13 @@ if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(sizeCo
 node('paintCycle').onclick=()=>{node('paintChoice').value=build.colour==='red'?'green':'red';node('paintChoice').onchange()};
 
 function drawWorkshopSchematic(c,w,h){
- c.fillStyle='#031811';c.fillRect(0,0,w,h);c.strokeStyle='#124d35';c.lineWidth=1;
+ if(w<1||h<1)return;
+ c.fillStyle='#07151a';c.fillRect(0,0,w,h);c.strokeStyle='#17323c';c.lineWidth=1;
  for(let x=0;x<w;x+=24){c.beginPath();c.moveTo(x,0);c.lineTo(x,h);c.stroke()}
  for(let y=0;y<h;y+=24){c.beginPath();c.moveTo(0,y);c.lineTo(w,y);c.stroke()}
- c.save();c.filter='grayscale(1) sepia(1) saturate(6) hue-rotate(65deg)';
+ c.save();
  if(!build.chassis){c.restore();c.fillStyle='#bce9cb';c.font='bold 18px monospace';c.textAlign='center';c.fillText('SELECT A CHASSIS TO BEGIN',w/2,h/2);return}
- mech(c,w/2,h/2+5,Math.min(w/350,h/350),0,0,{...build,colour:'green'});c.restore();
+ mech(c,w/2,h/2+5,Math.min(w/350,h/350),0,0,{...build});c.restore();
 }
 
 window.addEventListener('resize',()=>{workshopCardsReady=null;drawWorkshopCards()});
