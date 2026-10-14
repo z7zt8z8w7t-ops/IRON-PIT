@@ -1,4 +1,9 @@
-IRON PIT v84 — Changed files since v83.
-Adds winning-mech extraction using the existing helicopter, rotor, winch and attachment audio. After the victory announcement, transport approaches the winner’s final position, lowers cables, lifts the fitted mech and departs before fading to black. Championship then continues automatically to updated fixtures and transmissions. Quick Battle and two-player matches reveal their existing after-action controls after pickup. Draws, training and weapon-range tests do not trigger extraction.
-Near arena edges only the aircraft position is adjusted; the mech is lifted from its real stopping position. Extraction uses visual coordinates without changing collision or actor state. Hidden tabs pause the timeline; new battles cancel extraction.
-Preserves v83 Issue 2 audio. Upload over v83 preserving paths. Changed-files update, not standalone.
+BLAZE APPROVED OUTFIT ARTWORK
+
+Recovered three portraits and comic pages 1, 2 and 4 from the previous chat. Completed comic page 3 using the approved face and flame-jacket references.
+
+Includes: standard, win and loss portraits; four bar interlude pages; approved outfit turnaround.
+
+This is an artwork bundle, not an installed game update. Portraits are supplied as PNG masters. Game references and offline cache will be updated in the next authorized coding pass.
+
+Outfit: black leather flame jacket, black bodysuit, worn fishnet tights, plain black boots, twin holsters. Preserve approved blue eyes, short blonde curls, nose stud and facial proportions.
