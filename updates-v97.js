@@ -17,7 +17,7 @@ refreshWorkshop=function(){
  const rookie=rookieWorkshop97();
  for(const card of document.querySelectorAll('[data-chassis]')){card.hidden=rookie&&card.dataset.chassis!=='tank-light';card.disabled=card.hidden;}
  for(const option of node('chassis').options)option.disabled=rookie&&!!option.value&&option.value!=='tank-light';
- if(campaignActive)node('buildVersion').textContent=campaignLeagueName()+' · v97';
+ if(campaignActive)node('buildVersion').textContent=campaignLeagueName()+' · v98';
  renderWorkshopPreview97();
 };
 const update97=update;update=function(){enforceRookieBuild97();update97();};
@@ -34,6 +34,7 @@ function blazePortrait97(mood){return 'assets/blaze-'+(mood==='win'?'win':mood==
 let kaneOutfit97='corporate';
 portraitFor=function(who,mood='focused'){
  if(who==='rivet'||who==='blaze')return blazePortrait97(mood);
+ if((who==='hudson'||who==='kane')&&kaneOutfit97==='visit')return 'assets/kane-visit-front-v98.png';
  if((who==='hudson'||who==='kane')&&kaneOutfit97==='alternate')return 'assets/kane-alternate-front-v97.png';
  return portrait97(who,mood);
 };
@@ -48,8 +49,8 @@ showStoryDialogue=function(lines,done,mission,mood={}){
  dialogue97(lines,done,mission,mood);
  const terminal=node('storyBody').querySelector('.transmission');if(!terminal)return;
  const select=document.createElement('select');select.className='kane-outfit97';select.setAttribute('aria-label','Dr Kane outfit');
- for(const [value,label] of [['corporate','Corporate outfit'],['alternate','Alternate outfit']]){const option=document.createElement('option');option.value=value;option.textContent=label;select.append(option);}select.value=kaneOutfit97;
- const sync=()=>{const remote=terminal.dataset.remote||lines.find(([who])=>who!=='jim'&&who!=='rourke')?.[0];select.hidden=remote!=='hudson';if(remote==='hudson')node('storyPortrait').src=portraitFor('hudson',mood.hudson||'focused');terminal.classList.toggle('kane-alternate97',remote==='hudson'&&kaneOutfit97==='alternate');};
+ for(const [value,label] of [['corporate','Corporate outfit'],['visit','The Visit'],['alternate','Alternate outfit']]){const option=document.createElement('option');option.value=value;option.textContent=label;select.append(option);}select.value=kaneOutfit97;
+ const sync=()=>{const remote=terminal.dataset.remote||lines.find(([who])=>who!=='jim'&&who!=='rourke')?.[0];select.hidden=remote!=='hudson';if(remote==='hudson')node('storyPortrait').src=portraitFor('hudson',mood.hudson||'focused');terminal.classList.toggle('kane-alternate97',remote==='hudson'&&kaneOutfit97!=='corporate');};
  select.onchange=()=>{kaneOutfit97=select.value;sync();};terminal.append(select);sync();
  const observer=new MutationObserver(sync);observer.observe(terminal,{attributes:true,attributeFilter:['data-remote']});
 };

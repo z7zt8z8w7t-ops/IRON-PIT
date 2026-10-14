@@ -1,0 +1,3 @@
+.rookie-winner98{display:flex;flex-direction:column;align-items:center;min-height:0;height:100%;gap:8px}
+.rookie-winner98>img{display:block;object-fit:contain;width:100%;min-height:0;max-height:calc(100dvh - 180px);flex:1}
+.rookie-winner98 .story-actions{flex:none;width:100%;margin:0;justify-content:center}

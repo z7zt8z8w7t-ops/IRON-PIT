@@ -1,0 +1,7 @@
+IRON PIT v98 — apply over v97.
+Copy these files into the existing game folder, preserving the assets folder and replacing matching files. This is a changed-files update, not a standalone build.
+
+Adds the approved rookie winner comic opening page before the existing sponsor introduction.
+Adds Kane’s The Visit front/back assets and turnaround reference sheet, with The Visit selectable in Kane comms.
+Updates the visible build label and offline cache to v98.
+The remaining rookie winner comic pages have not yet been designed; NEXT continues into the existing sponsor introduction.
